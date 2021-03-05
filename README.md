@@ -1,6 +1,6 @@
 # hotel-x
 
-A website for Hotel X.
+A website for EVIDENCE INFORMED PRACTICE FOR SCHOOL INCLUSION (EIPSI).
 
 ## Development
 
