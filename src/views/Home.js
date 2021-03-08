@@ -1,5 +1,5 @@
 import Container from "@material-ui/core/Container";
-import ProductCategories from "../components/ProductCategories";
+import DaysGrid from "../components/DaysGrid";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 
@@ -48,11 +48,13 @@ export default function Home() {
             <br />
             <Typography style={styles.paragraph}>Team EIPSI</Typography>
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <img style={styles.teacher} alt="Teacher" src="teacher.png" />
           </Grid>
         </Grid>
-        <ProductCategories />
+
+        <DaysGrid />
       </Container>
     </div>
   );
