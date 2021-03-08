@@ -38,13 +38,12 @@ export default function Home() {
               For every day, there will be a different page to record your findings, answers, and
               reactions. This data will be used and analyzed during our continuous progress of the
               project. Please do not include any personal information that may harm the privacy of
-              yourself and others. We hope you enjoy the upcoming days. Thank you for your
-              participation and feel free to contact us for any additional information. Team EIPSI
+              yourself and others.
             </Typography>
             <br />
             <Typography gutterBottom style={styles.paragraph}>
               We hope you enjoy the upcoming days. Thank you for your participation and feel free to
-              contact us for any additional information. Team EIPSI
+              contact us for any additional information.
             </Typography>
             <br />
             <Typography style={styles.paragraph}>Team EIPSI</Typography>
