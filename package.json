@@ -1,7 +1,7 @@
 {
-  "name": "hotel-x",
+  "name": "eipsi",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://pannachow.io/eipsi",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -13,7 +13,6 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "sitemap": "^6.3.5",
     "use-local-storage-state": "^6.0.3"
   },
   "scripts": {
@@ -21,8 +20,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "sitemap": "node scripts/sitemap.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
