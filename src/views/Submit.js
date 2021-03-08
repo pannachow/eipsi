@@ -22,14 +22,13 @@ const styles = {
   box: {
     backgroundColor: "#F4CE08",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "20px",
     padding: "10px",
   },
   home: {
     color: "white",
     fontWeight: "bold",
-    fontSize: "24px"
-  }
+    fontSize: "24px",
+  },
 };
 
 export default function Home() {
@@ -46,13 +45,13 @@ export default function Home() {
         <br />
         <br />
         <Link underline="none" component={RouterLink} to="/">
-        <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end">
-          <img alt="Home" src="Home.png" />
-          &nbsp;&nbsp;&nbsp;
-          <Box style={styles.box}>
-            <Typography style={styles.home}>More cards for the Day</Typography>
+          <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end">
+            <img alt="Home" src="home.png" />
+            &nbsp;&nbsp;&nbsp;
+            <Box style={styles.box} borderRadius={20}>
+              <Typography style={styles.home}>More cards for the Day</Typography>
+            </Box>
           </Box>
-        </Box>
         </Link>
       </Container>
     </div>

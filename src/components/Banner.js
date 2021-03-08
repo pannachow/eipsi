@@ -29,7 +29,7 @@ export default function appBar() {
       <Typography variant="h2" style={styles.bannerTitle}>
         TELL US MORE&nbsp;
       </Typography>
-      <img alt="teacher" src="tell_us_more.png" />
+      <img alt="Chat bubble" src="tell-us-more.png" />
     </Box>
   );
 }

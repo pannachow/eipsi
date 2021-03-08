@@ -50,7 +50,7 @@ export default function Home() {
             <Typography style={styles.paragraph}>Team EIPSI</Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <img style={styles.teacher} alt="teacher" src="teacher.png" />
+            <img style={styles.teacher} alt="Teacher" src="teacher.png" />
           </Grid>
         </Grid>
         <ProductCategories />
