@@ -1,5 +1,5 @@
 import Container from "@material-ui/core/Container";
-import DaysGrid from "../components/DaysGrid";
+import DayGrid from "../components/DayGrid";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 
@@ -54,7 +54,7 @@ export default function Home() {
           </Grid>
         </Grid>
 
-        <DaysGrid />
+        <DayGrid />
       </Container>
     </div>
   );
