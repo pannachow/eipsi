@@ -1,19 +1,13 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import ButtonBase from "@material-ui/core/ButtonBase";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
-import Underline from "./Underline";
+import Popover from "@material-ui/core/Popover";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(4),
-  },
   images: {
-    marginTop: theme.spacing(8),
     display: "flex",
     flexWrap: "wrap",
   },
@@ -126,56 +120,82 @@ export default function ProductCategories() {
     },
   ];
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
   return (
-    <Container className={classes.root} component="section">
-      <Typography align="center" variant="h3">
-        TELL US MORE
-      </Typography>
-      <Underline />
-      <br/>
-      <Typography align="center" variant="h6">
-        In the upcoming 5 days, 5 cards will be presented to you with numerous tasks. These tasks
-        all relate to our EIPSI project which revolves around encouraging teachers to use
-        research-informed resources related to inclusivity in the classrooms. We ask you, the
-        teacher, to complete the daily tasks and document this on our website. For every day, there
-        will be a different page to record your findings, answers, and reactions. This data will be
-        used and analyzed during our continuous progress of the project. Please do not include any
-        personal information that may harm the privacy of yourself and others. We hope you enjoy the
-        upcoming days. Thank you for your participation and feel free to contact us for any
-        additional information. Team EIPSI "contact information"
-      </Typography>
-      <div className={classes.images}>
-        {images.map((image) => (
-          <ButtonBase
-            key={image.title}
-            className={classes.imageWrapper}
-            style={{
-              width: image.width,
-            }}
-          >
-            <Link component={RouterLink} to={image.route}>
-              <div
-                className={classes.imageSrc}
-                style={{
-                  backgroundImage: `url(${image.url})`,
-                }}
-              />
-              <div className={classes.imageBackdrop} />
-              <div className={classes.imageButton}>
-                <Typography
-                  component="h3"
-                  variant="h6"
-                  color="inherit"
-                  className={classes.imageTitle}
-                >
-                  {image.title}
-                  <div className={classes.imageMarked} />
-                </Typography>
-              </div>
-            </Link>
-          </ButtonBase>
-        ))}
-      </div>
-    </Container>
+    <div className={classes.images}>
+      {images.map((image) => (
+        <ButtonBase
+          key={image.title}
+          className={classes.imageWrapper}
+          style={{
+            width: image.width,
+          }}
+          onClick={handleClick}
+        >
+          <Link>
+            <div
+              className={classes.imageSrc}
+              style={{
+                backgroundImage: `url(${image.url})`,
+              }}
+            />
+            <div className={classes.imageBackdrop} />
+            <div className={classes.imageButton}>
+              <Typography
+                component="h3"
+                variant="h6"
+                color="inherit"
+                className={classes.imageTitle}
+              >
+                {image.title}
+                <div className={classes.imageMarked} />
+              </Typography>
+            </div>
+          </Link>
+        </ButtonBase>
+      ))}
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "center",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "center",
+          horizontal: "center",
+        }}
+      >
+        <div>
+          <Link component={RouterLink} to="/day1-1">
+            <Typography className={classes.typography}>Option One</Typography>
+          </Link>
+        </div>
+        <div>
+          <Link component={RouterLink} to="/">
+            <Typography className={classes.typography}>Option Two</Typography>
+          </Link>
+        </div>
+        <div>
+          <Link component={RouterLink} to="/">
+            <Typography className={classes.typography}>Option Three</Typography>
+          </Link>
+        </div>
+      </Popover>
+    </div>
   );
 }

@@ -1,47 +1,60 @@
+import Container from "@material-ui/core/Container";
 import ProductCategories from "../components/ProductCategories";
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import { Typography } from "@material-ui/core";
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://digitalsocietyschool.org/project/eipsi/">
-        EIPSI
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+const styles = {
+  background: {
+    width: "100%",
+    minHeight: "100%",
+    backgroundColor: "#660362",
+    paddingBottom: "100px"
   },
-}));
+  teacher: {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  paragraph: {
+    color: "white",
+    fontSize: "14px"
+  }
+};
 
 export default function Home() {
-  const classes = useStyles();
-
   return (
-    <>
-      <br />
-      <ProductCategories />
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Welcome
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          EVIDENCE INFORMED PRACTICE FOR SCHOOL INCLUSION (EIPSI){" "}
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
-    </>
+    <div style={styles.background}>
+      <Container>
+        <Grid container spacing={3} justify="center" alignItems="center">
+          <Grid item xs={12} sm={6}>
+            <Typography gutterBottom style={styles.paragraph}>
+              In the upcoming 5 days, 5 cards will be presented to you with numerous tasks. These
+              tasks all relate to our EIPSI project which revolves around encouraging teachers to
+              use research-informed resources related to inclusivity in the classrooms.
+            </Typography>
+            <br/>
+            <Typography gutterBottom style={styles.paragraph}>
+              We ask you, the teacher, to complete the daily tasks and document this on our website.
+              For every day, there will be a different page to record your findings, answers, and
+              reactions. This data will be used and analyzed during our continuous progress of the
+              project. Please do not include any personal information that may harm the privacy of
+              yourself and others. We hope you enjoy the upcoming days. Thank you for your
+              participation and feel free to contact us for any additional information. Team EIPSI
+            </Typography>
+            <br/>
+            <Typography gutterBottom style={styles.paragraph}>
+              We hope you enjoy the upcoming days. Thank you for your participation and feel free to
+              contact us for any additional information. Team EIPSI
+            </Typography>
+            <br/>
+            <Typography style={styles.paragraph}>Team EIPSI</Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <img style={styles.teacher} alt="teacher" src="teacher.png"/>
+          </Grid>
+        </Grid>
+        <ProductCategories />
+      </Container>
+    </div>
   );
 }
