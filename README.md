@@ -16,12 +16,6 @@ Start development server:
 npm start
 ```
 
-Generate sitemap:
-
-```sh
-npm run sitemap
-```
-
 Deploy to Github Pages:
 
 ```sh
