@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/eipsi/static/css/main.f3977ca0.chunk.css",
-    "main.js": "/eipsi/static/js/main.16cd4527.chunk.js",
-    "main.js.map": "/eipsi/static/js/main.16cd4527.chunk.js.map",
-    "runtime-main.js": "/eipsi/static/js/runtime-main.1de84318.js",
-    "runtime-main.js.map": "/eipsi/static/js/runtime-main.1de84318.js.map",
-    "static/js/2.98df4aa4.chunk.js": "/eipsi/static/js/2.98df4aa4.chunk.js",
-    "static/js/2.98df4aa4.chunk.js.map": "/eipsi/static/js/2.98df4aa4.chunk.js.map",
+    "main.js": "/eipsi/static/js/main.05c5b15a.chunk.js",
+    "main.js.map": "/eipsi/static/js/main.05c5b15a.chunk.js.map",
+    "runtime-main.js": "/eipsi/static/js/runtime-main.a216a54b.js",
+    "runtime-main.js.map": "/eipsi/static/js/runtime-main.a216a54b.js.map",
+    "static/js/2.d664ded9.chunk.js": "/eipsi/static/js/2.d664ded9.chunk.js",
+    "static/js/2.d664ded9.chunk.js.map": "/eipsi/static/js/2.d664ded9.chunk.js.map",
     "index.html": "/eipsi/index.html",
     "static/css/main.f3977ca0.chunk.css.map": "/eipsi/static/css/main.f3977ca0.chunk.css.map",
-    "static/js/2.98df4aa4.chunk.js.LICENSE.txt": "/eipsi/static/js/2.98df4aa4.chunk.js.LICENSE.txt"
+    "static/js/2.d664ded9.chunk.js.LICENSE.txt": "/eipsi/static/js/2.d664ded9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1de84318.js",
-    "static/js/2.98df4aa4.chunk.js",
+    "static/js/runtime-main.a216a54b.js",
+    "static/js/2.d664ded9.chunk.js",
     "static/css/main.f3977ca0.chunk.css",
-    "static/js/main.16cd4527.chunk.js"
+    "static/js/main.05c5b15a.chunk.js"
   ]
 }
