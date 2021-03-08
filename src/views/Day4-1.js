@@ -20,33 +20,33 @@ export default function Day4() {
         1) Rather use google scholar for research or use news articles and mouth 2 mouth data
       </Typography>
       <br />
-      <br/>
+      <br />
       <input type="text" />
-      <br/>
+      <br />
       <Typography align="center" variant="h6">
         2) Have videos that explains how to use EIP and EBP or have articles about it
       </Typography>
       <br />
-      <br/>
+      <br />
       <input type="text" />
-      <br/>
+      <br />
       <Typography align="center" variant="h6">
         3) Discuss Research with school leaders or discuss research with fellow teachers
       </Typography>
       <br />
-      <br/>
+      <br />
       <input type="text" />
-      <br/>
+      <br />
       <Typography align="center" variant="h6">
         4) Have an open platform for EIP or have a central school HUB for EIP
       </Typography>
       <br />
-      <br/>
+      <br />
       <input type="text" />
-      <br/>
-      <br/>
-      <Button variant="contained" color="secondary" component={Link} to="/day5">
-        Next Day
+      <br />
+      <br />
+      <Button variant="contained" color="secondary" component={Link} to="/Submit">
+        SUBMIT
       </Button>
     </Box>
   );

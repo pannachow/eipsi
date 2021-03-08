@@ -150,7 +150,7 @@ export default function ProductCategories({ image }) {
             <Link underline="none" component={RouterLink} to={route.to}>
               <Box className={classes.popoverInnerBox} boxShadow={1} borderRadius={4} my={2}>
                 <Button className={classes.popoverButton}>
-                  <Typography className={classes.typography}>Option {i + 1}</Typography>
+                  <Typography className={classes.typography}>{route.name}</Typography>
                 </Button>
               </Box>
             </Link>

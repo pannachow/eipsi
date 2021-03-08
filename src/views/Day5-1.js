@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CanvasDraw from "react-canvas-draw";
-import { SketchPicker } from 'react-color';
+import { SketchPicker } from "react-color";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 
 export default function Day5() {
@@ -24,9 +25,9 @@ export default function Day5() {
       </Typography>
 
       <Box display="flex" flexDirection="row">
-      <CanvasDraw brushColor={brushColor} brushRadius={4} imgSrc="mon-fri.jpg" />
-      &nbsp;&nbsp;
-      <SketchPicker color={brushColor} onChangeComplete={onChangeComplete} />
+        <CanvasDraw brushColor={brushColor} brushRadius={4} imgSrc="mon-fri.jpg" />
+        &nbsp;&nbsp;
+        <SketchPicker color={brushColor} onChangeComplete={onChangeComplete} />
       </Box>
 
       {/* <Grid container spacing={2}>
@@ -42,11 +43,11 @@ export default function Day5() {
       <Typography align="center" variant="h4">
         Please elaborate wherever there was a high change in emotion as to why?
       </Typography>
-      <br/>
+      <br />
       <input type="text" />
-      <br/>
-      <Button variant="contained" color="secondary">
-        Submit !
+      <br />
+      <Button variant="contained" color="secondary" component={Link} to="/Submit">
+        SUBMIT
       </Button>
     </Box>
   );

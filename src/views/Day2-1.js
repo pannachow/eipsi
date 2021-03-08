@@ -14,7 +14,7 @@ export default function Day2() {
       <Typography align="center" variant="h4">
         Draw a face that shows how confident you are with using evidence informed data
       </Typography>
-      <CanvasDraw brushRadius={4} imgSrc="head.png"/>
+      <CanvasDraw brushRadius={4} imgSrc="head.png" />
       <br />
       <Typography align="center" variant="h4">
         What is the perceived attitude towards EBP research? Use an Emoji that expresses the
@@ -29,11 +29,11 @@ export default function Day2() {
       <Typography align="center" variant="h6">
         Could you explain why you felt this?
       </Typography>
-      <br/>
+      <br />
       <input type="text" />
       <br />
-      <Button variant="contained" color="secondary" component={Link} to="/day3">
-        Next Day
+      <Button variant="contained" color="secondary" component={Link} to="/Submit">
+        SUBMIT
       </Button>
     </Box>
   );

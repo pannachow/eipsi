@@ -15,8 +15,8 @@ export default function Day3() {
       </Typography>
 
       <Typography align="center">
-        One of your students is Paul, who is a 5 year old boy with dyslexia. His reading skills are below average and you decide to
-        look up evidence-based practices to help you teach Paul.
+        One of your students is Paul, who is a 5 year old boy with dyslexia. His reading skills are
+        below average and you decide to look up evidence-based practices to help you teach Paul.
       </Typography>
 
       <Typography align="center">
@@ -24,7 +24,7 @@ export default function Day3() {
         following questions after:
       </Typography>
 
-      <br/>
+      <br />
       <Typography align="center" variant="h6">
         Where did you look?
       </Typography>
@@ -44,9 +44,9 @@ export default function Day3() {
         Do you feel confident using this practice in your classroom?
       </Typography>
       <input type="text" />
-      <br/>
-      <Button variant="contained" color="secondary" component={Link} to="/day4">
-        Next Day
+      <br />
+      <Button variant="contained" color="secondary" component={Link} to="/Submit">
+        SUBMIT
       </Button>
     </Box>
   );
