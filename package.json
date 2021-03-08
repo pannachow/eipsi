@@ -1,7 +1,7 @@
 {
   "name": "eipsi",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://pannachow.io/eipsi",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
