@@ -8,17 +8,17 @@ const styles = {
     width: "100%",
     minHeight: "100%",
     backgroundColor: "#660362",
-    paddingBottom: "100px"
+    paddingBottom: "100px",
   },
   teacher: {
     display: "block",
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
   },
   paragraph: {
     color: "white",
-    fontSize: "14px"
-  }
+    fontSize: "14px",
+  },
 };
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
               tasks all relate to our EIPSI project which revolves around encouraging teachers to
               use research-informed resources related to inclusivity in the classrooms.
             </Typography>
-            <br/>
+            <br />
             <Typography gutterBottom style={styles.paragraph}>
               We ask you, the teacher, to complete the daily tasks and document this on our website.
               For every day, there will be a different page to record your findings, answers, and
@@ -41,16 +41,16 @@ export default function Home() {
               yourself and others. We hope you enjoy the upcoming days. Thank you for your
               participation and feel free to contact us for any additional information. Team EIPSI
             </Typography>
-            <br/>
+            <br />
             <Typography gutterBottom style={styles.paragraph}>
               We hope you enjoy the upcoming days. Thank you for your participation and feel free to
               contact us for any additional information. Team EIPSI
             </Typography>
-            <br/>
+            <br />
             <Typography style={styles.paragraph}>Team EIPSI</Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <img style={styles.teacher} alt="teacher" src="teacher.png"/>
+            <img style={styles.teacher} alt="teacher" src="teacher.png" />
           </Grid>
         </Grid>
         <ProductCategories />
