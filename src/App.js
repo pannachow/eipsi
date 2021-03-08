@@ -9,6 +9,9 @@ import AppBar from "./components/AppBar";
 import Home from "./views/Home";
 import UnderConstruction from "./views/UnderConstruction";
 import Day1 from "./views/Day1";
+import DayOneOne from "./views/Day1-1";
+import DayOneTwo from "./views/Day1-2";
+import DayOneThree from "./views/Day1-3";
 import Day2 from "./views/Day2";
 import Day3 from "./views/Day3";
 import Day4 from "./views/Day4";
@@ -41,6 +44,9 @@ function App() {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/day1" component={Day1} />
+              <Route path="/day1-1" component={DayOneOne} />
+              <Route path="/day1-2" component={DayOneTwo} />
+              <Route path="/day1-3" component={DayOneThree} />
               <Route path="/day2" component={Day2} />
               <Route path="/day3" component={Day3} />
               <Route path="/day4" component={Day4} />

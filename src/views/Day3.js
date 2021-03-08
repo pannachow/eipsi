@@ -1,53 +1,150 @@
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { Link } from "react-router-dom";
+import React from "react";
+import AppBar from "../components/AppBar";
 import Button from "@material-ui/core/Button";
+import CameraIcon from "@material-ui/icons/PhotoCamera";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Link from "@material-ui/core/Link";
 
-export default function Day3() {
+function Copyright() {
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
-      <Typography align="center" variant="h2">
-        Day 3
-      </Typography>
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://digitalsocietyschool.org/project/eipsi/">
+        EIPSI
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
-      <Typography align="center">
-        Imagine you just started teaching at a new primary school.
-      </Typography>
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  cardMedia: {
+    paddingTop: "56.25%", // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+}));
 
-      <Typography align="center">
-        One of your students is Paul, who is a 5 year old boy with dyslexia. His reading skills are below average and you decide to
-        look up evidence-based practices to help you teach Paul.
-      </Typography>
+const cards = [1, 2, 3];
 
-      <Typography align="center">
-        Please try to find practices that could help improve Paul's reading skills and answer the
-        following questions after:
-      </Typography>
+export default function Album() {
+  const classes = useStyles();
 
-      <br/>
-      <Typography align="center" variant="h6">
-        Where did you look?
-      </Typography>
-      <input type="text" />
-
-      <Typography align="center" variant="h6">
-        How long did it take you to find information?
-      </Typography>
-      <input type="text" />
-
-      <Typography align="center" variant="h6">
-        Are you satisfied with the quality of information?
-      </Typography>
-      <input type="text" />
-
-      <Typography align="center" variant="h6">
-        Do you feel confident using this practice in your classroom?
-      </Typography>
-      <input type="text" />
-      <br/>
-      <Button variant="contained" color="secondary" component={Link} to="/day4">
-        Next Day
-      </Button>
-    </Box>
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar>
+          <CameraIcon className={classes.icon} />
+          <Typography variant="h6" color="inherit" noWrap>
+            Album layout
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <main>
+        {/* Hero unit */}
+        <div className={classes.heroContent}>
+        <br/>
+          <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+              Day 3
+            </Typography>
+            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+              Something short and leading about the collection below—its contents, the creator, etc.
+              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+              entirely.
+            </Typography>
+            <div className={classes.heroButtons}>
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    Main call to action
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    Secondary action
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </Container>
+        </div>
+        <Container className={classes.cardGrid} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe the content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      PICK ME !
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </main>
+      {/* Footer */}
+      <footer className={classes.footer}>
+        <Typography variant="h6" align="center" gutterBottom>
+          Welcome
+        </Typography>
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          EVIDENCE INFORMED PRACTICE FOR SCHOOL INCLUSION (EIPSI){" "}
+        </Typography>
+        <Copyright />
+      </footer>
+      {/* End footer */}
+    </React.Fragment>
   );
 }
