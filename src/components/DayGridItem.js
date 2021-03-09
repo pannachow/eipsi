@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   imageWrapper: {
     position: "relative",
     display: "block",
-    padding: 0,
+    padding: 100,
     borderRadius: 0,
     height: "40vh",
     [theme.breakpoints.down("sm")]: {
@@ -31,17 +31,6 @@ const useStyles = makeStyles((theme) => ({
     "&:hover $imageTitle": {
       border: "4px solid currentColor",
     },
-  },
-  imageButton: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: theme.palette.common.white,
   },
   imageSrc: {
     position: "absolute",
@@ -62,21 +51,8 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.5,
     transition: theme.transitions.create("opacity"),
   },
-  imageTitle: {
-    position: "relative",
-    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px 14px`,
-  },
-  imageMarked: {
-    height: 3,
-    width: 18,
-    background: theme.palette.common.white,
-    position: "absolute",
-    bottom: -2,
-    left: "calc(50% - 9px)",
-    transition: theme.transitions.create("opacity"),
-  },
   popoverOuterBox: {
-    backgroundColor: "darkGrey",
+    backgroundColor: "Grey",
   },
   popoverInnerBox: {
     backgroundColor: "white",

@@ -3,7 +3,6 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import CanvasDraw from "react-canvas-draw";
 
 const styles = {
   title1: {
@@ -15,7 +14,7 @@ const styles = {
     lineHeight: "108px",
   },
   title1_1: {
-    color: "#02E8E8"
+    color: "#02E8E8",
   },
   title2: {
     fontFamily: "Poppins",
@@ -41,6 +40,14 @@ const styles = {
     fontSize: "36px",
     lineHeight: "54px",
   },
+  title5: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#EF383A",
+    fontWeight: 500,
+    fontSize: "24px",
+    lineHeight: "36px",
+  },
   textArea: {
     width: "100%",
     height: "91px",
@@ -52,7 +59,7 @@ const styles = {
   button: {
     backgroundColor: "#660362",
     color: "white",
-    float: "right"
+    float: "right",
   },
 };
 
@@ -70,14 +77,21 @@ export default function Day1() {
           Think about your average classroom and tell us what groups of diverse students are there
           in your classroom on the class map.
         </Typography>
+        <Typography style={styles.title5} gutterBottom>
+          Drag and drop the number of students belonging to the categories.
+        </Typography>
       </Box>
-      <CanvasDraw
-        brushRadius={2}
-        canvasWidth="100%"
-        canvasHeight={640}
-        brushColor="#A9F6FF"
-        imgSrc=""
+      <img
+        alt="openmoji_man-student-medium-skin-tone"
+        src="openmoji_man-student-medium-skin-tone.png"
       />
+      <img
+        alt="openmoji_woman-student-medium-dark-skin-tone"
+        src="openmoji_woman-student-medium-dark-skin-tone.png"
+      />
+      <img alt="openmoji_student" src="openmoji_student.png" />
+      <img alt="openmoji_woman-student" src="openmoji_woman-student.png" />
+      <img alt="classroom" src="classroom.png" />
       <br />
       <Box>
         <Typography style={styles.title4}>Done for the day? Before you head out . . . .</Typography>

@@ -1,53 +1,132 @@
-import Typography from "@material-ui/core/Typography";
+import { useState } from "react";
 import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import DoneIcon from "@material-ui/icons/Done";
+import IconButton from "@material-ui/core/IconButton";
 
-export default function Day4() {
+const styles = {
+  title1: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#A9F6FF",
+    fontWeight: 700,
+    fontSize: "72px",
+    lineHeight: "108px",
+    paddingTop: "30px",
+  },
+  title1_1: {
+    color: "#02E8E8",
+  },
+  title2: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#3487C0",
+    fontWeight: 550,
+    fontSize: "36px",
+    lineHeight: "54px",
+  },
+  title3: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#3487C0",
+    fontWeight: 500,
+    fontSize: "24px",
+    lineHeight: "36px",
+    paddingTop: "20px",
+  },
+  title4: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#04E8E8",
+    fontWeight: 600,
+    fontSize: "72px",
+    lineHeight: "108px",
+  },
+  button: {
+    backgroundColor: "#660362",
+    color: "white",
+    float: "right",
+  },
+};
+
+export default function Day3() {
+  const [firstChoice, setFirstChoice] = useState(null);
+
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
-      <Typography align="center" variant="h2">
-        Day 4
-      </Typography>
+    <Container>
+      <Box alignItems="left">
+        <Typography variant="h2" style={styles.title1} gutterBottom>
+          DAY 4 : <span style={styles.title1_1}>Card 1</span>
+        </Typography>
 
-      <br />
-      <Typography align="center" variant="h5">
-        Every question has a time limit of 5 seconds.
-      </Typography>
-      <br />
+        <Typography style={styles.title2}>Game time : This or that. </Typography>
 
-      <Typography align="center" variant="h6">
-        1) Rather use google scholar for research or use news articles and mouth 2 mouth data
-      </Typography>
+        <Typography style={styles.title3} gutterBottom>
+          Choose one of the options as answer between the two.
+        </Typography>
+      </Box>
+
+      <Box py={5}>
+        <Grid container spacing={0} alignItems="center">
+          <Grid item xs={1}>
+            <Typography style={styles.title4}>1</Typography>
+          </Grid>
+          <Grid item xs={5}>
+            <BulletPoint
+              text="Lecture (big lecture hall presentation)"
+              checked={firstChoice === "lecture"}
+              onClick={() => setFirstChoice("lecture")}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            OR
+          </Grid>
+          <Grid item xs={5}>
+            <BulletPoint
+              text="Seminar (interactive small workshop)"
+              checked={firstChoice === "seminar"}
+              onClick={() => setFirstChoice("seminar")}
+            />
+          </Grid>
+        </Grid>
+      </Box>
       <br />
       <br />
-      <input type="text" />
-      <br />
-      <Typography align="center" variant="h6">
-        2) Have videos that explains how to use EIP and EBP or have articles about it
-      </Typography>
-      <br />
-      <br />
-      <input type="text" />
-      <br />
-      <Typography align="center" variant="h6">
-        3) Discuss Research with school leaders or discuss research with fellow teachers
-      </Typography>
-      <br />
-      <br />
-      <input type="text" />
-      <br />
-      <Typography align="center" variant="h6">
-        4) Have an open platform for EIP or have a central school HUB for EIP
-      </Typography>
-      <br />
-      <br />
-      <input type="text" />
-      <br />
-      <br />
-      <Button variant="contained" color="secondary" component={Link} to="/Submit">
+      <Button variant="contained" style={styles.button} component={Link} to="/Submit">
         SUBMIT
       </Button>
+      <br />
+      <br />
+      <br />
+      <br />
+    </Container>
+  );
+}
+
+function BulletPoint({ text, checked, onClick }) {
+  const size = "40px";
+  return (
+    <Box display="flex" flexDirection="row" alignItems="center">
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        bgcolor="#FFE843"
+        borderRadius="50%"
+        width={size}
+        height={size}
+        boxShadow={2}
+      >
+        <IconButton style={{ width: size, height: size }} onClick={onClick}>
+          {checked && <DoneIcon />}
+        </IconButton>
+      </Box>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <Typography>{text}</Typography>
     </Box>
   );
 }
