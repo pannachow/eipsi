@@ -6,7 +6,6 @@ export default function ProductCategories() {
   const images = [
     {
       url: "day-1-card-enabled.png",
-      width: "25%",
       size: 3,
       routes: [
         { name: "Card 1", to: "/day1-1" },
@@ -16,7 +15,6 @@ export default function ProductCategories() {
     },
     {
       url: "day-2-card-enabled.png",
-      width: "50%",
       size: 6,
       routes: [
         { name: "Card 1", to: "/day2-1" },
@@ -26,7 +24,6 @@ export default function ProductCategories() {
     },
     {
       url: "day-3-card-enabled.png",
-      width: "25%",
       size: 3,
       routes: [
         { name: "Card 1", to: "/day3-1" },
@@ -36,7 +33,6 @@ export default function ProductCategories() {
     },
     {
       url: "day-4-card-enabled.png",
-      width: "45%",
       size: 5,
       routes: [
         { name: "Card 1", to: "/day4-1" },
@@ -46,7 +42,6 @@ export default function ProductCategories() {
     },
     {
       url: "day-5-card-enabled.png",
-      width: "55%",
       size: 7,
       routes: [
         { name: "Card 1", to: "/day5-1" },
