@@ -15,7 +15,13 @@ const styles = {
     marginLeft: "auto",
     marginRight: "auto",
   },
-  paragraph: {
+  paragraph1: {
+    color: "white",
+    fontWeight: 600,
+    fontSize: "18px",
+    lineHeight: "21px",
+  },
+  paragraph2: {
     color: "white",
     fontSize: "14px",
   },
@@ -27,26 +33,25 @@ export default function Home() {
       <Container>
         <Grid container spacing={3} justify="center" alignItems="center">
           <Grid item xs={12} sm={6}>
-            <Typography gutterBottom style={styles.paragraph}>
-              In the upcoming 5 days, 5 cards will be presented to you with numerous tasks. These
-              tasks all relate to our EIPSI project which revolves around encouraging teachers to
-              use research-informed resources related to inclusivity in the classrooms.
+            <Typography gutterBottom style={styles.paragraph1}>
+              During the upcoming five days, we would like to hear more about your experience with
+              Evidence-Informed Practices (EIP). Below, you see five cards - one for each day. When
+              you click on a day, you can choose between three different task options. Most tasks
+              are designed to take approx. five minutes, but some might require a little more time.
+              We would like to ask you to at least complete one task a day but you are free to do
+              more if you are interested. Please note that this is not a survey but rather a
+              conversation starter and an open space for you to share your
+              experiences/concerns/stories. As a team, we want to understand and empathize with
+              teachers to be able to build a solution that fulfills their needs.
             </Typography>
             <br />
-            <Typography gutterBottom style={styles.paragraph}>
-              We ask you, the teacher, to complete the daily tasks and document this on our website.
-              For every day, there will be a different page to record your findings, answers, and
-              reactions. This data will be used and analyzed during our continuous progress of the
-              project. Please do not include any personal information that may harm the privacy of
-              yourself and others.
-            </Typography>
             <br />
-            <Typography gutterBottom style={styles.paragraph}>
+            <Typography gutterBottom style={styles.paragraph2}>
               We hope you enjoy the upcoming days. Thank you for your participation and feel free to
               contact us for any additional information.
             </Typography>
             <br />
-            <Typography style={styles.paragraph}>Team EIPSI</Typography>
+            <Typography style={styles.paragraph2}>Team EIPSI</Typography>
           </Grid>
 
           <Grid item xs={12} sm={6}>
@@ -55,6 +60,19 @@ export default function Home() {
         </Grid>
 
         <DayGrid />
+        <br />
+        <Typography gutterBottom style={styles.paragraph2}>
+          Please note:
+        </Typography>
+        <Typography gutterBottom style={styles.paragraph2}>
+          1. Your participation is voluntary and you are free to stop at any time
+          without any negative consequences.
+        </Typography>
+        <Typography gutterBottom style={styles.paragraph2}>
+          2. The data collected will be processed in accordance
+          with the data protection law and will not be used for any other purposes and only stored
+          for the duration of this project.
+        </Typography>
       </Container>
     </div>
   );

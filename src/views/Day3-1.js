@@ -13,7 +13,7 @@ const styles = {
     fontWeight: 700,
     fontSize: "72px",
     lineHeight: "108px",
-    paddingTop: "30px",
+    paddingTop: "50px",
   },
   title1_1: {
     color: "#02E8E8",
@@ -65,6 +65,7 @@ const styles = {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
+    fontWeight: 600
   },
 };
 

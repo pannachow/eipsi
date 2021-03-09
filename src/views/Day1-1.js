@@ -12,6 +12,7 @@ const styles = {
     fontWeight: 600,
     fontSize: "72px",
     lineHeight: "108px",
+    paddingTop: "50px",
   },
   title1_1: {
     color: "#02E8E8",
@@ -31,6 +32,9 @@ const styles = {
     fontWeight: 500,
     fontSize: "24px",
     lineHeight: "36px",
+    paddingTop: "10px",
+    paddingBottom: "20px",
+
   },
   title4: {
     fontFamily: "Poppins",
@@ -39,6 +43,7 @@ const styles = {
     fontWeight: 500,
     fontSize: "36px",
     lineHeight: "54px",
+    paddingTop: "50px",
   },
   title5: {
     fontFamily: "Poppins",
@@ -47,6 +52,8 @@ const styles = {
     fontWeight: 500,
     fontSize: "24px",
     lineHeight: "36px",
+    paddingBottom: "20px",
+
   },
   textArea: {
     width: "100%",
@@ -54,12 +61,13 @@ const styles = {
     left: "193px",
     top: "1477px",
     background: "#A9F6FF",
-    borderRadius: "20px",
+    borderRadius: "20px"
   },
   button: {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
+    fontWeight: 600
   },
 };
 

@@ -15,6 +15,7 @@ const styles = {
     fontWeight: 600,
     fontSize: "72px",
     lineHeight: "108px",
+    paddingTop: "50px",
   },
   title1_1: {
     color: "#02E8E8",
@@ -26,6 +27,7 @@ const styles = {
     fontWeight: 500,
     fontSize: "36px",
     lineHeight: "54px",
+    paddingBottom: "20px",
   },
   title3: {
     fontFamily: "Poppins",
@@ -34,6 +36,7 @@ const styles = {
     fontWeight: 500,
     fontSize: "24px",
     lineHeight: "36px",
+    paddingBottom: "20px",
   },
   title4: {
     fontFamily: "Poppins",
@@ -42,6 +45,9 @@ const styles = {
     fontWeight: 500,
     fontSize: "36px",
     lineHeight: "54px",
+    paddingTop: "50px",
+    paddingBottom: "10px",
+
   },
   emoji: {
     fontFamily: "Poppins",
@@ -64,6 +70,7 @@ const styles = {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
+    fontWeight: 600
   },
 };
 
@@ -80,13 +87,15 @@ export default function Day2() {
         </Typography>
       </Box>
 
-      <CanvasDraw
-        brushRadius={2}
-        canvasWidth="100%"
-        canvasHeight={1500}
-        brushColor="#A9F6FF"
-        imgSrc="head.png"
-      />
+      <Container maxWidth="sm">
+        <CanvasDraw
+          brushRadius={2}
+          canvasWidth="100%"
+          canvasHeight={600}
+          brushColor="#A9F6FF"
+          imgSrc="head.png"
+        />
+      </Container>
       <Box>
         <Typography style={styles.title4}>
           Select an Emoji that expresses the attitude towards the Evidence based practices.

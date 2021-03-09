@@ -4,7 +4,6 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
 import DoneIcon from "@material-ui/icons/Done";
 import IconButton from "@material-ui/core/IconButton";
 
@@ -16,7 +15,7 @@ const styles = {
     fontWeight: 700,
     fontSize: "72px",
     lineHeight: "108px",
-    paddingTop: "30px",
+    paddingTop: "50px",
   },
   title1_1: {
     color: "#02E8E8",
@@ -36,7 +35,6 @@ const styles = {
     fontWeight: 500,
     fontSize: "24px",
     lineHeight: "36px",
-    paddingTop: "20px",
   },
   title4: {
     fontFamily: "Poppins",
@@ -46,15 +44,28 @@ const styles = {
     fontSize: "72px",
     lineHeight: "108px",
   },
+  title5: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#0C4D7A",
+    fontWeight: 500,
+    fontSize: "24px",
+    lineHeight: "36px",
+  },
   button: {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
+    fontWeight: 600
   },
 };
 
 export default function Day3() {
   const [firstChoice, setFirstChoice] = useState(null);
+  const [secondChoice, setSecondChoice] = useState(null);
+  const [thirdChoice, setThirdChoice] = useState(null);
+  const [fourthChoice, setFourthChoice] = useState(null);
+  const [fifthChoice, setFifthChoice] = useState(null);
 
   return (
     <Container>
@@ -70,30 +81,114 @@ export default function Day3() {
         </Typography>
       </Box>
 
-      <Box py={5}>
-        <Grid container spacing={0} alignItems="center">
-          <Grid item xs={1}>
-            <Typography style={styles.title4}>1</Typography>
-          </Grid>
-          <Grid item xs={5}>
-            <BulletPoint
-              text="Lecture (big lecture hall presentation)"
-              checked={firstChoice === "lecture"}
-              onClick={() => setFirstChoice("lecture")}
-            />
-          </Grid>
-          <Grid item xs={1}>
-            OR
-          </Grid>
-          <Grid item xs={5}>
-            <BulletPoint
-              text="Seminar (interactive small workshop)"
-              checked={firstChoice === "seminar"}
-              onClick={() => setFirstChoice("seminar")}
-            />
-          </Grid>
-        </Grid>
+      <Box
+        paddingTop={5}
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Typography style={styles.title4}>1</Typography>
+        <BulletPoint
+          text="Lecture (big lecture hall presentation)"
+          checked={firstChoice === "lecture"}
+          onClick={() => setFirstChoice("lecture")}
+        />
+        <Typography style={styles.title3}>OR</Typography>
+        <BulletPoint
+          text="Seminar (interactive small workshop)"
+          checked={firstChoice === "seminar"}
+          onClick={() => setFirstChoice("seminar")}
+        />
       </Box>
+
+      <Box
+        paddingTop={2}
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Typography style={styles.title4}>2</Typography>
+        <BulletPoint
+          text="Online Education tools"
+          checked={secondChoice === "online"}
+          onClick={() => setSecondChoice("online")}
+        />
+        <Typography style={styles.title3}>OR</Typography>
+        <BulletPoint
+          text="Offline Education tools"
+          checked={secondChoice === "offline"}
+          onClick={() => setSecondChoice("offline")}
+        />
+      </Box>
+
+      <Box
+        paddingTop={2}
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Typography style={styles.title4}>3</Typography>
+        <BulletPoint
+          text="Lesson based on Personal Experience"
+          checked={thirdChoice === "personal"}
+          onClick={() => setThirdChoice("personal")}
+        />
+        <Typography paddingTop={2} style={styles.title3}>
+          OR
+        </Typography>
+        <BulletPoint
+          text="Lesson based on Objective Research"
+          checked={thirdChoice === "objective"}
+          onClick={() => setThirdChoice("objective")}
+        />
+      </Box>
+
+      <Box
+        paddingTop={2}
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Typography style={styles.title4}>4</Typography>
+        <BulletPoint
+          text="Have Videos explain how to use EIP or EBP"
+          checked={fourthChoice === "video"}
+          onClick={() => setFourthChoice("video")}
+        />
+        <Typography style={styles.title3}>OR</Typography>
+        <BulletPoint
+          text="Have Articles explain how to use EIP or EBP"
+          checked={fourthChoice === "articles"}
+          onClick={() => setFourthChoice("articles")}
+        />
+      </Box>
+
+      <Box
+        paddingTop={2}
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Typography style={styles.title4}>5</Typography>
+        <BulletPoint
+          text="Small Classrooms (no. of students)"
+          checked={fifthChoice === "small"}
+          onClick={() => setFifthChoice("small")}
+        />
+        <Typography style={styles.title3}>OR</Typography>
+        <BulletPoint
+          text="Big Classrooms (no. of students)"
+          checked={fifthChoice === "big"}
+          onClick={() => setFifthChoice("big")}
+        />
+      </Box>
+
+      <br />
       <br />
       <br />
       <Button variant="contained" style={styles.button} component={Link} to="/Submit">
@@ -125,8 +220,8 @@ function BulletPoint({ text, checked, onClick }) {
           {checked && <DoneIcon />}
         </IconButton>
       </Box>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <Typography>{text}</Typography>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Typography style={styles.title5}>{text}</Typography>
     </Box>
   );
 }
