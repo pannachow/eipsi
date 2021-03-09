@@ -8,17 +8,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import Popover from "@material-ui/core/Popover";
 
+const radius = "20px";
+
 const useStyles = makeStyles((theme) => ({
   imageWrapper: {
     position: "relative",
     display: "block",
     padding: 100,
     borderRadius: 0,
+    width: "100%",
     height: "40vh",
-    [theme.breakpoints.down("sm")]: {
-      width: "100% !important",
-      height: 100,
-    },
     "&:hover": {
       zIndex: 1,
     },
@@ -38,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: 0,
     bottom: 0,
+    borderRadius: radius,
     backgroundSize: "cover",
     backgroundPosition: "center 40%",
   },
@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     bottom: 0,
     background: theme.palette.common.black,
+    borderRadius: radius,
     opacity: 0.5,
     transition: theme.transitions.create("opacity"),
   },
@@ -82,14 +83,7 @@ export default function ProductCategories({ image }) {
 
   return (
     <>
-      <ButtonBase
-        key={image.title}
-        className={classes.imageWrapper}
-        style={{
-          width: image.width,
-        }}
-        onClick={handleClick}
-      >
+      <ButtonBase key={image.title} className={classes.imageWrapper} onClick={handleClick}>
         <Link>
           <div
             className={classes.imageSrc}

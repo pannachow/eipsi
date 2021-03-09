@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
@@ -56,7 +57,7 @@ const styles = {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
-    fontWeight: 600
+    fontWeight: 600,
   },
 };
 
@@ -81,112 +82,43 @@ export default function Day3() {
         </Typography>
       </Box>
 
-      <Box
-        paddingTop={5}
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Typography style={styles.title4}>1</Typography>
-        <BulletPoint
-          text="Lecture (big lecture hall presentation)"
-          checked={firstChoice === "lecture"}
-          onClick={() => setFirstChoice("lecture")}
+      <Grid container spacing={1} alignItems="center">
+        <Row
+          number={1}
+          selected={firstChoice}
+          setSelected={setFirstChoice}
+          optionA={{ label: "Lecture (big lecture hall presentation)", value: "lecture" }}
+          optionB={{ label: "Seminar (interactive small workshop)", value: "seminar" }}
         />
-        <Typography style={styles.title3}>OR</Typography>
-        <BulletPoint
-          text="Seminar (interactive small workshop)"
-          checked={firstChoice === "seminar"}
-          onClick={() => setFirstChoice("seminar")}
+        <Row
+          number={2}
+          selected={secondChoice}
+          setSelected={setSecondChoice}
+          optionA={{ label: "Online Education tools", value: "online" }}
+          optionB={{ label: "Offline Education tools", value: "offline" }}
         />
-      </Box>
-
-      <Box
-        paddingTop={2}
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Typography style={styles.title4}>2</Typography>
-        <BulletPoint
-          text="Online Education tools"
-          checked={secondChoice === "online"}
-          onClick={() => setSecondChoice("online")}
+        <Row
+          number={3}
+          selected={thirdChoice}
+          setSelected={setThirdChoice}
+          optionA={{ label: "Lesson based on Personal Experience", value: "personal" }}
+          optionB={{ label: "Lesson based on Objective Research", value: "objective" }}
         />
-        <Typography style={styles.title3}>OR</Typography>
-        <BulletPoint
-          text="Offline Education tools"
-          checked={secondChoice === "offline"}
-          onClick={() => setSecondChoice("offline")}
+        <Row
+          number={4}
+          selected={fourthChoice}
+          setSelected={setFourthChoice}
+          optionA={{ label: "Have Videos explain how to use EIP or EBP", value: "video" }}
+          optionB={{ label: "Have Articles explain how to use EIP or EBP", value: "articles" }}
         />
-      </Box>
-
-      <Box
-        paddingTop={2}
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Typography style={styles.title4}>3</Typography>
-        <BulletPoint
-          text="Lesson based on Personal Experience"
-          checked={thirdChoice === "personal"}
-          onClick={() => setThirdChoice("personal")}
+        <Row
+          number={5}
+          selected={fifthChoice}
+          setSelected={setFifthChoice}
+          optionA={{ label: "Small Classrooms (no. of students)", value: "small" }}
+          optionB={{ label: "Big Classrooms (no. of students)", value: "big" }}
         />
-        <Typography paddingTop={2} style={styles.title3}>
-          OR
-        </Typography>
-        <BulletPoint
-          text="Lesson based on Objective Research"
-          checked={thirdChoice === "objective"}
-          onClick={() => setThirdChoice("objective")}
-        />
-      </Box>
-
-      <Box
-        paddingTop={2}
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Typography style={styles.title4}>4</Typography>
-        <BulletPoint
-          text="Have Videos explain how to use EIP or EBP"
-          checked={fourthChoice === "video"}
-          onClick={() => setFourthChoice("video")}
-        />
-        <Typography style={styles.title3}>OR</Typography>
-        <BulletPoint
-          text="Have Articles explain how to use EIP or EBP"
-          checked={fourthChoice === "articles"}
-          onClick={() => setFourthChoice("articles")}
-        />
-      </Box>
-
-      <Box
-        paddingTop={2}
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Typography style={styles.title4}>5</Typography>
-        <BulletPoint
-          text="Small Classrooms (no. of students)"
-          checked={fifthChoice === "small"}
-          onClick={() => setFifthChoice("small")}
-        />
-        <Typography style={styles.title3}>OR</Typography>
-        <BulletPoint
-          text="Big Classrooms (no. of students)"
-          checked={fifthChoice === "big"}
-          onClick={() => setFifthChoice("big")}
-        />
-      </Box>
+      </Grid>
 
       <br />
       <br />
@@ -197,12 +129,40 @@ export default function Day3() {
       <br />
       <br />
       <br />
-      <br />
     </Container>
   );
 }
 
-function BulletPoint({ text, checked, onClick }) {
+function Row({ number, selected, setSelected, optionA, optionB }) {
+  return (
+    <>
+      <Grid item xs={1}>
+        <Typography style={styles.title4}>{number}</Typography>
+      </Grid>
+      <Grid item xs={5}>
+        <Choice
+          selected={selected}
+          setSelected={setSelected}
+          label={optionA.label}
+          value={optionA.value}
+        />
+      </Grid>
+      <Grid item xs={1}>
+        <Typography align="center" style={styles.title3}>OR</Typography>
+      </Grid>
+      <Grid item xs={5}>
+        <Choice
+          selected={selected}
+          setSelected={setSelected}
+          label={optionB.label}
+          value={optionB.value}
+        />
+      </Grid>
+    </>
+  );
+}
+
+function Choice({ selected, setSelected, label, value }) {
   const size = "40px";
   return (
     <Box display="flex" flexDirection="row" alignItems="center">
@@ -216,12 +176,12 @@ function BulletPoint({ text, checked, onClick }) {
         height={size}
         boxShadow={2}
       >
-        <IconButton style={{ width: size, height: size }} onClick={onClick}>
-          {checked && <DoneIcon />}
+        <IconButton style={{ width: size, height: size }} onClick={() => setSelected(value)}>
+          {selected === value && <DoneIcon />}
         </IconButton>
       </Box>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Typography style={styles.title5}>{text}</Typography>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Typography style={styles.title5}>{label}</Typography>
     </Box>
   );
 }
