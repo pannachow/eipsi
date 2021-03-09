@@ -1,9 +1,11 @@
+import { useRef } from "react";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CanvasDraw from "react-canvas-draw";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
+import { IconButton } from "@material-ui/core";
 
 const styles = {
   title1: {
@@ -34,7 +36,7 @@ const styles = {
     fontSize: "24px",
     lineHeight: "36px",
     paddingTop: "10px",
-    paddingBottom: "10px"
+    paddingBottom: "10px",
   },
   title4: {
     fontFamily: "Poppins",
@@ -57,11 +59,19 @@ const styles = {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
-    fontWeight: 600
+    fontWeight: 600,
   },
+  clear: {
+    position: "absolute",
+    top: "10px",
+    left: "10px",
+    zIndex: 100
+  }
 };
 
 export default function Day2() {
+  const canvasRef = useRef();
+
   return (
     <Container>
       <Box alignItems="left">
@@ -78,18 +88,24 @@ export default function Day2() {
         </Typography>
 
         <Typography gutterBottom style={styles.title3}>
-          Add a comment to highlight the crucial points{" "}
+          Add a comment to highlight the crucial points
         </Typography>
       </Box>
 
       <Container maxWidth="sm">
-      <CanvasDraw
-        brushRadius={2}
-        canvasWidth="100%"
-        canvasHeight={400}
-        brushColor="orange"
-        imgSrc="feelings_table.png"
-      />
+        <Box position="relative">
+          <CanvasDraw
+            ref={canvasRef}
+            brushRadius={2}
+            canvasWidth="105%"
+            canvasHeight={500}
+            brushColor="orange"
+            imgSrc="feelings_table.png"
+          />
+          <IconButton onClick={() => canvasRef.current.clear()} style={styles.clear}>
+            <img alt="vector" src="vector.svg" />
+          </IconButton>
+        </Box>
       </Container>
       <Box>
         <Typography style={styles.title4}>Done for the day? Before you head out . . . .</Typography>

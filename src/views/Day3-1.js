@@ -4,6 +4,9 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import CanvasDraw from "react-canvas-draw";
+import { useRef } from "react";
+import { IconButton } from "@material-ui/core";
+
 
 const styles = {
   title1: {
@@ -67,9 +70,17 @@ const styles = {
     float: "right",
     fontWeight: 600,
   },
+  clear: {
+    position: "absolute",
+    top: "10px",
+    left: "10px",
+    zIndex: 100
+  }
 };
 
 export default function Day3() {
+  const canvasRef = useRef();
+
   return (
     <Container>
       <Box alignItems="left">
@@ -131,13 +142,20 @@ export default function Day3() {
           challenges faced.
         </Typography>
         <br />
+        
+        <Box position="relative">
           <CanvasDraw
+            ref={canvasRef}
             brushRadius={2}
             canvasWidth="100%"
             canvasHeight={400}
-            brushColor="#A9F6FF"
+            brushColor="orange"
             imgSrc="time.png"
           />
+          <IconButton onClick={() => canvasRef.current.clear()} style={styles.clear}>
+            <img alt="vector" src="vector.svg" />
+          </IconButton>
+        </Box>
         <br />
         <input type="text" style={styles.textArea} />
       </Box>

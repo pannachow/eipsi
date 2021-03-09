@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Checkbox from "@material-ui/core/Checkbox";
+import { useRef } from "react";
+import { IconButton } from "@material-ui/core";
 
 const styles = {
   title1: {
@@ -47,7 +49,6 @@ const styles = {
     lineHeight: "54px",
     paddingTop: "50px",
     paddingBottom: "10px",
-
   },
   emoji: {
     fontFamily: "Poppins",
@@ -70,11 +71,19 @@ const styles = {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
-    fontWeight: 600
+    fontWeight: 600,
+  },
+  clear: {
+    position: "absolute",
+    top: "10px",
+    left: "20px",
+    zIndex: 100,
   },
 };
 
 export default function Day2() {
+  const canvasRef = useRef();
+
   return (
     <Container>
       <Box alignItems="left">
@@ -88,13 +97,19 @@ export default function Day2() {
       </Box>
 
       <Container maxWidth="sm">
-        <CanvasDraw
-          brushRadius={2}
-          canvasWidth="100%"
-          canvasHeight={600}
-          brushColor="#A9F6FF"
-          imgSrc="head.png"
-        />
+        <Box position="relative">
+          <CanvasDraw
+            ref={canvasRef}
+            brushRadius={2}
+            canvasWidth="100%"
+            canvasHeight={600}
+            brushColor="#A9F6FF"
+            imgSrc="head.png"
+          />
+          <IconButton onClick={() => canvasRef.current.clear()} style={styles.clear}>
+            <img alt="vector" src="vector.svg" />
+          </IconButton>
+        </Box>
       </Container>
       <Box>
         <Typography style={styles.title4}>
