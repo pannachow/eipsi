@@ -59,7 +59,7 @@ export default function ProductCategories() {
   return (
     <Grid container spacing={1}>
       {images.map((image) => (
-        <Grid item xs={12} sm={image.size}>
+        <Grid item xs={12} md={image.size}>
           <DayGridItem image={image} />
         </Grid>
       ))}
