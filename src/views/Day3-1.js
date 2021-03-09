@@ -65,7 +65,7 @@ const styles = {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
-    fontWeight: 600
+    fontWeight: 600,
   },
 };
 
@@ -131,14 +131,13 @@ export default function Day3() {
           challenges faced.
         </Typography>
         <br />
-        <CanvasDraw
-        brushRadius={2}
-        canvasWidth="120%"
-        canvasHeight={500}
-        brushColor="#A9F6FF"
-        imgSrc="time.png"
-      />
-
+          <CanvasDraw
+            brushRadius={2}
+            canvasWidth="100%"
+            canvasHeight={400}
+            brushColor="#A9F6FF"
+            imgSrc="time.png"
+          />
         <br />
         <input type="text" style={styles.textArea} />
       </Box>

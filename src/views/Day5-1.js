@@ -82,13 +82,15 @@ export default function Day2() {
         </Typography>
       </Box>
 
+      <Container maxWidth="sm">
       <CanvasDraw
         brushRadius={2}
         canvasWidth="100%"
-        canvasHeight={500}
-        brushColor="#A9F6FF"
+        canvasHeight={400}
+        brushColor="orange"
         imgSrc="feelings_table.png"
       />
+      </Container>
       <Box>
         <Typography style={styles.title4}>Done for the day? Before you head out . . . .</Typography>
         <Typography style={styles.title3} gutterBottom>
