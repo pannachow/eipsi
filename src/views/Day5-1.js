@@ -65,15 +65,15 @@ const styles = {
     position: "absolute",
     top: "10px",
     left: "10px",
-    zIndex: 100
-  }
+    zIndex: 100,
+  },
 };
 
-export default function Day2() {
+export default function Day51() {
   const canvasRef = useRef();
 
   return (
-    <Container>
+    <>
       <Box alignItems="left">
         <Typography variant="h2" style={styles.title1} gutterBottom>
           DAY 5 : <span style={styles.title1_1}>Card 1</span>
@@ -116,13 +116,9 @@ export default function Day2() {
       </Box>
       <br />
       <br />
-      <Button variant="contained" style={styles.button} component={Link} to="/Submit">
+      <Button variant="contained" style={styles.button} component={Link} to="/submit">
         SUBMIT
       </Button>
-      <br />
-      <br />
-      <br />
-      <br />
-    </Container>
+    </>
   );
 }

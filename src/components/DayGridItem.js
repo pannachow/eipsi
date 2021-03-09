@@ -24,12 +24,6 @@ const useStyles = makeStyles((theme) => ({
     "&:hover $imageBackdrop": {
       opacity: 0.15,
     },
-    "&:hover $imageMarked": {
-      opacity: 0,
-    },
-    "&:hover $imageTitle": {
-      border: "4px solid currentColor",
-    },
   },
   imageSrc: {
     position: "absolute",
@@ -65,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProductCategories({ image }) {
+export default function DayGridItem({ image }) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -117,7 +111,7 @@ export default function ProductCategories({ image }) {
       >
         <Box className={classes.popoverOuterBox} boxShadow={1} borderRadius={4} p={2}>
           {image.routes.map((route, i) => (
-            <Link underline="none" component={RouterLink} to={route.to}>
+            <Link key={i} underline="none" component={RouterLink} to={route.to}>
               <Box className={classes.popoverInnerBox} boxShadow={1} borderRadius={4} my={2}>
                 <Button className={classes.popoverButton}>
                   <Typography className={classes.typography}>{route.name}</Typography>

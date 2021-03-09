@@ -1,12 +1,10 @@
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import CanvasDraw from "react-canvas-draw";
 import { useRef } from "react";
 import { IconButton } from "@material-ui/core";
-
 
 const styles = {
   title1: {
@@ -74,15 +72,15 @@ const styles = {
     position: "absolute",
     top: "10px",
     left: "10px",
-    zIndex: 100
-  }
+    zIndex: 100,
+  },
 };
 
-export default function Day3() {
+export default function Day31() {
   const canvasRef = useRef();
 
   return (
-    <Container>
+    <>
       <Box alignItems="left">
         <Typography variant="h2" style={styles.title1} gutterBottom>
           DAY 3 : <span style={styles.title1_1}>Card 1</span>
@@ -142,7 +140,7 @@ export default function Day3() {
           challenges faced.
         </Typography>
         <br />
-        
+
         <Box position="relative">
           <CanvasDraw
             ref={canvasRef}
@@ -161,13 +159,9 @@ export default function Day3() {
       </Box>
       <br />
       <br />
-      <Button variant="contained" style={styles.button} component={Link} to="/Submit">
+      <Button variant="contained" style={styles.button} component={Link} to="/submit">
         SUBMIT
       </Button>
-      <br />
-      <br />
-      <br />
-      <br />
-    </Container>
+    </>
   );
 }

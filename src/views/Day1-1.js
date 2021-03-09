@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import DragAndDrop from "../components/DragAndDrop";
@@ -70,9 +69,9 @@ const styles = {
   },
 };
 
-export default function Day1() {
+export default function Day11() {
   return (
-    <Container>
+    <>
       <Box>
         <Typography variant="h2" style={styles.title1} gutterBottom>
           DAY 1 : <span style={styles.title1_1}>Card 1</span>
@@ -100,13 +99,9 @@ export default function Day1() {
       </Box>
 
       <br />
-      <Button variant="contained" style={styles.button} component={Link} to="/Submit">
+      <Button variant="contained" style={styles.button} component={Link} to="/submit">
         SUBMIT
       </Button>
-      <br />
-      <br />
-      <br />
-      <br />
-    </Container>
+    </>
   );
 }

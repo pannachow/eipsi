@@ -5,12 +5,6 @@ import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
 const styles = {
-  background: {
-    width: "100%",
-    minHeight: "100%",
-    backgroundColor: "#660362",
-    paddingBottom: "100px",
-  },
   title1: {
     fontFamily: "Poppins",
     fontStyle: "normal",
@@ -33,27 +27,25 @@ const styles = {
 
 export default function Home() {
   return (
-    <div style={styles.background}>
-      <Container>
-        <br />
-        <br />
-        <br />
-        <Typography gutterBottom style={styles.title1} align="center">
-          Thank you for participating today!
-        </Typography>
-        <br />
-        <br />
-        <br />
-        <Link underline="none" component={RouterLink} to="/">
-          <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end">
-            <img alt="Home" src="home.png" />
-            &nbsp;&nbsp;&nbsp;
-            <Box style={styles.box} borderRadius={20}>
-              <Typography style={styles.home}>More cards for the Day</Typography>
-            </Box>
+    <Container>
+      <br />
+      <br />
+      <br />
+      <Typography gutterBottom style={styles.title1} align="center">
+        Thank you for participating today!
+      </Typography>
+      <br />
+      <br />
+      <br />
+      <Link underline="none" component={RouterLink} to="/">
+        <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end">
+          <img alt="Home" src="home.png" />
+          &nbsp;&nbsp;&nbsp;
+          <Box style={styles.box} borderRadius={20}>
+            <Typography style={styles.home}>More cards for the Day</Typography>
           </Box>
-        </Link>
-      </Container>
-    </div>
+        </Box>
+      </Link>
+    </Container>
   );
 }

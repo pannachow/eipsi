@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
@@ -61,7 +60,7 @@ const styles = {
   },
 };
 
-export default function Day3() {
+export default function Day41() {
   const [firstChoice, setFirstChoice] = useState(null);
   const [secondChoice, setSecondChoice] = useState(null);
   const [thirdChoice, setThirdChoice] = useState(null);
@@ -69,7 +68,7 @@ export default function Day3() {
   const [fifthChoice, setFifthChoice] = useState(null);
 
   return (
-    <Container>
+    <>
       <Box alignItems="left">
         <Typography variant="h2" style={styles.title1} gutterBottom>
           DAY 4 : <span style={styles.title1_1}>Card 1</span>
@@ -123,13 +122,10 @@ export default function Day3() {
       <br />
       <br />
       <br />
-      <Button variant="contained" style={styles.button} component={Link} to="/Submit">
+      <Button variant="contained" style={styles.button} component={Link} to="/submit">
         SUBMIT
       </Button>
-      <br />
-      <br />
-      <br />
-    </Container>
+    </>
   );
 }
 
@@ -148,7 +144,9 @@ function Row({ number, selected, setSelected, optionA, optionB }) {
         />
       </Grid>
       <Grid item xs={1}>
-        <Typography align="center" style={styles.title3}>OR</Typography>
+        <Typography align="center" style={styles.title3}>
+          OR
+        </Typography>
       </Grid>
       <Grid item xs={5}>
         <Choice

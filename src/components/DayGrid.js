@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import DayGridItem from "./DayGridItem";
 
-export default function ProductCategories() {
+export default function DayGrid() {
   const images = [
     {
       url: "day-1-card-enabled.png",
@@ -53,8 +53,8 @@ export default function ProductCategories() {
 
   return (
     <Grid container spacing={1}>
-      {images.map((image) => (
-        <Grid item xs={12} md={image.size}>
+      {images.map((image, i) => (
+        <Grid key={i} item xs={12} md={image.size}>
           <DayGridItem image={image} />
         </Grid>
       ))}

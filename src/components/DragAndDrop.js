@@ -41,23 +41,19 @@ export default function DragAndDrop() {
     <DndProvider backend={HTML5Backend}>
       <Grid container>
         <Grid item xs={12} sm={6}>
-          {figures
-            .filter((figure) => figure.location === "available")
-            .map((figure) => (
-              <Draggable key={figure.id} figure={figure} setIsDragging={setIsDragging} />
-            ))}
+          <Box display="flex" flexDirection="row" flexWrap="wrap">
+            {figures
+              .filter((figure) => figure.location === "available")
+              .map((figure) => (
+                <Draggable key={figure.id} figure={figure} setIsDragging={setIsDragging} />
+              ))}
+          </Box>
         </Grid>
 
         <Grid item xs={12} sm={6}>
           <Grid container>
             <Grid item xs={6}>
-              <Box
-                p={1}
-                border={borderSize}
-                borderLeft={0}
-                borderTop={0}
-                borderColor={borderColor}
-              >
+              <Box p={1} border={borderSize} borderLeft={0} borderTop={0} borderColor={borderColor}>
                 <DropArea
                   figures={figures.filter((figure) => figure.location === "a")}
                   onDrop={(figure) => onDrop(figure, "a")}
@@ -95,6 +91,9 @@ export default function DragAndDrop() {
                   </Typography>
                   <Typography style={styles.text} align="left">
                     Abled
+                  </Typography>
+                  <Typography style={styles.text} align="left">
+                    &nbsp;
                   </Typography>
                 </DropArea>
               </Box>
@@ -176,6 +175,7 @@ function Draggable({ figure, setIsDragging }) {
         backgroundImage: `url(${figure.src})`,
         backgroundSize: "110%",
         backgroundPosition: "center center",
+        cursor: "pointer",
       }}
     />
   );
