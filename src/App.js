@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Banner from "./components/Banner";
 import Home from "./views/Home";
 import Day11 from "./views/Day1-1";
@@ -21,10 +21,15 @@ import Day52 from "./views/Day5-2";
 import Day53 from "./views/Day5-3";
 import Submit from "./views/Submit";
 
-
 function App() {
+  const theme = createMuiTheme({
+    palette: {
+      // primary: blue,
+    },
+  });
+
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <Banner />

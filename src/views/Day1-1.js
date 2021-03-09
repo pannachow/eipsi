@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import DragAndDrop from "../components/DragAndDrop";
 
 const styles = {
   title1: {
@@ -34,7 +35,6 @@ const styles = {
     lineHeight: "36px",
     paddingTop: "10px",
     paddingBottom: "20px",
-
   },
   title4: {
     fontFamily: "Poppins",
@@ -53,7 +53,6 @@ const styles = {
     fontSize: "24px",
     lineHeight: "36px",
     paddingBottom: "20px",
-
   },
   textArea: {
     width: "100%",
@@ -61,20 +60,20 @@ const styles = {
     left: "193px",
     top: "1477px",
     background: "#A9F6FF",
-    borderRadius: "20px"
+    borderRadius: "20px",
   },
   button: {
     backgroundColor: "#660362",
     color: "white",
     float: "right",
-    fontWeight: 600
+    fontWeight: 600,
   },
 };
 
 export default function Day1() {
   return (
     <Container>
-      <Box alignItems="left">
+      <Box>
         <Typography variant="h2" style={styles.title1} gutterBottom>
           DAY 1 : <span style={styles.title1_1}>Card 1</span>
         </Typography>
@@ -89,18 +88,9 @@ export default function Day1() {
           Drag and drop the number of students belonging to the categories.
         </Typography>
       </Box>
-      <img
-        alt="openmoji_man-student-medium-skin-tone"
-        src="openmoji_man-student-medium-skin-tone.png"
-      />
-      <img
-        alt="openmoji_woman-student-medium-dark-skin-tone"
-        src="openmoji_woman-student-medium-dark-skin-tone.png"
-      />
-      <img alt="openmoji_student" src="openmoji_student.png" />
-      <img alt="openmoji_woman-student" src="openmoji_woman-student.png" />
-      <img alt="classroom" src="classroom.png" />
-      <br />
+
+      <DragAndDrop />
+
       <Box>
         <Typography style={styles.title4}>Done for the day? Before you head out . . . .</Typography>
         <Typography style={styles.title3} gutterBottom>
@@ -108,6 +98,7 @@ export default function Day1() {
         </Typography>
         <input type="text" style={styles.textArea} />
       </Box>
+
       <br />
       <Button variant="contained" style={styles.button} component={Link} to="/Submit">
         SUBMIT
