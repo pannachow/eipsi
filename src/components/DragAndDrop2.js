@@ -83,13 +83,13 @@ export default function DragAndDrop() {
                   setIsDragging={setIsDragging}
                 >
                   <Typography style={styles.text} align="right">
-                    Socio
+                    Other
                   </Typography>
                   <Typography style={styles.text} align="right">
-                    Economic
+                    Teachers /
                   </Typography>
                   <Typography style={styles.text} align="right">
-                    Diversity
+                    Colleagues
                   </Typography>
                 </DropArea>
               </Box>
@@ -109,10 +109,7 @@ export default function DragAndDrop() {
                   setIsDragging={setIsDragging}
                 >
                   <Typography style={styles.text} align="left">
-                    Differently
-                  </Typography>
-                  <Typography style={styles.text} align="left">
-                    Abled
+                    Researchers
                   </Typography>
                   <Typography style={styles.text} align="left">
                     &nbsp;
@@ -129,7 +126,7 @@ export default function DragAndDrop() {
                   setIsDragging={setIsDragging}
                 >
                   <Typography style={styles.text} align="center">
-                    Other -
+                    Other (family, friends etc) -
                   </Typography>
                   <Typography style={styles.text} align="center">
                     Please Specify

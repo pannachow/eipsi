@@ -52,6 +52,23 @@ const styles = {
     fontSize: "24px",
     lineHeight: "36px",
   },
+  title6: {
+    fontFamily: "Poppins",
+    fontStyle: "normal",
+    color: "#1B5782",
+    fontWeight: 550,
+    fontSize: "36px",
+    lineHeight: "54px",
+    paddingTop: "20px",
+  },
+  textArea: {
+    width: "100%",
+    height: "91px",
+    left: "193px",
+    top: "1477px",
+    background: "#A9F6FF",
+    borderRadius: "20px",
+  },
   button: {
     backgroundColor: "#660362",
     color: "white",
@@ -120,6 +137,14 @@ export default function Day41() {
       </Grid>
 
       <br />
+      <Box>
+        <Typography style={styles.title6}>Name</Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <Box>
+        <Typography style={styles.title6}>Email</Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
       <br />
       <br />
       <Button variant="contained" style={styles.button} component={Link} to="/submit">

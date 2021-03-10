@@ -10,6 +10,7 @@ import {
   unstable_createMuiStrictModeTheme as createMuiTheme,
 } from "@material-ui/core/styles";
 import Banner from "./components/Banner";
+import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Day11 from "./views/Day1-1";
 import Day12 from "./views/Day1-2";
@@ -67,6 +68,7 @@ function App() {
             </Route>
           ))}
         </Switch>
+        <Footer />
       </Router>
     </ThemeProvider>
   );

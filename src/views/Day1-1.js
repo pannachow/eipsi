@@ -97,7 +97,15 @@ export default function Day11() {
         </Typography>
         <input type="text" style={styles.textArea} />
       </Box>
-
+      <Box>
+        <Typography style={styles.title4}>Name</Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <Box>
+        <Typography style={styles.title4}>Email</Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <br />
       <br />
       <Button variant="contained" style={styles.button} component={Link} to="/submit">
         SUBMIT

@@ -41,8 +41,8 @@ const styles = {
     fontStyle: "normal",
     color: "#1B5782",
     fontWeight: 550,
-    fontSize: "24px",
-    lineHeight: "36px",
+    fontSize: "36px",
+    lineHeight: "54px",
     paddingTop: "20px",
   },
   title5: {
@@ -155,6 +155,14 @@ export default function Day31() {
           </IconButton>
         </Box>
         <br />
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <Box>
+        <Typography style={styles.title4}>Name</Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <Box>
+        <Typography style={styles.title4}>Email</Typography>
         <input type="text" style={styles.textArea} />
       </Box>
       <br />

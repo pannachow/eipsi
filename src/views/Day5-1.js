@@ -110,8 +110,16 @@ export default function Day51() {
       <Box>
         <Typography style={styles.title4}>Done for the day? Before you head out . . . .</Typography>
         <Typography style={styles.title3} gutterBottom>
-          What is something we haven't asked but you would like to tell us?{" "}
+          What is something we haven't asked but you would like to tell us?
         </Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <Box>
+        <Typography style={styles.title4}>Name</Typography>
+        <input type="text" style={styles.textArea} />
+      </Box>
+      <Box>
+        <Typography style={styles.title4}>Email</Typography>
         <input type="text" style={styles.textArea} />
       </Box>
       <br />
