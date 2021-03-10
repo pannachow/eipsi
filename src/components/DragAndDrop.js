@@ -11,6 +11,14 @@ const styles = {
     fontWeight: 600,
     fontSize: "18px",
   },
+  textArea: {
+    width: "100%",
+    height: "45px",
+    background: "yellow",
+    borderRadius: "20px",
+    display: "block",
+    marginTop: "10px"
+  },
 };
 
 const defaultFigures = [
@@ -128,12 +136,27 @@ export default function DragAndDrop() {
                   isDragging={isDragging}
                   setIsDragging={setIsDragging}
                 >
-                  <Typography style={styles.text} align="center">
-                    Other -
-                  </Typography>
-                  <Typography style={styles.text} align="center">
-                    Please Specify
-                  </Typography>
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      <Typography style={styles.text} align="center">
+                        Other -
+                      </Typography>
+                      <Typography style={styles.text} align="center">
+                        Please Specify
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <input type="text" style={styles.textArea} />
+                      <input type="text" style={styles.textArea} />
+                      <input type="text" style={styles.textArea} />
+                    </Grid>
+                    <Grid item xs={4}></Grid>
+                    <Grid item xs={4}>
+                      <input type="text" style={styles.textArea} />
+                      <input type="text" style={styles.textArea} />
+                      <input type="text" style={styles.textArea} />
+                    </Grid>
+                  </Grid>
                 </DropArea>
               </Box>
             </Grid>
