@@ -259,6 +259,8 @@ function DropArea({ children, figures, setFigures, limit, isDragging, height, wi
   const figuresRef = useRef();
   figuresRef.current = figures;
 
+  const canDrop = isDragging && figures.length < limit;
+
   const [, drop] = useDrop(() => ({
     accept: "student",
     drop: (figure) => {
@@ -276,7 +278,7 @@ function DropArea({ children, figures, setFigures, limit, isDragging, height, wi
       p={1}
       height={height}
       width={width}
-      style={{ opacity: isDragging ? 0.5 : 1 }}
+      style={{ opacity: canDrop ? 0.5 : 1 }}
     >
       {children}
     </Box>
