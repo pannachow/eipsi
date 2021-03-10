@@ -8,33 +8,41 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LanguageIcon from "@material-ui/icons/Language";
 
 const styles = {
-    text: {
-        color: "white",
-    }
-}
+  text: {
+    color: "white",
+  },
+};
 
 export default function Footer() {
   return (
-    <Box bgcolor="#660362" py={6}>
+    <Box bgcolor="#660362" py={4}>
       <Container>
-            <Typography variant="h6" style={styles.text}>Contact Us</Typography>
+        <Typography variant="h6" style={styles.text}>
+          Contact Us
+        </Typography>
 
-            <Box display="flex" my={1}>
-              <RoomIcon style={styles.text} />
-              <Typography variant="subtitle1" style={styles.text}>&nbsp;&nbsp;Amsterdam, The Netherlands</Typography>
-            </Box>
-            <Box display="flex" my={1}>
-              <MailOutlineIcon style={styles.text} />
-              <Link underline="none" href="mailto:chowpanna@gmail.com">
-                <Typography style={styles.text} variant="subtitle1">&nbsp;&nbsp;chowpanna@gmail.com</Typography>
-              </Link>
-            </Box>
-            <Box display="flex" my={1}>
-              <LanguageIcon style={styles.text} />
-              <Link underline="none" href="https://digitalsocietyschool.org/project/eipsi/">
-                <Typography style={styles.text} variant="subtitle1">&nbsp;&nbsp;https://digitalsocietyschool.org/project/eipsi/</Typography>
-              </Link>
-            </Box>
+        <Box display="flex" my={1}>
+          <RoomIcon style={styles.text} />
+          <Typography variant="subtitle1" style={styles.text}>
+            &nbsp;&nbsp;Amsterdam, The Netherlands
+          </Typography>
+        </Box>
+        <Box display="flex" my={1}>
+          <MailOutlineIcon style={styles.text} />
+          <Link underline="none" href="mailto:chowpanna@gmail.com">
+            <Typography style={styles.text} variant="subtitle1">
+              &nbsp;&nbsp;chowpanna@gmail.com
+            </Typography>
+          </Link>
+        </Box>
+        <Box display="flex" my={1}>
+          <LanguageIcon style={styles.text} />
+          <Link underline="none" href="https://digitalsocietyschool.org/project/eipsi">
+            <Typography style={styles.text} variant="subtitle1">
+              &nbsp;&nbsp;https://digitalsocietyschool.org/project/eipsi
+            </Typography>
+          </Link>
+        </Box>
       </Container>
     </Box>
   );

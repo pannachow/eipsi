@@ -60,15 +60,17 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Banner />
-        <Switch>
-          {routes.map((route) => (
-            <Route key={route.path} exact path={route.path}>
-              <Content filled={route.filled} component={route.component} />
-            </Route>
-          ))}
-        </Switch>
-        <Footer />
+        <Box width="100%" minHeight="100%" display="flex" flexDirection="column">
+          <Banner />
+          <Switch>
+            {routes.map((route) => (
+              <Route key={route.path} exact path={route.path}>
+                <Content filled={route.filled} component={route.component} />
+              </Route>
+            ))}
+          </Switch>
+          <Footer />
+        </Box>
       </Router>
     </ThemeProvider>
   );
@@ -77,16 +79,12 @@ function App() {
 function Content({ component, filled }) {
   const optionalProps = filled
     ? {
-        width: "100%",
-        minHeight: "100%",
         bgcolor: "#660362",
       }
     : {};
   return (
-    <Box {...optionalProps} pb="100px">
-      <Container>
-        {component}
-      </Container>
+    <Box flexGrow={1} py={4} {...optionalProps}>
+      <Container>{component}</Container>
     </Box>
   );
 }

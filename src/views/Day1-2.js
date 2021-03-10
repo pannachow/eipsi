@@ -11,7 +11,6 @@ const styles = {
     fontWeight: 600,
     fontSize: "72px",
     lineHeight: "108px",
-    paddingTop: "50px",
   },
   title1_1: {
     color: "#02E8E8",

@@ -3,10 +3,6 @@ import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 
 const styles = {
-  banner: {
-    backgroundColor: "#660362",
-    padding: "30px",
-  },
   bannerTitle: {
     fontFamily: "Poppins",
     color: "#A9F6FF",
@@ -20,14 +16,15 @@ const styles = {
 export default function appBar() {
   return (
     <Box
-      style={styles.banner}
+      bgcolor="#660362"
+      py={4}
       display="flex"
       flexDirection="row"
       justifyContent="center"
       alignItems="center"
     >
       <Typography variant="h2" style={styles.bannerTitle}>
-        TELL US MORE&nbsp;
+        TELL US MORE&nbsp;&nbsp;
       </Typography>
       <img alt="Chat bubble" src="tell-us-more.png" />
     </Box>
