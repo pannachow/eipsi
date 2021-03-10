@@ -2,9 +2,12 @@ import { useState, useRef } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const styles = {
   text: {
@@ -12,165 +15,257 @@ const styles = {
     fontSize: "18px",
   },
   textArea: {
-    width: "100%",
     height: "45px",
     background: "yellow",
     borderRadius: "20px",
     display: "block",
-    marginTop: "10px"
+    marginTop: "10px",
+    flexGrow: 1,
+  },
+  clear: {
+    width: "92px",
+    height: "92px",
   },
 };
 
-const defaultFigures = [
-  { id: 1, location: "available", src: "openmoji_man-student-medium-skin-tone.png" },
+const availableFigures = [
+  { type: 1, src: "openmoji_man-student-medium-skin-tone.png" },
   {
-    id: 2,
-    location: "available",
+    type: 2,
     src: "openmoji_woman-student-medium-dark-skin-tone.png",
   },
-  { id: 3, location: "available", src: "openmoji_student.png" },
-  { id: 4, location: "available", src: "openmoji_woman-student.png" },
-  { id: 5, location: "available", src: "openmoji_man-student-medium-skin-tone.png" },
-  {
-    id: 6,
-    location: "available",
-    src: "openmoji_woman-student-medium-dark-skin-tone.png",
-  },
-  { id: 7, location: "available", src: "openmoji_student.png" },
-  { id: 8, location: "available", src: "openmoji_woman-student.png" },
-  { id: 9, location: "available", src: "openmoji_man-student-medium-skin-tone.png" },
-  {
-    id: 10,
-    location: "available",
-    src: "openmoji_woman-student-medium-dark-skin-tone.png",
-  },
-  { id: 11, location: "available", src: "openmoji_student.png" },
-  { id: 12, location: "available", src: "openmoji_woman-student.png" },
+  { type: 3, src: "openmoji_student.png" },
+  { type: 4, src: "openmoji_woman-student.png" },
 ];
 
 export default function DragAndDrop() {
   const borderSize = 3;
   const borderColor = "#ff0000";
-  const [figures, setFigures] = useState(defaultFigures);
-  const figuresRef = useRef();
-  figuresRef.current = figures;
+  const [aFigures, setAFigures] = useState([]);
+  const [bFigures, setBFigures] = useState([]);
+  const [c1Figures, setC1Figures] = useState([]);
+  const [c2Figures, setC2Figures] = useState([]);
+  const [c3Figures, setC3Figures] = useState([]);
+  const [c4Figures, setC4Figures] = useState([]);
+  const [c5Figures, setC5Figures] = useState([]);
+  const [c6Figures, setC6Figures] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
 
-  function onDrop(figure, location) {
-    const figureIndex = figuresRef.current.findIndex((f) => f.id === figure.id);
-    const newFigures = figuresRef.current.slice();
-    newFigures.splice(figureIndex, 1);
-    newFigures.push({ ...figure, location });
-    setFigures(newFigures);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
+  function clearAll() {
+    setAFigures([]);
+    setBFigures([]);
+    setC1Figures([]);
+    setC2Figures([]);
+    setC3Figures([]);
+    setC4Figures([]);
+    setC5Figures([]);
+    setC6Figures([]);
   }
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Grid container>
-        <Grid item xs={12} sm={6}>
-          <IconButton onClick={() => setFigures(defaultFigures)} style={styles.clear}>
-            <img alt="vector" src="vector.svg" />
-          </IconButton>
-          <Box display="flex" flexDirection="row" flexWrap="wrap">
-            {figures
-              .filter((figure) => figure.location === "available")
-              .map((figure) => (
-                <Draggable key={figure.id} figure={figure} setIsDragging={setIsDragging} />
+    <Container maxWidth="md">
+      <DndProvider backend={HTML5Backend}>
+        <Grid container>
+          <Grid item xs={12} sm={2}>
+            <Box
+              display="flex"
+              flexDirection={isDesktop ? "column" : "row"}
+              flexWrap="wrap"
+              alignItems="center"
+            >
+              <IconButton onClick={() => clearAll()} style={styles.clear}>
+                <img alt="vector" src="vector.svg" />
+              </IconButton>
+              {availableFigures.map((figure) => (
+                <DraggableFigure key={figure.type} figure={figure} setIsDragging={setIsDragging} />
               ))}
-          </Box>
-        </Grid>
+            </Box>
+          </Grid>
 
-        <Grid item xs={12} sm={6}>
-          <Grid container>
-            <Grid item xs={6}>
-              <Box p={1} border={borderSize} borderLeft={0} borderTop={0} borderColor={borderColor}>
-                <DropArea
-                  figures={figures.filter((figure) => figure.location === "a")}
-                  onDrop={(figure) => onDrop(figure, "a")}
-                  isDragging={isDragging}
-                  setIsDragging={setIsDragging}
+          <Grid item xs={12} sm={10}>
+            <Grid container>
+              <Grid item xs={6}>
+                <Box
+                  p={1}
+                  border={borderSize}
+                  borderLeft={0}
+                  borderTop={0}
+                  borderColor={borderColor}
                 >
-                  <Typography style={styles.text} align="right">
-                    Socio
-                  </Typography>
-                  <Typography style={styles.text} align="right">
-                    Economic
-                  </Typography>
-                  <Typography style={styles.text} align="right">
-                    Diversity
-                  </Typography>
-                </DropArea>
-              </Box>
-            </Grid>
-            <Grid item xs={6}>
-              <Box
-                p={1}
-                border={borderSize}
-                borderRight={0}
-                borderTop={0}
-                borderColor={borderColor}
-              >
-                <DropArea
-                  figures={figures.filter((figure) => figure.location === "b")}
-                  onDrop={(figure) => onDrop(figure, "b")}
-                  isDragging={isDragging}
-                  setIsDragging={setIsDragging}
+                  <DropArea
+                    limit={4}
+                    figures={aFigures}
+                    setFigures={setAFigures}
+                    isDragging={isDragging}
+                    height={280}
+                  >
+                    <Typography style={styles.text} align="right">
+                      Socio
+                    </Typography>
+                    <Typography style={styles.text} align="right">
+                      Economic
+                    </Typography>
+                    <Typography style={styles.text} align="right">
+                      Diversity
+                    </Typography>
+                    <Box display="flex" flexDirection="row" flexWrap="wrap">
+                      {aFigures.map((figure, i) => (
+                        <Figure key={i} figure={figure} />
+                      ))}
+                    </Box>
+                  </DropArea>
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box
+                  p={1}
+                  border={borderSize}
+                  borderRight={0}
+                  borderTop={0}
+                  borderColor={borderColor}
                 >
-                  <Typography style={styles.text} align="left">
-                    Differently
-                  </Typography>
-                  <Typography style={styles.text} align="left">
-                    Abled
-                  </Typography>
-                  <Typography style={styles.text} align="left">
-                    &nbsp;
-                  </Typography>
-                </DropArea>
-              </Box>
-            </Grid>
-            <Grid item xs={12}>
-              <Box p={1} borderTop={borderSize} borderColor={borderColor}>
-                <DropArea
-                  figures={figures.filter((figure) => figure.location === "c")}
-                  onDrop={(figure) => onDrop(figure, "c")}
-                  isDragging={isDragging}
-                  setIsDragging={setIsDragging}
-                >
+                  <DropArea
+                    limit={4}
+                    figures={bFigures}
+                    setFigures={setBFigures}
+                    isDragging={isDragging}
+                    height={280}
+                  >
+                    <Typography style={styles.text} align="left">
+                      Differently
+                    </Typography>
+                    <Typography style={styles.text} align="left">
+                      Abled
+                    </Typography>
+                    <Typography style={styles.text} align="left">
+                      &nbsp;
+                    </Typography>
+                    <Box display="flex" flexDirection="row" flexWrap="wrap">
+                      {bFigures.map((figure, i) => (
+                        <Figure key={i} figure={figure} />
+                      ))}
+                    </Box>
+                  </DropArea>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Box p={1} borderTop={borderSize} borderColor={borderColor}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       <Typography style={styles.text} align="center">
-                        Other -
-                      </Typography>
-                      <Typography style={styles.text} align="center">
-                        Please Specify
+                        Other - Please Specify
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
-                      <input type="text" style={styles.textArea} />
-                      <input type="text" style={styles.textArea} />
-                      <input type="text" style={styles.textArea} />
+                    <Grid item xs={12} md={6}>
+                      <OtherDropArea
+                        figures={c1Figures}
+                        setFigures={setC1Figures}
+                        isDragging={isDragging}
+                        align="left"
+                      />
                     </Grid>
-                    <Grid item xs={4}></Grid>
-                    <Grid item xs={4}>
-                      <input type="text" style={styles.textArea} />
-                      <input type="text" style={styles.textArea} />
-                      <input type="text" style={styles.textArea} />
+                    <Grid item xs={12} md={6}>
+                      <OtherDropArea
+                        figures={c2Figures}
+                        setFigures={setC2Figures}
+                        isDragging={isDragging}
+                        align="right"
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <OtherDropArea
+                        figures={c3Figures}
+                        setFigures={setC3Figures}
+                        isDragging={isDragging}
+                        align="left"
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <OtherDropArea
+                        figures={c4Figures}
+                        setFigures={setC4Figures}
+                        isDragging={isDragging}
+                        align="right"
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <OtherDropArea
+                        figures={c5Figures}
+                        setFigures={setC5Figures}
+                        isDragging={isDragging}
+                        align="left"
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <OtherDropArea
+                        figures={c6Figures}
+                        setFigures={setC6Figures}
+                        isDragging={isDragging}
+                        align="right"
+                      />
                     </Grid>
                   </Grid>
-                </DropArea>
-              </Box>
+                </Box>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </DndProvider>
+      </DndProvider>
+    </Container>
   );
 }
 
-function DropArea({ children, figures, onDrop, isDragging, setIsDragging }) {
+function OtherDropArea({ figures, setFigures, isDragging, align }) {
+  return (
+    <Box
+      display="flex"
+      flexDirection="row"
+      alignItems="center"
+      justifyContent={align === "left" ? "flex-start" : "flex-end"}
+    >
+      {align === "right" && (
+        <>
+          <input type="text" style={styles.textArea} />
+          &nbsp;&nbsp;
+        </>
+      )}
+      <DropArea
+        limit={1}
+        figures={figures}
+        setFigures={setFigures}
+        isDragging={isDragging}
+        height={100}
+        width={100}
+      >
+        {figures.map((figure, i) => (
+          <Figure key={i} figure={figure} />
+        ))}
+      </DropArea>
+      {align === "left" && (
+        <>
+          &nbsp;&nbsp;
+          <input type="text" style={styles.textArea} />
+        </>
+      )}
+    </Box>
+  );
+}
+
+function DropArea({ children, figures, setFigures, limit, isDragging, height, width }) {
+  const figuresRef = useRef();
+  figuresRef.current = figures;
+
   const [, drop] = useDrop(() => ({
     accept: "student",
-    drop: onDrop,
+    drop: (figure) => {
+      const figures = figuresRef.current;
+      if (figures.length >= limit) return;
+      setFigures([...figures, figure]);
+    },
   }));
 
   return (
@@ -179,22 +274,26 @@ function DropArea({ children, figures, onDrop, isDragging, setIsDragging }) {
       bgcolor="#F4CE12"
       borderRadius="10px"
       p={1}
-      height={280}
+      height={height}
+      width={width}
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
       {children}
-      <Box display="flex" flexDirection="row" flexWrap="wrap">
-        {figures.map((figure) => (
-          <Draggable key={figure.id} figure={figure} setIsDragging={setIsDragging} />
-        ))}
-      </Box>
     </Box>
   );
 }
 
-function Draggable({ figure, setIsDragging }) {
-  const size = "92px";
+const figureSize = "92px";
+function figureStyle(figure) {
+  return {
+    backgroundImage: `url(${figure.src})`,
+    backgroundSize: "110%",
+    backgroundPosition: "center center",
+    cursor: "pointer",
+  };
+}
 
+function DraggableFigure({ figure, setIsDragging }) {
   const [{ opacity }, dragRef] = useDrag(
     () => ({
       type: "student",
@@ -212,16 +311,17 @@ function Draggable({ figure, setIsDragging }) {
 
   return (
     <Box
-      width={size}
-      height={size}
       ref={dragRef}
+      width={figureSize}
+      height={figureSize}
       style={{
+        ...figureStyle(figure),
         opacity,
-        backgroundImage: `url(${figure.src})`,
-        backgroundSize: "110%",
-        backgroundPosition: "center center",
-        cursor: "pointer",
       }}
     />
   );
+}
+
+function Figure({ figure }) {
+  return <Box width={figureSize} height={figureSize} style={figureStyle(figure)} />;
 }
