@@ -1,7 +1,5 @@
-import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import {
   ThemeProvider,
@@ -9,7 +7,8 @@ import {
   // https://stackoverflow.com/a/64135466
   unstable_createMuiStrictModeTheme as createMuiTheme,
 } from "@material-ui/core/styles";
-import Banner from "./components/Banner";
+import Header from "./components/Header";
+import Content from "./components/Content";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Day11 from "./views/Day1-1";
@@ -49,7 +48,7 @@ const routes = [
   { path: "/day5-3", filled: false, component: <Day53 /> },
 ];
 
-function App() {
+export default function App() {
   const theme = createMuiTheme({
     palette: {
       // primary: blue,
@@ -61,7 +60,7 @@ function App() {
       <CssBaseline />
       <Router>
         <Box width="100%" minHeight="100%" display="flex" flexDirection="column">
-          <Banner />
+          <Header />
           <Switch>
             {routes.map((route) => (
               <Route key={route.path} exact path={route.path}>
@@ -75,18 +74,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-function Content({ component, filled }) {
-  const optionalProps = filled
-    ? {
-        bgcolor: "#660362",
-      }
-    : {};
-  return (
-    <Box flexGrow={1} py={4} {...optionalProps}>
-      <Container>{component}</Container>
-    </Box>
-  );
-}
-
-export default App;

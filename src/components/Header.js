@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-export default function appBar() {
+export default function Header() {
   return (
     <Box
       bgcolor="#660362"
