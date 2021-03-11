@@ -1,7 +1,8 @@
 # EIPSI
 
 A project for Evidence Informed Practice for School Inclusion approach (EIPSI).
-Introduction: https://digitalsocietyschool.org/project/eipsi/ 
+Introduction of the school: https://digitalsocietyschool.org/project/eipsi/
+Sprint 1 project showcase: https://pannachow.io/eipsi
 
 ## Development
 
