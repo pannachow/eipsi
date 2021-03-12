@@ -53,7 +53,7 @@ export default function Home() {
             contact us for any additional information.
           </Typography>
           <Typography style={styles.paragraph2}>Team EIPSI</Typography>
-          <br />{" "}
+          <br />
         </Grid>
 
         <Grid item xs={12} sm={6}>
@@ -63,6 +63,7 @@ export default function Home() {
 
       <DayGrid />
       <br />
+
       <Typography gutterBottom style={styles.paragraph2}>
         Please note:
       </Typography>

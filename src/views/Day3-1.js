@@ -1,34 +1,17 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import CanvasDraw from "react-canvas-draw";
 import { useRef } from "react";
 import { IconButton } from "@material-ui/core";
 
 const styles = {
-  title1: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    color: "#A9F6FF",
-    fontWeight: 700,
-    fontSize: "72px",
-    lineHeight: "108px",
-  },
-  title1_1: {
-    color: "#02E8E8",
-  },
   title2: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#3487C0",
     fontWeight: 550,
     fontSize: "36px",
     lineHeight: "54px",
   },
   title3: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#3487C0",
     fontWeight: 500,
     fontSize: "24px",
@@ -36,8 +19,6 @@ const styles = {
     paddingTop: "20px",
   },
   title4: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#1B5782",
     fontWeight: 550,
     fontSize: "36px",
@@ -45,8 +26,6 @@ const styles = {
     paddingTop: "20px",
   },
   title5: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#0C4D7A",
     fontWeight: 550,
     fontSize: "36px",
@@ -60,12 +39,6 @@ const styles = {
     top: "1477px",
     background: "#A9F6FF",
     borderRadius: "20px",
-  },
-  button: {
-    backgroundColor: "#660362",
-    color: "white",
-    float: "right",
-    fontWeight: 600,
   },
   clear: {
     position: "absolute",
@@ -81,10 +54,6 @@ export default function Day31() {
   return (
     <>
       <Box alignItems="left">
-        <Typography variant="h2" style={styles.title1} gutterBottom>
-          DAY 3 : <span style={styles.title1_1}>Card 1</span>
-        </Typography>
-
         <Typography style={styles.title2}>Imagine!</Typography>
 
         <Typography style={styles.title3} gutterBottom>
@@ -164,11 +133,6 @@ export default function Day31() {
         <Typography style={styles.title4}>Email</Typography>
         <input type="text" style={styles.textArea} />
       </Box>
-      <br />
-      <br />
-      <Button variant="contained" style={styles.button} component={Link} to="/submit">
-        SUBMIT
-      </Button>
     </>
   );
 }

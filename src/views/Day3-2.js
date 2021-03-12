@@ -1,60 +1,35 @@
 import { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import DoneIcon from "@material-ui/icons/Done";
 import IconButton from "@material-ui/core/IconButton";
 
 const styles = {
-  title1: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
-    color: "#A9F6FF",
-    fontWeight: 700,
-    fontSize: "72px",
-    lineHeight: "108px",
-  },
-  title1_1: {
-    color: "#02E8E8",
-  },
   title2: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#3487C0",
     fontWeight: 550,
     fontSize: "36px",
     lineHeight: "54px",
   },
   title3: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#3487C0",
-    fontWeight: 500,
     fontSize: "24px",
     lineHeight: "36px",
   },
   title4: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#04E8E8",
     fontWeight: 600,
     fontSize: "72px",
     lineHeight: "108px",
   },
   title5: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#0C4D7A",
-    fontWeight: 500,
     fontSize: "24px",
     lineHeight: "36px",
   },
   title6: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "#1B5782",
     fontWeight: 550,
     fontSize: "36px",
@@ -69,12 +44,6 @@ const styles = {
     background: "#A9F6FF",
     borderRadius: "20px",
   },
-  button: {
-    backgroundColor: "#660362",
-    color: "white",
-    float: "right",
-    fontWeight: 600,
-  },
 };
 
 export default function Day32() {
@@ -83,10 +52,6 @@ export default function Day32() {
   return (
     <>
       <Box alignItems="left">
-        <Typography variant="h2" style={styles.title1} gutterBottom>
-          DAY 3 : <span style={styles.title1_1}>Card 2</span>
-        </Typography>
-
         <Typography style={styles.title2}>
           3 research articles, which one is research-informed?
         </Typography>
@@ -111,7 +76,7 @@ export default function Day32() {
           selected={choice}
           setSelected={setChoice}
           label="Article 2 - 50 Tips and Tricks to Facilitating a More Inclusive Classroom | Weareteachers.com"
-          value="2" 
+          value="2"
           link="https://www.weareteachers.com/tips-tricks-inclusive-classroom/"
         />
         <Row
@@ -119,7 +84,7 @@ export default function Day32() {
           selected={choice}
           setSelected={setChoice}
           label="Article 3 - Teacher education for inclusion: Can a virtual learning object help? | ScienceDirect"
-          value="3" 
+          value="3"
           link="https://www.sciencedirect.com/science/article/abs/pii/S0360131515000706?casa_token=AaRqWh28zoYAAAAA:gGQc-Uy7QOn4UGAe5sdTW0Lk9Pp3KvURd4Jt2rFDAKIPSb9F0-31C9ikZqflL7B3giIPIkHIiw"
         />
       </Grid>
@@ -133,11 +98,6 @@ export default function Day32() {
         <Typography style={styles.title6}>Email</Typography>
         <input type="text" style={styles.textArea} />
       </Box>
-      <br />
-      <br />
-      <Button variant="contained" style={styles.button} component={RouterLink} to="/submit">
-        SUBMIT
-      </Button>
     </>
   );
 }
