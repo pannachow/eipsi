@@ -8,6 +8,7 @@ import {
   unstable_createMuiStrictModeTheme as createMuiTheme,
 } from "@material-ui/core/styles";
 import Header from "./components/Header";
+import DayContent from "./components/DayContent";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
@@ -28,30 +29,67 @@ import Day52 from "./views/Day5-2";
 import Day53 from "./views/Day5-3";
 import Submit from "./views/Submit";
 
+// prettier-ignore
 const routes = [
-  { path: "/", filled: true, component: <Home /> },
-  { path: "/submit", filled: true, component: <Submit /> },
-  { path: "/day1-1", filled: false, component: <Day11 /> },
-  { path: "/day1-2", filled: false, component: <Day12 /> },
-  { path: "/day1-3", filled: false, component: <Day13 /> },
-  { path: "/day2-1", filled: false, component: <Day21 /> },
-  { path: "/day2-2", filled: false, component: <Day22 /> },
-  { path: "/day2-3", filled: false, component: <Day23 /> },
-  { path: "/day3-1", filled: false, component: <Day31 /> },
-  { path: "/day3-2", filled: false, component: <Day32 /> },
-  { path: "/day3-3", filled: false, component: <Day33 /> },
-  { path: "/day4-1", filled: false, component: <Day41 /> },
-  { path: "/day4-2", filled: false, component: <Day42 /> },
-  { path: "/day4-3", filled: false, component: <Day43 /> },
-  { path: "/day5-1", filled: false, component: <Day51 /> },
-  { path: "/day5-2", filled: false, component: <Day52 /> },
-  { path: "/day5-3", filled: false, component: <Day53 /> },
+  { path: "/", component: <Content><Home /></Content> },
+  { path: "/submit", component: <Content><Submit /></Content> },
+  { path: "/day1-1", component: <DayContent day={1} card={1}><Day11 /></DayContent> },
+  { path: "/day1-2", component: <DayContent day={1} card={2}><Day12 /></DayContent> },
+  { path: "/day1-3", component: <DayContent day={1} card={3}><Day13 /></DayContent> },
+  { path: "/day2-1", component: <DayContent day={2} card={1}><Day21 /></DayContent> },
+  { path: "/day2-2", component: <DayContent day={2} card={2}><Day22 /></DayContent> },
+  { path: "/day2-3", component: <DayContent day={2} card={3}><Day23 /></DayContent> },
+  { path: "/day3-1", component: <DayContent day={3} card={1}><Day31 /></DayContent> },
+  { path: "/day3-2", component: <DayContent day={3} card={2}><Day32 /></DayContent> },
+  { path: "/day3-3", component: <DayContent day={3} card={3}><Day33 /></DayContent> },
+  { path: "/day4-1", component: <DayContent day={4} card={1}><Day41 /></DayContent> },
+  { path: "/day4-2", component: <DayContent day={4} card={2}><Day42 /></DayContent> },
+  { path: "/day4-3", component: <DayContent day={4} card={3}><Day43 /></DayContent> },
+  { path: "/day5-1", component: <DayContent day={5} card={1}><Day51 /></DayContent> },
+  { path: "/day5-2", component: <DayContent day={5} card={2}><Day52 /></DayContent> },
+  { path: "/day5-3", component: <DayContent day={5} card={3}><Day53 /></DayContent> },
 ];
 
 export default function App() {
   const theme = createMuiTheme({
     palette: {
-      // primary: blue,
+      primary: {
+        main: "#660362",
+        contrastText: "#FFFFFF",
+      },
+      error: {
+        main: "#EF383A",
+      },
+      text: {
+        primary: "#3487C0",
+        secondary: "#0C4D7A",
+      },
+      titlePrimary: {
+        main: "#A9F6FF",
+      },
+      titleSecondary: {
+        main: "#04E8E8",
+      },
+    },
+    typography: {
+      fontFamily: ["Poppins"],
+      fontStyle: "normal",
+      h1: {
+        fontWeight: 600,
+        fontSize: "72px",
+        lineHeight: "108px",
+      },
+      h2: {
+        fontSize: "36px",
+        lineHeight: "54px",
+      },
+      h3: {
+        fontSize: "24px",
+        lineHeight: "36px",
+      },
+      button: {
+        fontWeight: 600,
+      },
     },
   });
 
@@ -64,7 +102,7 @@ export default function App() {
           <Switch>
             {routes.map((route) => (
               <Route key={route.path} exact path={route.path}>
-                <Content filled={route.filled} component={route.component} />
+                {route.component}
               </Route>
             ))}
           </Switch>

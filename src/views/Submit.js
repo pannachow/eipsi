@@ -6,10 +6,7 @@ import Link from "@material-ui/core/Link";
 
 const styles = {
   title1: {
-    fontFamily: "Poppins",
-    fontStyle: "normal",
     color: "white",
-    fontWeight: 500,
     fontSize: "36px",
     lineHeight: "54px",
   },

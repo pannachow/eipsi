@@ -4,7 +4,6 @@ import { Typography } from "@material-ui/core";
 
 const styles = {
   bannerTitle: {
-    fontFamily: "Poppins",
     color: "#A9F6FF",
     fontWeight: 800,
     fontSize: "64px",
@@ -16,7 +15,7 @@ const styles = {
 export default function Header() {
   return (
     <Box
-      bgcolor="#660362"
+      bgcolor="primary.main"
       py={4}
       display="flex"
       flexDirection="row"

@@ -15,7 +15,7 @@ const styles = {
 
 export default function Footer() {
   return (
-    <Box bgcolor="#660362" py={4}>
+    <Box bgcolor="primary.main" py={4}>
       <Container>
         <Typography variant="h6" style={styles.text}>
           Contact Us
