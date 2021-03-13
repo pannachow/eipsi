@@ -4,39 +4,39 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
-const styles = {
+const useStyles = makeStyles((theme) => ({
   title1: {
-    color: "#A9F6FF",
+    color: theme.palette.titlePrimary.main,
   },
   title2: {
-    color: "#02E8E8",
+    color: theme.palette.titleSecondary.main,
   },
-  button: {
-    marginTop: "30px",
-    float: "right",
-  },
-};
+}));
 
 export default function DayContent({ children, day, card }) {
+  const classes = useStyles();
+
   return (
     <Box flexGrow={1} py={4}>
       <Container>
-        <Typography variant="h1" style={styles.title1} gutterBottom>
-          DAY {day} : <span style={styles.title2}>Card {card}</span>
+        <Typography variant="h1" className={classes.title1} gutterBottom>
+          DAY {day} : <span className={classes.title2}>Card {card}</span>
         </Typography>
 
         {children}
 
-        <Button
-          variant="contained"
-          style={styles.button}
-          color="primary"
-          component={Link}
-          to="/submit"
-        >
-          SUBMIT
-        </Button>
+        <Box mt="40px" display="flex" justifyContent="flex-end">
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/submit"
+          >
+            SUBMIT
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

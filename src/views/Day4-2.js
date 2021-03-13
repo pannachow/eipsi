@@ -1,95 +1,58 @@
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from '@material-ui/core/styles';
 
-const styles = {
-  title2: {
-    color: "#3487C0",
-    fontWeight: 550,
-    fontSize: "36px",
-    lineHeight: "54px",
+const useStyles = makeStyles(theme => ({
+  rowNumber: {
+    color: theme.palette.titleSecondary.main,
   },
-  title3: {
-    color: "#3487C0",
-    fontSize: "24px",
-    lineHeight: "36px",
+}));
+
+const videos = [
+  { number: 1, content: "Watching a video about Evidence-informed Practices (EIP)" },
+  { number: 2, content: "Reading an article on EIP" },
+  { number: 3, content: "Researching an EIP" },
+  {
+    number: 4,
+    content:
+      "Looking up methods and tools with EIP for the creation of high inclusion in a classroom",
   },
-  title4: {
-    color: "#04E8E8",
-    fontWeight: 600,
-    fontSize: "72px",
-    lineHeight: "108px",
-    textAlign: "center",
-  },
-  title5: {
-    color: "#0C4D7A",
-    fontSize: "24px",
-    lineHeight: "36px",
-  },
-  title6: {
-    color: "#1B5782",
-    fontWeight: 550,
-    fontSize: "36px",
-    lineHeight: "54px",
-    paddingTop: "20px",
-  },
-  textArea: {
-    width: "100%",
-    height: "91px",
-    left: "193px",
-    top: "1477px",
-    background: "#A9F6FF",
-    borderRadius: "20px",
-  },
-};
+  { number: 5, content: "Preparation for a new exercise/lecture" },
+  { number: 6, content: "Scrolling through a website for your work as a teacher" },
+];
 
 export default function Day42() {
-  const videos = [
-    { number: 1, content: "Watching a video about Evidence-informed Practices (EIP)" },
-    { number: 2, content: "Reading an article on EIP" },
-    { number: 3, content: "Researching an EIP" },
-    {
-      number: 4,
-      content:
-        "Looking up methods and tools with EIP for the creation of high inclusion in a classroom",
-    },
-    { number: 5, content: "Preparation for a new exercise/lecture" },
-    { number: 6, content: "Scrolling through a website for your work as a teacher" },
-  ];
+  const classes = useStyles();
+
   return (
     <>
-      <Box>
-        <Typography style={styles.title2}>Game time : Slide it.</Typography>
+      <Typography variant="h2" paragraph>
+        Game time : Slide it.
+      </Typography>
 
-        <Typography style={styles.title3} gutterBottom>
-          Please slide up the amount of time you will be willing to spend on:
-        </Typography>
-      </Box>
+      <Typography variant="h3" paragraph>
+        Please slide up the amount of time you will be willing to spend on:
+      </Typography>
 
-      <br />
-
-      <Grid container spacing={6} justify="center" alignItems="center">
-        {videos.map((video) => (
-          <>
-            <Grid item xs={2}>
-              <Typography style={styles.title4}>{video.number}</Typography>
-            </Grid>
-            <Grid item xs={10}>
-              <Typography style={styles.title5}>{video.content}</Typography>
-              <button>This is a slider in the future.</button>
-            </Grid>
-          </>
-        ))}
-      </Grid>
-
-      <br />
-      <Box>
-        <Typography style={styles.title6}>Name</Typography>
-        <input type="text" style={styles.textArea} />
-      </Box>
-      <Box>
-        <Typography style={styles.title6}>Email</Typography>
-        <input type="text" style={styles.textArea} />
+      <Box py="20px" color="titleSecondary">
+        <Grid container spacing={6} justify="center" alignItems="center">
+          {videos.map((video) => (
+            <>
+              <Grid item xs={2}>
+                <Typography variant="h1" className={classes.rowNumber} align="center">
+                  {video.number}
+                </Typography>
+              </Grid>
+              <Grid item xs={10}>
+                <Typography variant="h3" color="textSecondary">
+                  {video.content}
+                </Typography>
+                <button>This is a slider in the future.</button>
+              </Grid>
+            </>
+          ))}
+        </Grid>
       </Box>
     </>
   );

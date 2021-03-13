@@ -1,105 +1,45 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import TextInput from "../components/TextInput";
 
-const styles = {
-  title2: {
-    color: "#3487C0",
-    fontWeight: 600,
-    fontSize: "36px",
-    lineHeight: "54px",
-  },
-  title3: {
-    color: "#3487C0",
-    fontSize: "24px",
-    lineHeight: "36px",
-    paddingTop: "10px",
-    paddingBottom: "20px",
-  },
-  title4: {
-    color: "#0C4D7A",
-    fontSize: "36px",
-    lineHeight: "54px",
-    paddingTop: "50px",
-  },
-  title5: {
-    color: "#0C4D7A",
-    fontSize: "36px",
-    lineHeight: "54px",
-    paddingTop: "40px",
-    paddingBottom: "30px",
-    textAlign: "center",
-  },
-  textArea: {
-    width: "100%",
-    height: "91px",
-    left: "193px",
-    top: "1477px",
-    background: "#A9F6FF",
-    borderRadius: "20px",
-  },
-};
+const questions = [
+  "Tell us more about the status of inclusion in your school?",
+  "Have you ever struggled with inclusion in your classroom and why?",
+  "How would you describe your colleagues awareness of and knowledge about inclusion?",
+  "Tell us a small story about when and how the topic diversity was prominent in the classroom.",
+  "If you had all the power and money in the world, how would you make sure that topics like diversity and inclusion are spoken about in the field of education?",
+];
 
 export default function Day12() {
   return (
     <>
-      <Box>
-        <Typography style={styles.title2}>Choose and answer any one question:</Typography>
+      <Typography variant="h2" paragraph>
+        Choose and answer any one question:
+      </Typography>
 
-        <Typography style={styles.title3} gutterBottom>
-          Think about your average classroom and tell us what groups of diverse students are there
-          in your classroom on the class map.
-        </Typography>
-      </Box>
+      <Typography variant="h3" paragraph>
+        Think about your average classroom and tell us what groups of diverse students are there in
+        your classroom on the class map.
+      </Typography>
 
-      <Box>
-        <Typography style={styles.title2}>
-          1) Tell us more about the status of inclusion in your school?
-        </Typography>
-        <input type="text" style={styles.textArea} />
-        <Typography style={styles.title5}>OR</Typography>
-      </Box>
+      {questions.map((question, i) => (
+        <>
+          <Typography variant="h3" paragraph>
+            {i + 1}) {question}
+          </Typography>
 
-      <Box>
-        <Typography style={styles.title2}>
-          2) Have you ever struggled with inclusion in your classroom and why?
-        </Typography>
-        <input type="text" style={styles.textArea} />
-        <Typography style={styles.title5}>OR</Typography>
-      </Box>
+          <Box mb="20px">
+            <TextInput />
+          </Box>
 
-      <Box>
-        <Typography style={styles.title2}>
-          3) How would you describe your colleagues awareness of and knowledge about inclusion?
-        </Typography>
-        <input type="text" style={styles.textArea} />
-        <Typography style={styles.title5}>OR</Typography>
-      </Box>
-
-      <Box>
-        <Typography style={styles.title2}>
-          4) Tell us a small story about when and how the topic diversity was prominent in the
-          classroom.
-        </Typography>
-        <input type="text" style={styles.textArea} />
-        <Typography style={styles.title5}>OR</Typography>
-      </Box>
-
-      <Box>
-        <Typography style={styles.title2}>
-          5) If you had all the power and money in the world, how would you make sure that topics
-          like diversity and inclusion are spoken about in the field of education?
-        </Typography>
-        <input type="text" style={styles.textArea} />
-      </Box>
-
-      <Box>
-        <Typography style={styles.title4}>Name</Typography>
-        <input type="text" style={styles.textArea} />
-      </Box>
-      <Box>
-        <Typography style={styles.title4}>Email</Typography>
-        <input type="text" style={styles.textArea} />
-      </Box>
+          {/* Only add "or" if not the last question */}
+          {i < questions.length - 1 && (
+            <Typography variant="h2" color="textSecondary" align="center" paragraph>
+              or
+            </Typography>
+          )}
+        </>
+      ))}
     </>
   );
 }

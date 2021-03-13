@@ -38,9 +38,10 @@ const availableFigures = [
   { type: 4, src: "openmoji_woman-student.png" },
 ];
 
-export default function DragAndDrop() {
+export default function DragAndDrop({ labelA, labelB, labelC }) {
   const borderSize = 3;
-  const borderColor = "#ff0000";
+  const borderColor = "#EF383A";
+  const textColor = "black";
   const [aFigures, setAFigures] = useState([]);
   const [bFigures, setBFigures] = useState([]);
   const [c1Figures, setC1Figures] = useState([]);
@@ -94,23 +95,18 @@ export default function DragAndDrop() {
                   borderLeft={0}
                   borderTop={0}
                   borderColor={borderColor}
+                  color={textColor}
                 >
+                  <Typography style={styles.text} align="right">
+                    {labelA}
+                  </Typography>
                   <DropArea
-                    limit={4}
+                    limit={6}
                     figures={aFigures}
                     setFigures={setAFigures}
                     isDragging={isDragging}
                     height={280}
                   >
-                    <Typography style={styles.text} align="right">
-                      Socio
-                    </Typography>
-                    <Typography style={styles.text} align="right">
-                      Economic
-                    </Typography>
-                    <Typography style={styles.text} align="right">
-                      Diversity
-                    </Typography>
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
                       {aFigures.map((figure, i) => (
                         <Figure key={i} figure={figure} />
@@ -126,23 +122,18 @@ export default function DragAndDrop() {
                   borderRight={0}
                   borderTop={0}
                   borderColor={borderColor}
+                  color={textColor}
                 >
+                  <Typography style={styles.text} align="left">
+                    {labelB}
+                  </Typography>
                   <DropArea
-                    limit={4}
+                    limit={6}
                     figures={bFigures}
                     setFigures={setBFigures}
                     isDragging={isDragging}
                     height={280}
                   >
-                    <Typography style={styles.text} align="left">
-                      Differently
-                    </Typography>
-                    <Typography style={styles.text} align="left">
-                      Abled
-                    </Typography>
-                    <Typography style={styles.text} align="left">
-                      &nbsp;
-                    </Typography>
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
                       {bFigures.map((figure, i) => (
                         <Figure key={i} figure={figure} />
@@ -153,11 +144,11 @@ export default function DragAndDrop() {
               </Grid>
 
               <Grid item xs={12}>
-                <Box p={1} borderTop={borderSize} borderColor={borderColor}>
+                <Box p={1} borderTop={borderSize} borderColor={borderColor} color={textColor}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       <Typography style={styles.text} align="center">
-                        Other - Please Specify
+                        {labelC}
                       </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>

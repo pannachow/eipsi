@@ -29,6 +29,7 @@ import Day52 from "./views/Day5-2";
 import Day53 from "./views/Day5-3";
 import Submit from "./views/Submit";
 
+// prettier-ignore
 const routes = [
   { path: "/", component: <Content><Home /></Content> },
   { path: "/submit", component: <Content><Submit /></Content> },
@@ -54,7 +55,20 @@ export default function App() {
     palette: {
       primary: {
         main: "#660362",
-        contrastText: "#ffffff",
+        contrastText: "#FFFFFF",
+      },
+      error: {
+        main: "#EF383A",
+      },
+      text: {
+        primary: "#3487C0",
+        secondary: "#0C4D7A",
+      },
+      titlePrimary: {
+        main: "#A9F6FF",
+      },
+      titleSecondary: {
+        main: "#04E8E8",
       },
     },
     typography: {
@@ -64,6 +78,14 @@ export default function App() {
         fontWeight: 600,
         fontSize: "72px",
         lineHeight: "108px",
+      },
+      h2: {
+        fontSize: "36px",
+        lineHeight: "54px",
+      },
+      h3: {
+        fontSize: "24px",
+        lineHeight: "36px",
       },
       button: {
         fontWeight: 600,

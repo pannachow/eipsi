@@ -6,143 +6,87 @@ import Link from "@material-ui/core/Link";
 import DoneIcon from "@material-ui/icons/Done";
 import IconButton from "@material-ui/core/IconButton";
 
-const styles = {
-  title2: {
-    color: "#3487C0",
-    fontWeight: 550,
-    fontSize: "36px",
-    lineHeight: "54px",
+const articles = [
+  {
+    label: "5 Signs That a Classroom Is Inclusive | Reading Rockets",
+    link: "https://www.readingrockets.org/article/5-signs-classroom-inclusive",
   },
-  title3: {
-    color: "#3487C0",
-    fontSize: "24px",
-    lineHeight: "36px",
+  {
+    label: "50 Tips and Tricks to Facilitating a More Inclusive Classroom | Weareteachers.com",
+    link: "https://www.weareteachers.com/tips-tricks-inclusive-classroom",
   },
-  title4: {
-    color: "#04E8E8",
-    fontWeight: 600,
-    fontSize: "72px",
-    lineHeight: "108px",
+  {
+    label: "Teacher education for inclusion: Can a virtual learning object help? | ScienceDirect",
+    link:
+      "https://www.sciencedirect.com/science/article/abs/pii/S0360131515000706?casa_token=AaRqWh28zoYAAAAA:gGQc-Uy7QOn4UGAe5sdTW0Lk9Pp3KvURd4Jt2rFDAKIPSb9F0-31C9ikZqflL7B3giIPIkHIiw",
   },
-  title5: {
-    color: "#0C4D7A",
-    fontSize: "24px",
-    lineHeight: "36px",
-  },
-  title6: {
-    color: "#1B5782",
-    fontWeight: 550,
-    fontSize: "36px",
-    lineHeight: "54px",
-    paddingTop: "20px",
-  },
-  textArea: {
-    width: "100%",
-    height: "91px",
-    left: "193px",
-    top: "1477px",
-    background: "#A9F6FF",
-    borderRadius: "20px",
-  },
-};
+];
 
 export default function Day32() {
   const [choice, setChoice] = useState(null);
 
   return (
     <>
-      <Box alignItems="left">
-        <Typography style={styles.title2}>
-          3 research articles, which one is research-informed?
-        </Typography>
+      <Typography variant="h2" paragraph>
+        3 research articles, which one is research-informed?
+      </Typography>
 
-        <Typography style={styles.title3} gutterBottom>
-          Open the three links for the articles and find out which one is an evidence based practice
-          / resources. Mark your answer and let us know.
-        </Typography>
-      </Box>
+      <Typography variant="h3" paragraph>
+        Open the three links for the articles and find out which one is an evidence based practice /
+        resources. Mark your answer and let us know.
+      </Typography>
 
-      <Grid container spacing={1} alignItems="center">
-        <Row
-          number={1}
-          selected={choice}
-          setSelected={setChoice}
-          label="Article 1 - 5 Signs That a Classroom Is Inclusive | Reading Rockets"
-          value="1"
-          link="https://www.readingrockets.org/article/5-signs-classroom-inclusive"
-        />
-        <Row
-          number={2}
-          selected={choice}
-          setSelected={setChoice}
-          label="Article 2 - 50 Tips and Tricks to Facilitating a More Inclusive Classroom | Weareteachers.com"
-          value="2"
-          link="https://www.weareteachers.com/tips-tricks-inclusive-classroom/"
-        />
-        <Row
-          number={3}
-          selected={choice}
-          setSelected={setChoice}
-          label="Article 3 - Teacher education for inclusion: Can a virtual learning object help? | ScienceDirect"
-          value="3"
-          link="https://www.sciencedirect.com/science/article/abs/pii/S0360131515000706?casa_token=AaRqWh28zoYAAAAA:gGQc-Uy7QOn4UGAe5sdTW0Lk9Pp3KvURd4Jt2rFDAKIPSb9F0-31C9ikZqflL7B3giIPIkHIiw"
-        />
-      </Grid>
-
-      <br />
-      <Box>
-        <Typography style={styles.title6}>Name</Typography>
-        <input type="text" style={styles.textArea} />
-      </Box>
-      <Box>
-        <Typography style={styles.title6}>Email</Typography>
-        <input type="text" style={styles.textArea} />
+      <Box mb="20px">
+        <Grid container spacing={2} alignItems="center">
+          {articles.map((article, i) => (
+            <Row
+              number={i + 1}
+              selected={choice}
+              setSelected={setChoice}
+              label={article.label}
+              value={i}
+              link={article.link}
+            />
+          ))}
+        </Grid>
       </Box>
     </>
   );
 }
 
 function Row({ number, selected, setSelected, label, value, link }) {
+  const size = "40px";
   return (
     <>
       <Grid item xs={1}>
-        <Typography style={styles.title4}>{number}</Typography>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bgcolor="#FFE843"
+          borderRadius="50%"
+          width={size}
+          height={size}
+          boxShadow={2}
+          my={4}
+        >
+          <IconButton style={{ width: size, height: size }} onClick={() => setSelected(value)}>
+            {selected === value && <DoneIcon />}
+          </IconButton>
+        </Box>
       </Grid>
-      <Grid item xs={11}>
-        <Choice
-          selected={selected}
-          setSelected={setSelected}
-          label={label}
-          value={value}
-          link={link}
-        />
+
+      <Grid item xs={3}>
+        <Typography variant="h2">Article {number} -</Typography>
+      </Grid>
+
+      <Grid item xs={8}>
+        <Link href={link}>
+          <Typography variant="h3" color="textSecondary">
+            {label}
+          </Typography>
+        </Link>
       </Grid>
     </>
-  );
-}
-
-function Choice({ selected, setSelected, label, value, link }) {
-  const size = "40px";
-  return (
-    <Box display="flex" flexDirection="row" alignItems="center">
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        bgcolor="#FFE843"
-        borderRadius="50%"
-        width={size}
-        height={size}
-        boxShadow={2}
-      >
-        <IconButton style={{ width: size, height: size }} onClick={() => setSelected(value)}>
-          {selected === value && <DoneIcon />}
-        </IconButton>
-      </Box>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Link href={link}>
-        <Typography style={styles.title5}>{label}</Typography>
-      </Link>
-    </Box>
   );
 }
