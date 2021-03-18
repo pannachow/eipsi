@@ -4,7 +4,7 @@ A project for Evidence Informed Practice for School Inclusion approach (EIPSI).
 
 Our sprint 1 project showcase: https://pannachow.io/eipsi
 
-Introduction of the DSS project: https://digitalsocietyschool.org/project/eipsi/
+Introduction of the DSS project: https://digitalsocietyschool.org/project/eipsi
 
 
 ## Development
