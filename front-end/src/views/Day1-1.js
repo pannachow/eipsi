@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
 
 export default function Day11() {
   return (
@@ -39,7 +39,7 @@ export default function Day11() {
         think of one word to describe your workday today.
       </Typography>
 
-      <TextInput />
+      <TextField />
 
       <SubmitButton />
     </>

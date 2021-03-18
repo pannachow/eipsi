@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
 
 const styles = {
   clear: {
@@ -60,7 +60,7 @@ export default function Day51() {
         What is something we haven't asked but you would like to tell us?
       </Typography>
 
-      <TextInput />
+      <TextField />
 
       <SubmitButton />
     </>

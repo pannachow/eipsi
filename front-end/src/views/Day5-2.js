@@ -2,7 +2,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
 
 export default function Day52() {
   return (
@@ -23,7 +23,7 @@ export default function Day52() {
       </Typography>
 
       <Box py="40px">
-        <TextInput />
+        <TextField />
       </Box>
 
       <Typography variant="h2" paragraph>
@@ -34,7 +34,7 @@ export default function Day52() {
         What is something we haven't asked but you would like to tell us?
       </Typography>
 
-      <TextInput multiline />
+      <TextField multiline />
 
       <SubmitButton />
     </>

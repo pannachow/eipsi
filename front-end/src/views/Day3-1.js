@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
 
 const styles = {
   clear: {
@@ -55,7 +55,7 @@ export default function Day31() {
               {question}
             </Typography>
             <Box mb="20px">
-              <TextInput />
+              <TextField />
             </Box>
           </>
         ))}
@@ -84,7 +84,7 @@ export default function Day31() {
         </IconButton>
       </Box>
 
-      <TextInput />
+      <TextField />
 
       <SubmitButton />
     </>

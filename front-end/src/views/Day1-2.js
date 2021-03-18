@@ -1,10 +1,14 @@
+import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
+import { useForm } from "../hooks";
 
-const questions = [
+const BASE_URL = "http://localhost:3001";
+
+const QUESTIONS = [
   "Tell us more about the status of inclusion in your school?",
   "Have you ever struggled with inclusion in your classroom and why?",
   "How would you describe your colleagues awareness of and knowledge about inclusion?",
@@ -13,8 +17,25 @@ const questions = [
 ];
 
 export default function Day12() {
+  const { register, handleSubmit, errors } = useForm();
+
+  async function onSubmit(answers) {
+    const body = QUESTIONS.map((question, i) => ({
+      question: question,
+      answer: answers[i],
+    }));
+
+    await fetch(BASE_URL + "/day1-2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  }
+
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <DayCardTitle day={1} card={2} />
 
       <Typography variant="h2" paragraph>
@@ -26,26 +47,30 @@ export default function Day12() {
         your classroom on the class map.
       </Typography>
 
-      {questions.map((question, i) => (
-        <>
+      {QUESTIONS.map((question, i) => (
+        <React.Fragment key={i}>
           <Typography variant="h3" paragraph>
             {i + 1}) {question}
           </Typography>
 
           <Box mb="20px">
-            <TextInput />
+            <TextField
+              name={i.toString()}
+              ref={register({ required: true })}
+              error={Boolean(errors[i])}
+            />
           </Box>
 
           {/* Only add "or" if not the last question */}
-          {i < questions.length - 1 && (
+          {i < QUESTIONS.length - 1 && (
             <Typography variant="h2" color="textSecondary" align="center" paragraph>
               or
             </Typography>
           )}
-        </>
+        </React.Fragment>
       ))}
 
       <SubmitButton />
-    </>
+    </form>
   );
 }

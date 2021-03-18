@@ -8,7 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
 
 const styles = {
   emoji: {
@@ -87,7 +87,7 @@ export default function Day21() {
         Tell us why you feel like this towards the Evidence based Practices.
       </Typography>
 
-      <TextInput />
+      <TextField />
 
       <SubmitButton />
     </>

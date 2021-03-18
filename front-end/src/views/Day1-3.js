@@ -4,7 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
-import TextInput from "../components/TextInput";
+import TextField from "../components/TextField";
 
 export default function Day13() {
   return (
@@ -35,7 +35,7 @@ export default function Day13() {
             </IconButton>
           </Grid>
           <Grid item sm={9}>
-            <TextInput bgcolor="#E76024" placeholder="Add text to Mood board." color="white" />
+            <TextField bgcolor="#E76024" placeholder="Add text to Mood board." color="white" />
           </Grid>
         </Grid>
       </Box>
@@ -48,7 +48,7 @@ export default function Day13() {
         think of one word to describe your workday today.
       </Typography>
 
-      <TextInput />
+      <TextField />
 
       <SubmitButton />
     </>

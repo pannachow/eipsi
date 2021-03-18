@@ -1,18 +1,10 @@
-import { useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 
 export default function SubmitButton({ onClick }) {
-  const history = useHistory();
-
-  async function onInternalClick() {
-    onClick && await onClick();
-    history.push("/submit");
-  }
-
   return (
     <Box mt="40px" display="flex" justifyContent="flex-end">
-      <Button variant="contained" color="primary" onClick={onInternalClick}>
+      <Button variant="contained" color="primary" type="submit" onClick={onClick}>
         SUBMIT
       </Button>
     </Box>
