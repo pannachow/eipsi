@@ -5,8 +5,8 @@ import Button from "@material-ui/core/Button";
 export default function SubmitButton({ onClick }) {
   const history = useHistory();
 
-  function onInternalClick() {
-    onClick && onClick();
+  async function onInternalClick() {
+    onClick && await onClick();
     history.push("/submit");
   }
 
