@@ -1,10 +1,14 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
+import SubmitButton from "../components/SubmitButton";
 
 export default function Day22() {
   return (
     <>
+      <DayCardTitle day={2} card={2} />
+
       <Typography variant="h2" paragraph>
         Drag and Drop.
       </Typography>
@@ -26,6 +30,8 @@ export default function Day22() {
           labelC="Other (family, friends, etc) - Please Specify"
         />
       </Box>
+
+      <SubmitButton />
     </>
   );
 }

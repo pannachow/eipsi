@@ -1,10 +1,14 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 import TextInput from "../components/TextInput";
 
 export default function Day52() {
   return (
     <>
+      <DayCardTitle day={5} card={2} />
+
       <Typography variant="h2" paragraph>
         Note to Self!
       </Typography>
@@ -31,6 +35,8 @@ export default function Day52() {
       </Typography>
 
       <TextInput multiline />
+
+      <SubmitButton />
     </>
   );
 }

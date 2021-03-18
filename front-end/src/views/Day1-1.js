@@ -1,11 +1,15 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
+import SubmitButton from "../components/SubmitButton";
 import TextInput from "../components/TextInput";
 
 export default function Day11() {
   return (
     <>
+      <DayCardTitle day={1} card={1} />
+
       <Typography variant="h2" paragraph>
         Show us the diversity of your classroom.
       </Typography>
@@ -36,6 +40,8 @@ export default function Day11() {
       </Typography>
 
       <TextInput />
+
+      <SubmitButton />
     </>
   );
 }

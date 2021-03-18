@@ -4,6 +4,8 @@ import Box from "@material-ui/core/Box";
 import CanvasDraw from "react-canvas-draw";
 import Container from "@material-ui/core/Container";
 import { IconButton } from "@material-ui/core";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 import TextInput from "../components/TextInput";
 
 const styles = {
@@ -20,6 +22,8 @@ export default function Day51() {
 
   return (
     <>
+      <DayCardTitle day={5} card={1} />
+
       <Typography variant="h2" paragraph>
         Draw it!
       </Typography>
@@ -57,6 +61,8 @@ export default function Day51() {
       </Typography>
 
       <TextInput />
+
+      <SubmitButton />
     </>
   );
 }

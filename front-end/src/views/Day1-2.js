@@ -1,5 +1,7 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 import TextInput from "../components/TextInput";
 
 const questions = [
@@ -13,6 +15,8 @@ const questions = [
 export default function Day12() {
   return (
     <>
+      <DayCardTitle day={1} card={2} />
+
       <Typography variant="h2" paragraph>
         Choose and answer any one question:
       </Typography>
@@ -40,6 +44,8 @@ export default function Day12() {
           )}
         </>
       ))}
+
+      <SubmitButton />
     </>
   );
 }

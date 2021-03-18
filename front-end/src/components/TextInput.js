@@ -1,24 +1,27 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   textArea: {
     width: "100%",
-    background: theme.palette.titlePrimary.main,
     border: 0,
     borderRadius: "20px",
     padding: "20px",
     fontFamily: theme.typography.fontFamily,
-    color: theme.palette.text.primary,
   },
 }));
 
-export default function TextInput({ multiline }) {
+export default function TextInput({ multiline, bgcolor, color, placeholder }) {
   const classes = useStyles();
-  const style = { height: multiline ? "182px" : "91px" };
+  const theme = useTheme();
+  const style = {
+    height: multiline ? "182px" : "91px",
+    background: bgcolor || theme.palette.titlePrimary.main,
+    color: color || theme.palette.text.primary,
+  };
 
   return multiline ? (
-    <textarea className={classes.textArea} style={style} />
+    <textarea className={classes.textArea} style={style} placeholder={placeholder} />
   ) : (
-    <input type="text" className={classes.textArea} style={style} />
+    <input type="text" className={classes.textArea} style={style} placeholder={placeholder} />
   );
 }

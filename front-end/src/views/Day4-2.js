@@ -1,9 +1,11 @@
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   rowNumber: {
     color: theme.palette.titleSecondary.main,
   },
@@ -27,6 +29,8 @@ export default function Day42() {
 
   return (
     <>
+      <DayCardTitle day={4} card={2} />
+
       <Typography variant="h2" paragraph>
         Game time : Slide it.
       </Typography>
@@ -54,6 +58,8 @@ export default function Day42() {
           ))}
         </Grid>
       </Box>
+
+      <SubmitButton />
     </>
   );
 }

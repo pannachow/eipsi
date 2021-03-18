@@ -40,7 +40,7 @@ const availableFigures = [
 
 export default function DragAndDrop({ labelA, labelB, labelC }) {
   const borderSize = 3;
-  const borderColor = "#EF383A";
+  const borderColor = "error.main";
   const textColor = "black";
   const [aFigures, setAFigures] = useState([]);
   const [bFigures, setBFigures] = useState([]);
@@ -264,7 +264,7 @@ function DropArea({ children, figures, setFigures, limit, isDragging, height, wi
   return (
     <Box
       ref={drop}
-      bgcolor="#F4CE12"
+      bgcolor="warning.main"
       borderRadius="10px"
       p={1}
       height={height}

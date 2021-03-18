@@ -8,7 +8,6 @@ import {
   unstable_createMuiStrictModeTheme as createMuiTheme,
 } from "@material-ui/core/styles";
 import Header from "./components/Header";
-import DayContent from "./components/DayContent";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
@@ -31,23 +30,23 @@ import Submit from "./views/Submit";
 
 // prettier-ignore
 const routes = [
-  { path: "/", component: <Content><Home /></Content> },
-  { path: "/submit", component: <Content><Submit /></Content> },
-  { path: "/day1-1", component: <DayContent day={1} card={1}><Day11 /></DayContent> },
-  { path: "/day1-2", component: <DayContent day={1} card={2}><Day12 /></DayContent> },
-  { path: "/day1-3", component: <DayContent day={1} card={3}><Day13 /></DayContent> },
-  { path: "/day2-1", component: <DayContent day={2} card={1}><Day21 /></DayContent> },
-  { path: "/day2-2", component: <DayContent day={2} card={2}><Day22 /></DayContent> },
-  { path: "/day2-3", component: <DayContent day={2} card={3}><Day23 /></DayContent> },
-  { path: "/day3-1", component: <DayContent day={3} card={1}><Day31 /></DayContent> },
-  { path: "/day3-2", component: <DayContent day={3} card={2}><Day32 /></DayContent> },
-  { path: "/day3-3", component: <DayContent day={3} card={3}><Day33 /></DayContent> },
-  { path: "/day4-1", component: <DayContent day={4} card={1}><Day41 /></DayContent> },
-  { path: "/day4-2", component: <DayContent day={4} card={2}><Day42 /></DayContent> },
-  { path: "/day4-3", component: <DayContent day={4} card={3}><Day43 /></DayContent> },
-  { path: "/day5-1", component: <DayContent day={5} card={1}><Day51 /></DayContent> },
-  { path: "/day5-2", component: <DayContent day={5} card={2}><Day52 /></DayContent> },
-  { path: "/day5-3", component: <DayContent day={5} card={3}><Day53 /></DayContent> },
+  { path: "/", component: <Home />, filled: true },
+  { path: "/submit", component: <Submit />, filled: true },
+  { path: "/day1-1", component: <Day11 />, filled: false },
+  { path: "/day1-2", component: <Day12 />, filled: false },
+  { path: "/day1-3", component: <Day13 />, filled: false },
+  { path: "/day2-1", component: <Day21 />, filled: false },
+  { path: "/day2-2", component: <Day22 />, filled: false },
+  { path: "/day2-3", component: <Day23 />, filled: false },
+  { path: "/day3-1", component: <Day31 />, filled: false },
+  { path: "/day3-2", component: <Day32 />, filled: false },
+  { path: "/day3-3", component: <Day33 />, filled: false },
+  { path: "/day4-1", component: <Day41 />, filled: false },
+  { path: "/day4-2", component: <Day42 />, filled: false },
+  { path: "/day4-3", component: <Day43 />, filled: false },
+  { path: "/day5-1", component: <Day51 />, filled: false },
+  { path: "/day5-2", component: <Day52 />, filled: false },
+  { path: "/day5-3", component: <Day53 />, filled: false },
 ];
 
 export default function App() {
@@ -59,6 +58,9 @@ export default function App() {
       },
       error: {
         main: "#EF383A",
+      },
+      warning: {
+        main: "#F4CE12",
       },
       text: {
         primary: "#3487C0",
@@ -102,7 +104,9 @@ export default function App() {
           <Switch>
             {routes.map((route) => (
               <Route key={route.path} exact path={route.path}>
-                {route.component}
+                <Content filled={route.filled}>
+                  {route.component}
+                </Content>
               </Route>
             ))}
           </Switch>

@@ -6,6 +6,8 @@ import CanvasDraw from "react-canvas-draw";
 import Container from "@material-ui/core/Container";
 import Checkbox from "@material-ui/core/Checkbox";
 import { IconButton } from "@material-ui/core";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 import TextInput from "../components/TextInput";
 
 const styles = {
@@ -39,6 +41,8 @@ export default function Day21() {
 
   return (
     <>
+      <DayCardTitle day={2} card={1} />
+
       <Typography variant="h2" paragraph>
         Draw a face that shows how confident you are with using evidence informed data
       </Typography>
@@ -84,6 +88,8 @@ export default function Day21() {
       </Typography>
 
       <TextInput />
+
+      <SubmitButton />
     </>
   );
 }

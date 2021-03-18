@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import DoneIcon from "@material-ui/icons/Done";
 import IconButton from "@material-ui/core/IconButton";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 
 const articles = [
   {
@@ -27,6 +29,8 @@ export default function Day32() {
 
   return (
     <>
+      <DayCardTitle day={3} card={2} />
+
       <Typography variant="h2" paragraph>
         3 research articles, which one is research-informed?
       </Typography>
@@ -50,6 +54,8 @@ export default function Day32() {
           ))}
         </Grid>
       </Box>
+
+      <SubmitButton />
     </>
   );
 }

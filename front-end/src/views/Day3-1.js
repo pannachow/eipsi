@@ -3,6 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import CanvasDraw from "react-canvas-draw";
 import { useRef } from "react";
 import { IconButton } from "@material-ui/core";
+import DayCardTitle from "../components/DayCardTitle";
+import SubmitButton from "../components/SubmitButton";
 import TextInput from "../components/TextInput";
 
 const styles = {
@@ -26,6 +28,8 @@ export default function Day31() {
 
   return (
     <>
+      <DayCardTitle day={3} card={1} />
+
       <Typography variant="h2" paragraph>
         Imagine!
       </Typography>
@@ -81,6 +85,8 @@ export default function Day31() {
       </Box>
 
       <TextInput />
+
+      <SubmitButton />
     </>
   );
 }
