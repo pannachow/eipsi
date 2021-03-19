@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 
 export default function Day13() {
@@ -50,7 +50,7 @@ export default function Day13() {
 
       <TextField />
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

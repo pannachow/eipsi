@@ -1,6 +1,6 @@
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 
 export default function Day23() {
   return (
@@ -16,7 +16,7 @@ export default function Day23() {
         Evidence-Informed and Evidence-Based Practices
       </Typography>
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

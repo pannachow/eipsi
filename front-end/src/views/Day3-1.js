@@ -4,7 +4,7 @@ import CanvasDraw from "react-canvas-draw";
 import { useRef } from "react";
 import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 
 const styles = {
@@ -86,7 +86,7 @@ export default function Day31() {
 
       <TextField />
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

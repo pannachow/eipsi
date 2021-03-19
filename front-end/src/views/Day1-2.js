@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 import { useForm } from "../hooks";
 
@@ -19,10 +19,10 @@ const QUESTIONS = [
 export default function Day12() {
   const { register, handleSubmit, errors } = useForm();
 
-  async function onSubmit(answers) {
-    const body = QUESTIONS.map((question, i) => ({
+  async function onSubmit(data) {
+    const questions = QUESTIONS.map((question, i) => ({
       question: question,
-      answer: answers[i],
+      answer: data[i],
     }));
 
     await fetch(BASE_URL + "/day1-2", {
@@ -30,7 +30,11 @@ export default function Day12() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        questions,
+      }),
     });
   }
 
@@ -56,7 +60,7 @@ export default function Day12() {
           <Box mb="20px">
             <TextField
               name={i.toString()}
-              ref={register({ required: true })}
+              ref={register({ required: false })}
               error={Boolean(errors[i])}
             />
           </Box>
@@ -70,7 +74,7 @@ export default function Day12() {
         </React.Fragment>
       ))}
 
-      <SubmitButton />
+      <Submit register={register} />
     </form>
   );
 }

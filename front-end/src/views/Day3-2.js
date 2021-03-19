@@ -6,7 +6,7 @@ import Link from "@material-ui/core/Link";
 import DoneIcon from "@material-ui/icons/Done";
 import IconButton from "@material-ui/core/IconButton";
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 
 const articles = [
   {
@@ -55,7 +55,7 @@ export default function Day32() {
         </Grid>
       </Box>
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

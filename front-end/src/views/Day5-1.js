@@ -5,7 +5,7 @@ import CanvasDraw from "react-canvas-draw";
 import Container from "@material-ui/core/Container";
 import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 
 const styles = {
@@ -62,7 +62,7 @@ export default function Day51() {
 
       <TextField />
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

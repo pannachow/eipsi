@@ -6,7 +6,7 @@ import DoneIcon from "@material-ui/icons/Done";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from '@material-ui/core/styles';
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 
 const useStyles = makeStyles(theme => ({
   rowNumber: {
@@ -73,7 +73,7 @@ export default function Day41() {
         </Grid>
       </Box>
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

@@ -2,7 +2,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 
 export default function Day11() {
@@ -41,7 +41,7 @@ export default function Day11() {
 
       <TextField />
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }

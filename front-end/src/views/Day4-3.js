@@ -1,12 +1,12 @@
 import DayCardTitle from "../components/DayCardTitle";
-import SubmitButton from "../components/SubmitButton";
+import Submit from "../components/Submit";
 
 export default function Day43() {
   return (
     <>
       <DayCardTitle day={4} card={3} />
 
-      <SubmitButton />
+      <Submit />
     </>
   );
 }
