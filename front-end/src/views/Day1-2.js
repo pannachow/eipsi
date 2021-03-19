@@ -67,7 +67,7 @@ export default function Day12() {
         </React.Fragment>
       ))}
 
-      <Submit register={register} />
+      <Submit register={register} errors={errors} />
     </form>
   );
 }

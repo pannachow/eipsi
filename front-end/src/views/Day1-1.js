@@ -1,13 +1,26 @@
+import { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
+import { useApi, useForm } from "../hooks";
 
 export default function Day11() {
+  const api = useApi();
+  const { register, handleSubmit, errors } = useForm();
+  const [dnd, setDnd] = useState(null);
+
+  async function onSubmit(data) {
+    await api.post("/day1-1", {
+      ...data,
+      dnd,
+    });
+  }
+
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <DayCardTitle day={1} card={1} />
 
       <Typography variant="h2" paragraph>
@@ -28,6 +41,8 @@ export default function Day11() {
           labelA="Socio Economic Diversity"
           labelB="Differently Abled"
           labelC="Other - Please Specify"
+          state={dnd}
+          setState={setDnd}
         />
       </Box>
 
@@ -39,9 +54,13 @@ export default function Day11() {
         think of one word to describe your workday today.
       </Typography>
 
-      <TextField />
+      <TextField
+        name="dayDescription"
+        ref={register({ required: true })}
+        error={Boolean(errors["dayDescription"])}
+      />
 
-      <Submit />
-    </>
+      <Submit register={register} errors={errors} />
+    </form>
   );
 }

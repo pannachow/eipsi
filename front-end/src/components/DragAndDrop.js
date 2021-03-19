@@ -29,41 +29,68 @@ const styles = {
 };
 
 const availableFigures = [
-  { type: 1, src: "openmoji_man-student-medium-skin-tone.png" },
+  { type: "man-student-medium-skin-tone", src: "openmoji_man-student-medium-skin-tone.png" },
   {
-    type: 2,
+    type: "woman-student-medium-dark-skin-tone",
     src: "openmoji_woman-student-medium-dark-skin-tone.png",
   },
-  { type: 3, src: "openmoji_student.png" },
-  { type: 4, src: "openmoji_woman-student.png" },
+  { type: "student", src: "openmoji_student.png" },
+  { type: "woman-student", src: "openmoji_woman-student.png" },
 ];
 
-export default function DragAndDrop({ labelA, labelB, labelC }) {
+function defaultState(labelA, labelB) {
+  return {
+    a: {
+      label: labelA,
+      figures: [],
+    },
+    b: {
+      label: labelB,
+      figures: [],
+    },
+    c1: {
+      label: "",
+      figures: [],
+    },
+    c2: {
+      label: "",
+      figures: [],
+    },
+    c3: {
+      label: "",
+      figures: [],
+    },
+    c4: {
+      label: "",
+      figures: [],
+    },
+    c5: {
+      label: "",
+      figures: [],
+    },
+    c6: {
+      label: "",
+      figures: [],
+    },
+  };
+}
+
+export default function DragAndDrop({ labelA, labelB, labelC, state, setState }) {
   const borderSize = 3;
   const borderColor = "error.main";
   const textColor = "black";
-  const [aFigures, setAFigures] = useState([]);
-  const [bFigures, setBFigures] = useState([]);
-  const [c1Figures, setC1Figures] = useState([]);
-  const [c2Figures, setC2Figures] = useState([]);
-  const [c3Figures, setC3Figures] = useState([]);
-  const [c4Figures, setC4Figures] = useState([]);
-  const [c5Figures, setC5Figures] = useState([]);
-  const [c6Figures, setC6Figures] = useState([]);
+
+  state = state || defaultState(labelA, labelB);
+
+  const stateRef = useRef();
+  stateRef.current = state;
   const [isDragging, setIsDragging] = useState(false);
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
   function clearAll() {
-    setAFigures([]);
-    setBFigures([]);
-    setC1Figures([]);
-    setC2Figures([]);
-    setC3Figures([]);
-    setC4Figures([]);
-    setC5Figures([]);
-    setC6Figures([]);
+    setState(defaultState(labelA, labelB));
   }
 
   return (
@@ -102,13 +129,21 @@ export default function DragAndDrop({ labelA, labelB, labelC }) {
                   </Typography>
                   <DropArea
                     limit={6}
-                    figures={aFigures}
-                    setFigures={setAFigures}
+                    figures={state.a.figures}
+                    setFigures={(figures) =>
+                      setState({
+                        ...stateRef.current,
+                        a: {
+                          label: labelA,
+                          figures,
+                        },
+                      })
+                    }
                     isDragging={isDragging}
                     height={280}
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      {aFigures.map((figure, i) => (
+                      {state.a.figures.map((figure, i) => (
                         <Figure key={i} figure={figure} />
                       ))}
                     </Box>
@@ -129,13 +164,21 @@ export default function DragAndDrop({ labelA, labelB, labelC }) {
                   </Typography>
                   <DropArea
                     limit={6}
-                    figures={bFigures}
-                    setFigures={setBFigures}
+                    figures={state.b.figures}
+                    setFigures={(figures) =>
+                      setState({
+                        ...stateRef.current,
+                        b: {
+                          label: labelB,
+                          figures,
+                        },
+                      })
+                    }
                     isDragging={isDragging}
                     height={280}
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      {bFigures.map((figure, i) => (
+                      {state.b.figures.map((figure, i) => (
                         <Figure key={i} figure={figure} />
                       ))}
                     </Box>
@@ -153,48 +196,78 @@ export default function DragAndDrop({ labelA, labelB, labelC }) {
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <OtherDropArea
-                        figures={c1Figures}
-                        setFigures={setC1Figures}
+                        state={state.c1}
+                        setState={(areaState) =>
+                          setState({
+                            ...stateRef.current,
+                            c1: areaState,
+                          })
+                        }
                         isDragging={isDragging}
                         align="left"
                       />
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <OtherDropArea
-                        figures={c2Figures}
-                        setFigures={setC2Figures}
+                        state={state.c2}
+                        setState={(areaState) =>
+                          setState({
+                            ...stateRef.current,
+                            c2: areaState,
+                          })
+                        }
                         isDragging={isDragging}
                         align="right"
                       />
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <OtherDropArea
-                        figures={c3Figures}
-                        setFigures={setC3Figures}
+                        state={state.c3}
+                        setState={(areaState) =>
+                          setState({
+                            ...stateRef.current,
+                            c3: areaState,
+                          })
+                        }
                         isDragging={isDragging}
                         align="left"
                       />
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <OtherDropArea
-                        figures={c4Figures}
-                        setFigures={setC4Figures}
+                        state={state.c4}
+                        setState={(areaState) =>
+                          setState({
+                            ...stateRef.current,
+                            c4: areaState,
+                          })
+                        }
                         isDragging={isDragging}
                         align="right"
                       />
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <OtherDropArea
-                        figures={c5Figures}
-                        setFigures={setC5Figures}
+                        state={state.c5}
+                        setState={(areaState) =>
+                          setState({
+                            ...stateRef.current,
+                            c5: areaState,
+                          })
+                        }
                         isDragging={isDragging}
                         align="left"
                       />
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <OtherDropArea
-                        figures={c6Figures}
-                        setFigures={setC6Figures}
+                        state={state.c6}
+                        setState={(areaState) =>
+                          setState({
+                            ...stateRef.current,
+                            c6: areaState,
+                          })
+                        }
                         isDragging={isDragging}
                         align="right"
                       />
@@ -210,7 +283,7 @@ export default function DragAndDrop({ labelA, labelB, labelC }) {
   );
 }
 
-function OtherDropArea({ figures, setFigures, isDragging, align }) {
+function OtherDropArea({ state, setState, isDragging, align }) {
   return (
     <Box
       display="flex"
@@ -226,20 +299,31 @@ function OtherDropArea({ figures, setFigures, isDragging, align }) {
       )}
       <DropArea
         limit={1}
-        figures={figures}
-        setFigures={setFigures}
+        figures={state.figures}
+        setFigures={(figures) => setState({
+          ...state,
+          figures,
+        })}
         isDragging={isDragging}
         height={100}
         width={100}
       >
-        {figures.map((figure, i) => (
+        {state.figures.map((figure, i) => (
           <Figure key={i} figure={figure} />
         ))}
       </DropArea>
       {align === "left" && (
         <>
           &nbsp;&nbsp;
-          <input type="text" style={styles.textArea} />
+          <input
+            type="text"
+            style={styles.textArea}
+            value={state.label}
+            onChange={(event) => setState({
+              ...state,
+              label: event.target.value,
+            })}
+          />
         </>
       )}
     </Box>
