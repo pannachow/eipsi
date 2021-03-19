@@ -10,7 +10,7 @@ export default function DayGrid() {
       routes: [
         { name: "Card 1", to: "/day1-1" },
         { name: "Card 2", to: "/day1-2" },
-        { name: "Card 3", to: "/day1-3" },
+        // { name: "Card 3", to: "/day1-3" },
       ],
     },
     {
@@ -19,7 +19,7 @@ export default function DayGrid() {
       routes: [
         { name: "Card 1", to: "/day2-1" },
         { name: "Card 2", to: "/day2-2" },
-        { name: "Card 3", to: "/day2-3" },
+        // { name: "Card 3", to: "/day2-3" },
       ],
     },
     {
@@ -28,7 +28,7 @@ export default function DayGrid() {
       routes: [
         { name: "Card 1", to: "/day3-1" },
         { name: "Card 2", to: "/day3-2" },
-        { name: "Card 3", to: "/day3-3" },
+        // { name: "Card 3", to: "/day3-3" },
       ],
     },
     {
@@ -37,7 +37,7 @@ export default function DayGrid() {
       routes: [
         { name: "Card 1", to: "/day4-1" },
         { name: "Card 2", to: "/day4-2" },
-        { name: "Card 3", to: "/day4-3" },
+        // { name: "Card 3", to: "/day4-3" },
       ],
     },
     {
@@ -46,7 +46,6 @@ export default function DayGrid() {
       routes: [
         { name: "Card 1", to: "/day5-1" },
         { name: "Card 2", to: "/day5-2" },
-        { name: "Card 3", to: "/day5-3" },
       ],
     },
   ];

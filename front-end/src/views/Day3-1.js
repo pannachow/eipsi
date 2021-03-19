@@ -75,7 +75,7 @@ export default function Day31() {
           ref={canvasRef}
           brushRadius={2}
           canvasWidth="100%"
-          canvasHeight={400}
+          canvasHeight={300}
           brushColor="orange"
           imgSrc="time.png"
         />

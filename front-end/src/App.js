@@ -25,7 +25,6 @@ import Day42 from "./views/Day4-2";
 import Day43 from "./views/Day4-3";
 import Day51 from "./views/Day5-1";
 import Day52 from "./views/Day5-2";
-import Day53 from "./views/Day5-3";
 import Submit from "./views/Submit";
 
 // prettier-ignore
@@ -46,7 +45,6 @@ const routes = [
   { path: "/day4-3", component: <Day43 />, filled: false },
   { path: "/day5-1", component: <Day51 />, filled: false },
   { path: "/day5-2", component: <Day52 />, filled: false },
-  { path: "/day5-3", component: <Day53 />, filled: false },
 ];
 
 export default function App() {
