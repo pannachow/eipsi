@@ -1,7 +1,8 @@
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Slider from "@material-ui/core/Slider";
 import DayCardTitle from "../components/DayCardTitle";
 import SubmitButton from "../components/SubmitButton";
 
@@ -26,6 +27,26 @@ const videos = [
 
 export default function Day42() {
   const classes = useStyles();
+  const PrettoSlider = withStyles({
+    root: {
+      color: "#F4AA41",
+    },
+    thumb: {
+      height: 24,
+      width: 24,
+      marginLeft: -12,
+    },
+    track: {
+      margin: "4px",
+      height: "14px",
+      borderRadius: "10px",
+      color: "#D35E3E",
+    },
+    rail: {
+      height: "22px",
+      borderRadius: "10px",
+    },
+  })(Slider);
 
   return (
     <>
@@ -52,7 +73,13 @@ export default function Day42() {
                 <Typography variant="h3" color="textSecondary">
                   {video.content}
                 </Typography>
-                <button>This is a slider in the future.</button>
+
+                <PrettoSlider
+                  ThumbComponent={ThumbComponent}
+                  valueLabelDisplay="auto"
+                  aria-label="pretto slider"
+                  defaultValue={20}
+                />
               </Grid>
             </>
           ))}
@@ -61,5 +88,13 @@ export default function Day42() {
 
       <SubmitButton />
     </>
+  );
+}
+
+function ThumbComponent(props) {
+  return (
+    <span {...props}>
+      <img alt="slider" src="slider_clock.png" />
+    </span>
   );
 }

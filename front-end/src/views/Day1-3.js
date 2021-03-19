@@ -30,7 +30,7 @@ export default function Day13() {
         <Grid container spacing={1} alignItems="center">
           <Grid item sm={3}>
             <IconButton component="label">
-              <img alt="Add image to mood board" src="add-image.png" />
+              <img alt="Mood Board" src="add-image.png" />
               <input type="file" accept="image/*" hidden />
             </IconButton>
           </Grid>
