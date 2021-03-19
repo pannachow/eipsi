@@ -4,9 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
-import { useForm } from "../hooks";
-
-const BASE_URL = "http://localhost:3001";
+import { useApi, useForm } from "../hooks";
 
 const QUESTIONS = [
   "Tell us more about the status of inclusion in your school?",
@@ -17,6 +15,7 @@ const QUESTIONS = [
 ];
 
 export default function Day12() {
+  const api = useApi();
   const { register, handleSubmit, errors } = useForm();
 
   async function onSubmit(data) {
@@ -25,16 +24,10 @@ export default function Day12() {
       answer: data[i],
     }));
 
-    await fetch(BASE_URL + "/day1-2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        questions,
-      }),
+    await api.post("/day1-2", {
+      name: data.name,
+      email: data.email,
+      questions,
     });
   }
 
