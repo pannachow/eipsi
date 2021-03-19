@@ -29,7 +29,7 @@ class EmailClient {
     // Message object
     const message = {
       // Comma separated list of recipients
-      to: "Panna Chow <chowpanna@gmail.com>",
+      to: "Eipsi Project Team <projecteipsi.dss@gmail.com>",
       // Subject of the message
       subject,
       // plaintext body
