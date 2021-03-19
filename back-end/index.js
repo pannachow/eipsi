@@ -33,6 +33,16 @@ router.post('/day1-2', async (ctx) => {
     ctx.status = 201;
 });
 
+// add data for day3-2
+router.post('/day3-2', async (ctx) => {
+    const body = ctx.request.body;
+    await emailClient.send({
+        subject: "Results From Day 3 Card 2",
+        text: JSON.stringify(body, null, 4),
+    });
+    ctx.status = 201;
+}); 
+
 app
     .use(cors())
     .use(bodyParser())
