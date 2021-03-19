@@ -7,11 +7,11 @@ export default function Submit({ onClick, register }) {
   return (
     <Box mt="40px">
       <Typography variant="h3">Name</Typography>
-      <TextField name="name" ref={register({ required: true })} />
+      <TextField name="name" ref={register && register({ required: true })} />
 
       <Box my="20px">
         <Typography variant="h3">Email</Typography>
-        <TextField name="email" ref={register({ required: true })} />
+        <TextField name="email" ref={register && register({ required: true })} />
       </Box>
 
       <Box display="flex" justifyContent="flex-end">
