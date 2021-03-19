@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
@@ -14,9 +14,14 @@ const QUESTIONS = [
   "If you had all the power and money in the world, how would you make sure that topics like diversity and inclusion are spoken about in the field of education?",
 ];
 
+function areNoneAnswered(values) {
+  return QUESTIONS.every((_, i) => !values[i.toString()]);
+}
+
 export default function Day12() {
   const api = useApi();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, getValues } = useForm();
+  const [noneAnswered, setNoneAnswered] = useState(true);
 
   async function onSubmit(data) {
     const questions = QUESTIONS.map((question, i) => ({
@@ -53,7 +58,8 @@ export default function Day12() {
           <Box mb="20px">
             <TextField
               name={i.toString()}
-              ref={register({ required: false })}
+              ref={register({ required: noneAnswered })}
+              onChange={(e) => setNoneAnswered(areNoneAnswered(getValues()))}
               error={Boolean(errors[i])}
             />
           </Box>

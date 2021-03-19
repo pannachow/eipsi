@@ -20,7 +20,7 @@ export function useApi() {
 
 export function useForm() {
   const history = useHistory();
-  const { register, handleSubmit, errors } = useReactHookForm();
+  const { register, handleSubmit, errors, getValues, setValue } = useReactHookForm();
 
   return {
     register,
@@ -31,5 +31,7 @@ export function useForm() {
       });
     },
     errors,
+    getValues,
+    setValue,
   };
 }
