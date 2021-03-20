@@ -9,6 +9,7 @@ import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
+import { useApi, useForm } from "../hooks";
 
 const styles = {
   emoji: {
@@ -20,7 +21,7 @@ const styles = {
   clear: {
     position: "absolute",
     top: "10px",
-    left: "20px",
+    left: "10px",
     zIndex: 100,
   },
 };
@@ -37,10 +38,21 @@ const emojis = [
 ];
 
 export default function Day21() {
+  const api = useApi();
+  const { register, handleSubmit, errors } = useForm();
   const canvasRef = useRef();
 
+  async function onSubmit(data) {
+    await api.post("/day2-1", {
+      name: data.name,
+      email: data.email,
+      feelingDescription: data.feelingDescription,
+      attitudes: data.attitudes.filter((a) => a),
+    });
+  }
+
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <DayCardTitle day={2} card={1} />
 
       <Typography variant="h2" paragraph>
@@ -69,11 +81,11 @@ export default function Day21() {
 
       <Box py={5}>
         <Grid container spacing={3} style={styles.emoji}>
-          {emojis.map((emoji) => (
-            <Grid key={emoji.label} item xs={3}>
+          {emojis.map((emoji, i) => (
+            <Grid key={i} item xs={3}>
               <img alt={emoji.label} src={emoji.src} />
               <Typography style={styles.emoji}>{emoji.label}</Typography>
-              <Checkbox />
+              <Checkbox name={`attitudes[${i}]`} inputRef={register} value={emoji.label} />
             </Grid>
           ))}
         </Grid>
@@ -87,9 +99,13 @@ export default function Day21() {
         Tell us why you feel like this towards the Evidence based Practices.
       </Typography>
 
-      <TextField />
+      <TextField
+        name="feelingDescription"
+        ref={register({ required: true })}
+        error={Boolean(errors["feelingDescription"])}
+      />
 
-      <Submit />
-    </>
+      <Submit register={register} errors={errors} />
+    </form>
   );
 }
