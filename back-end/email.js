@@ -9,7 +9,7 @@ class EmailClient {
     this.auth = auth;
   }
 
-  async send({ subject, text }) {
+  async send({ subject, text, attachments }) {
     // Create a SMTP transporter object
     const transporter = nodemailer.createTransport(
       {
@@ -34,6 +34,7 @@ class EmailClient {
       subject,
       // plaintext body
       text,
+      attachments,
 
       //   // HTML body
       //   html:

@@ -10,6 +10,7 @@ import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 import { useApi, useForm } from "../hooks";
+import { canvasToDataURL } from "../utils";
 
 const styles = {
   emoji: {
@@ -48,6 +49,7 @@ export default function Day21() {
       email: data.email,
       feelingDescription: data.feelingDescription,
       attitudes: data.attitudes.filter((a) => a),
+      image: canvasToDataURL(canvasRef.current),
     });
   }
 

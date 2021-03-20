@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { Fragment, useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
@@ -6,7 +6,7 @@ import Submit from "../components/Submit";
 import TextField from "../components/TextField";
 import { useApi, useForm } from "../hooks";
 
-const QUESTIONS = [
+const questions = [
   "Tell us more about the status of inclusion in your school?",
   "Have you ever struggled with inclusion in your classroom and why?",
   "How would you describe your colleagues awareness of and knowledge about inclusion?",
@@ -15,7 +15,7 @@ const QUESTIONS = [
 ];
 
 function areNoneAnswered(values) {
-  return QUESTIONS.every((_, i) => !values[i.toString()]);
+  return questions.every((_, i) => !values[i.toString()]);
 }
 
 export default function Day12() {
@@ -24,7 +24,7 @@ export default function Day12() {
   const [noneAnswered, setNoneAnswered] = useState(true);
 
   async function onSubmit(data) {
-    const questions = QUESTIONS.map((question, i) => ({
+    const questionsAnswers = questions.map((question, i) => ({
       question: question,
       answer: data[i],
     }));
@@ -32,7 +32,7 @@ export default function Day12() {
     await api.post("/day1-2", {
       name: data.name,
       email: data.email,
-      questions,
+      questionsAnswers,
     });
   }
 
@@ -49,8 +49,8 @@ export default function Day12() {
         your classroom on the class map.
       </Typography>
 
-      {QUESTIONS.map((question, i) => (
-        <React.Fragment key={i}>
+      {questions.map((question, i) => (
+        <Fragment key={i}>
           <Typography variant="h3" paragraph>
             {i + 1}) {question}
           </Typography>
@@ -65,12 +65,12 @@ export default function Day12() {
           </Box>
 
           {/* Only add "or" if not the last question */}
-          {i < QUESTIONS.length - 1 && (
+          {i < questions.length - 1 && (
             <Typography variant="h2" color="textSecondary" align="center" paragraph>
               or
             </Typography>
           )}
-        </React.Fragment>
+        </Fragment>
       ))}
 
       <Submit register={register} errors={errors} />

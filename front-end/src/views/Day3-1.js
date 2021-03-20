@@ -1,16 +1,18 @@
+import { Fragment, useRef } from "react";
+import CanvasDraw from "react-canvas-draw";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import CanvasDraw from "react-canvas-draw";
-import { useRef } from "react";
 import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
+import { useApi, useForm } from "../hooks";
+import { canvasToDataURL } from "../utils";
 
 const styles = {
   clear: {
     position: "absolute",
-    top: "10px",
+    top: "30px",
     left: "10px",
     zIndex: 100,
   },
@@ -24,10 +26,27 @@ const questions = [
 ];
 
 export default function Day31() {
+  const api = useApi();
+  const { register, handleSubmit, errors } = useForm();
   const canvasRef = useRef();
 
+  async function onSubmit(data) {
+    const questionsAnswers = questions.map((question, i) => ({
+      question: question,
+      answer: data[i],
+    }));
+
+    await api.post("/day3-1", {
+      name: data.name,
+      email: data.email,
+      questionsAnswers,
+      challengesFaced: data.challengesFaced,
+      image: canvasToDataURL(canvasRef.current),
+    });
+  }
+
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <DayCardTitle day={3} card={1} />
 
       <Typography variant="h2" paragraph>
@@ -49,15 +68,19 @@ export default function Day31() {
       </Typography>
 
       <Box py="20px">
-        {questions.map((question) => (
-          <>
+        {questions.map((question, i) => (
+          <Fragment key={i}>
             <Typography variant="h3" color="textSecondary" paragraph>
               {question}
             </Typography>
             <Box mb="20px">
-              <TextField />
+              <TextField
+                name={i.toString()}
+                ref={register({ required: true })}
+                error={Boolean(errors[i])}
+              />
             </Box>
-          </>
+          </Fragment>
         ))}
       </Box>
 
@@ -84,9 +107,13 @@ export default function Day31() {
         </IconButton>
       </Box>
 
-      <TextField />
+      <TextField
+        name="challengesFaced"
+        ref={register({ required: true })}
+        error={Boolean(errors["challengesFaced"])}
+      />
 
-      <Submit />
-    </>
+      <Submit register={register} errors={errors} />
+    </form>
   );
 }
