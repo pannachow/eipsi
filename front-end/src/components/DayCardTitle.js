@@ -14,7 +14,7 @@ export default function DayCardTitle({ day, card }) {
   const classes = useStyles();
 
   return (
-    <Typography variant="h1" className={classes.title1} gutterBottom>
+    <Typography variant="h1" className={classes.title1} paragraph>
       DAY {day} : <span className={classes.title2}>Card {card}</span>
     </Typography>
   );

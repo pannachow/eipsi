@@ -84,7 +84,7 @@ export default function Day31() {
         ))}
       </Box>
 
-      <Typography variant="h2" color="textSecondary" gutterBottom>
+      <Typography variant="h2" color="textSecondary" paragraph>
         Show us . . . .
       </Typography>
 

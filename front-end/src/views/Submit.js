@@ -1,15 +1,9 @@
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
+import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 
 const styles = {
-  title1: {
-    color: "white",
-    fontSize: "36px",
-    lineHeight: "54px",
-  },
   box: {
     backgroundColor: "#F4CE08",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
@@ -24,16 +18,13 @@ const styles = {
 
 export default function Home() {
   return (
-    <Container>
-      <br />
-      <br />
-      <br />
-      <Typography gutterBottom style={styles.title1} align="center">
-        Thank you for participating today!
-      </Typography>
-      <br />
-      <br />
-      <br />
+    <>
+      <Box color="white" py="60px">
+        <Typography variant="h2" align="center" paragraph>
+          Thank you for participating today!
+        </Typography>
+      </Box>
+
       <Link underline="none" component={RouterLink} to="/">
         <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end">
           <img alt="Home" src="home.png" />
@@ -43,6 +34,6 @@ export default function Home() {
           </Box>
         </Box>
       </Link>
-    </Container>
+    </>
   );
 }

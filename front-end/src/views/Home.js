@@ -1,7 +1,6 @@
-import Container from "@material-ui/core/Container";
-import DayGrid from "../components/DayGrid";
 import Grid from "@material-ui/core/Grid";
-import { Typography } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import DayGrid from "../components/DayGrid";
 
 const styles = {
   teacher: {
@@ -24,7 +23,7 @@ const styles = {
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <Grid container spacing={3} justify="center" alignItems="center">
         <Grid item xs={12} sm={6}>
           <Typography gutterBottom style={styles.paragraph1}>
@@ -75,6 +74,6 @@ export default function Home() {
         2. The data collected will be processed in accordance with the data protection law and will
         not be used for any other purposes and only stored for the duration of this project.
       </Typography>
-    </Container>
+    </>
   );
 }
