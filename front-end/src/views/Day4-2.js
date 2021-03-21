@@ -15,19 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const choices = [
-  { number: 1, content: "Watching a video about Evidence-informed Practices (EIP)" },
-  { number: 2, content: "Reading an article on EIP" },
-  { number: 3, content: "Researching an EIP" },
-  {
-    number: 4,
-    content:
-      "Looking up methods and tools with EIP for the creation of high inclusion in a classroom",
-  },
-  { number: 5, content: "Preparation for a new exercise/lecture" },
-  { number: 6, content: "Scrolling through a website for your work as a teacher" },
-];
-
 const PrettoSlider = withStyles({
   root: {
     color: "#F4AA41",
@@ -50,19 +37,44 @@ const PrettoSlider = withStyles({
 })(Slider);
 
 export default function Day42() {
+  const choices = [
+    {
+      number: 1,
+      content: "Watching a video about Evidence-informed Practices (EIP)",
+      state: useState(20),
+    },
+    { number: 2, content: "Reading an article on EIP", state: useState(20) },
+    { number: 3, content: "Researching an EIP", state: useState(20) },
+    {
+      number: 4,
+      content:
+        "Looking up methods and tools with EIP for the creation of high inclusion in a classroom",
+      state: useState(20),
+    },
+    { number: 5, content: "Preparation for a new exercise/lecture", state: useState(20) },
+    {
+      number: 6,
+      content: "Scrolling through a website for your work as a teacher",
+      state: useState(20),
+    },
+  ];
+
   const classes = useStyles();
-  const [slider, setSlider] = useState(20);
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const history = useHistory();
 
   async function handInData() {
     const data = {
-      sliderValue: slider,
+      values: choices.map((choice) => ({
+        number: choice.number,
+        content: choice.content,
+        value: choice.state[0],
+      })),
       name: nameRef.current.value,
       email: emailRef.current.value,
     };
-    await fetch("http://localhost:3001/day4-2", {
+    await fetch((process.env.API_BASE_URL || "http://localhost:3001") + "/day4-2", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,8 +114,8 @@ export default function Day42() {
                   ThumbComponent={ThumbComponent}
                   valueLabelDisplay="auto"
                   aria-label="pretto slider"
-                  value={slider}
-                  onChange={(_, value) => setSlider(value)}
+                  value={choice.state[0]}
+                  onChange={(_, value) => choice.state[1](value)}
                 />
               </Grid>
             </Fragment>

@@ -38,7 +38,7 @@ export default function Day32() {
       name: nameRef.current.value,
       email: emailRef.current.value,
     };
-    await fetch("http://localhost:3001/day3-2", {
+    await fetch((process.env.API_BASE_URL || "http://localhost:3001") + "/day3-2", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
