@@ -32,7 +32,7 @@ export default function Day32() {
   const emailRef = useRef(null);
   const history = useHistory();
 
-  async function hangInData() {
+  async function handInData() {
     const data = {
       choice: articles[choice],
       name: nameRef.current.value,
@@ -90,7 +90,7 @@ export default function Day32() {
             variant="contained"
             color="primary"
             type="submit"
-            onClick={hangInData}
+            onClick={handInData}
           >
             SUBMIT
           </Button>
