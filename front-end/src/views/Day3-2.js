@@ -10,17 +10,6 @@ import DayCardTitle from "../components/DayCardTitle";
 import Button from "@material-ui/core/Button";
 import TextField from "../components/TextField";
 
-async function hangInData(data, history) {
-  await fetch("http://localhost:3001/day3-2", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  history.push("/submit");
-}
-
 const articles = [
   {
     label: "5 Signs That a Classroom Is Inclusive | Reading Rockets",
@@ -42,6 +31,22 @@ export default function Day32() {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const history = useHistory();
+
+  async function hangInData() {
+    const data = {
+      choice: articles[choice],
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+    };
+    await fetch("http://localhost:3001/day3-2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    history.push("/submit");
+  }
 
   return (
     <>
@@ -85,15 +90,7 @@ export default function Day32() {
             variant="contained"
             color="primary"
             type="submit"
-            onClick={() =>
-              hangInData({
-                choice: articles[choice],
-                name: nameRef.current.value,
-                email: emailRef.current.value,
-              },
-              history
-              )
-            }
+            onClick={hangInData}
           >
             SUBMIT
           </Button>

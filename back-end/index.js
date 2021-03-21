@@ -16,28 +16,21 @@ const emailClient = new EmailClient({
   refreshToken: process.env.EMAIL_REFRESH_TOKEN,
 });
 
-// get data
-router.get("/", async (ctx) => {
-  ctx.status = 200;
-  ctx.body = "hello";
-});
-
-// add data
-router.post("/day1-2", async (ctx) => {
+async function sendToEmail(ctx, day, cardNumber) {
   const body = ctx.request.body;
   await emailClient.send({
-    subject: "Results From Day 1 Card 2",
+    subject: `Results From Day ${day} Card ${cardNumber}`,
     text: JSON.stringify(body, null, 4),
   });
   ctx.status = 201;
-});
+}
 
-router.post("/day2-1", async (ctx) => {
+async function sendToEmailWithImage(ctx, day, cardNumber) {
   let body = { ...ctx.request.body };
   const image = body.image;
   delete body.image;
   await emailClient.send({
-    subject: "Results From Day 2 Card 1",
+    subject: `Results From Day ${day} Card ${cardNumber}`,
     text: JSON.stringify(body, null, 4),
     attachments: [
       {
@@ -49,17 +42,21 @@ router.post("/day2-1", async (ctx) => {
     ],
   });
   ctx.status = 201;
-});
+}
 
-// add data for day3-2
-router.post("/day3-2", async (ctx) => {
-  const body = ctx.request.body;
-  await emailClient.send({
-    subject: "Results From Day 3 Card 2",
-    text: JSON.stringify(body, null, 4),
-  });
-  ctx.status = 201;
-});
+// add data for card which contains only text
+router.post("/day1-1", (ctx) => sendToEmail(ctx, 1, 1));
+router.post("/day1-2", (ctx) => sendToEmail(ctx, 1, 2));
+router.post("/day2-2", (ctx) => sendToEmail(ctx, 2, 2));
+router.post("/day3-2", (ctx) => sendToEmail(ctx, 3, 2));
+router.post("/day4-1", (ctx) => sendToEmail(ctx, 4, 1));
+router.post("/day4-2", (ctx) => sendToEmail(ctx, 4, 2));
+router.post("/day5-2", (ctx) => sendToEmail(ctx, 5, 2));
+
+// add data for card which contains more than text
+router.post("/day2-1", async (ctx) => sendToEmailWithImage(ctx, 2, 1));
+router.post("/day3-1", async (ctx) => sendToEmailWithImage(ctx, 3, 1));
+router.post("/day5-1", async (ctx) => sendToEmailWithImage(ctx, 5, 1));
 
 app
   .use(cors())

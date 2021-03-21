@@ -1,10 +1,33 @@
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
-import Submit from "../components/Submit";
 import TextField from "../components/TextField";
+import Button from "@material-ui/core/Button";
+import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Day52() {
+  const textField = useRef(null);
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const history = useHistory();
+
+  async function hangInData() {
+    const data = {
+      ans: textField.current.value,
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+    };
+    await fetch("http://localhost:3001/day5-2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    history.push("/submit");
+  }
+
   return (
     <>
       <DayCardTitle day={5} card={2} />
@@ -34,9 +57,23 @@ export default function Day52() {
         What is something we haven't asked but you would like to tell us?
       </Typography>
 
-      <TextField multiline />
+      <TextField multiline ref={textField} />
 
-      <Submit />
+      <Box mt="40px">
+        <Typography variant="h3">Name</Typography>
+        <TextField name="name" ref={nameRef} />
+
+        <Box my="20px">
+          <Typography variant="h3">Email</Typography>
+          <TextField name="email" ref={emailRef} />
+        </Box>
+
+        <Box display="flex" justifyContent="flex-end">
+          <Button variant="contained" color="primary" type="submit" onClick={hangInData}>
+            SUBMIT
+          </Button>
+        </Box>
+      </Box>
     </>
   );
 }
