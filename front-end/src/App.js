@@ -48,6 +48,8 @@ const routes = [
 ];
 
 export default function App() {
+  console.log(process.env);
+
   const theme = createMuiTheme({
     palette: {
       primary: {
