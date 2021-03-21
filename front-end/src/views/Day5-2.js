@@ -13,7 +13,7 @@ export default function Day52() {
   const emailRef = useRef(null);
   const history = useHistory();
 
-  async function hangInData() {
+  async function handInData() {
     const data = {
       note: noteRef.current.value,
       tellUsSomething: tellUsSomethingRef.current.value,
@@ -71,7 +71,7 @@ export default function Day52() {
         </Box>
 
         <Box display="flex" justifyContent="flex-end">
-          <Button variant="contained" color="primary" type="submit" onClick={hangInData}>
+          <Button variant="contained" color="primary" type="submit" onClick={handInData}>
             SUBMIT
           </Button>
         </Box>
