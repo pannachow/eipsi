@@ -2,7 +2,8 @@
   "name": "eipsi",
   "version": "0.1.0",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "watch": "nodemon index.js"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
