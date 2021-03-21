@@ -9,8 +9,8 @@ import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
-import { useApi, useForm } from "../hooks";
-import { canvasToDataURL } from "../utils";
+import { useForm } from "../hooks";
+import { canvasToDataURL, post } from "../utils";
 
 const styles = {
   emoji: {
@@ -39,12 +39,11 @@ const emojis = [
 ];
 
 export default function Day21() {
-  const api = useApi();
   const { register, handleSubmit, errors } = useForm();
   const canvasRef = useRef();
 
   async function onSubmit(data) {
-    await api.post("/day2-1", {
+    await post("/day2-1", {
       name: data.name,
       email: data.email,
       feelingDescription: data.feelingDescription,

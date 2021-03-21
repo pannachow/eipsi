@@ -7,14 +7,16 @@ import { useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 export default function Day52() {
-  const textField = useRef(null);
+  const noteRef = useRef(null);
+  const tellUsSomethingRef = useRef(null);
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const history = useHistory();
 
   async function hangInData() {
     const data = {
-      ans: textField.current.value,
+      note: noteRef.current.value,
+      tellUsSomething: tellUsSomethingRef.current.value,
       name: nameRef.current.value,
       email: emailRef.current.value,
     };
@@ -45,8 +47,8 @@ export default function Day52() {
         Think about diversity, inclusivity and research-informed practices.
       </Typography>
 
-      <Box py="40px">
-        <TextField />
+      <Box pt="10px" pb="40px">
+        <TextField multiline ref={noteRef} rows={16} />
       </Box>
 
       <Typography variant="h2" paragraph>
@@ -57,7 +59,7 @@ export default function Day52() {
         What is something we haven't asked but you would like to tell us?
       </Typography>
 
-      <TextField multiline ref={textField} />
+      <TextField multiline ref={tellUsSomethingRef} />
 
       <Box mt="40px">
         <Typography variant="h3">Name</Typography>

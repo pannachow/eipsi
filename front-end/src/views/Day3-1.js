@@ -6,8 +6,8 @@ import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
-import { useApi, useForm } from "../hooks";
-import { canvasToDataURL } from "../utils";
+import { useForm } from "../hooks";
+import { canvasToDataURL, post } from "../utils";
 
 const styles = {
   clear: {
@@ -26,7 +26,6 @@ const questions = [
 ];
 
 export default function Day31() {
-  const api = useApi();
   const { register, handleSubmit, errors } = useForm();
   const canvasRef = useRef();
 
@@ -36,7 +35,7 @@ export default function Day31() {
       answer: data[i],
     }));
 
-    await api.post("/day3-1", {
+    await post("/day3-1", {
       name: data.name,
       email: data.email,
       questionsAnswers,

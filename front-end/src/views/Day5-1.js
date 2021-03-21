@@ -7,6 +7,8 @@ import { IconButton } from "@material-ui/core";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
+import { useForm } from "../hooks";
+import { canvasToDataURL, post } from "../utils";
 
 const styles = {
   clear: {
@@ -18,10 +20,21 @@ const styles = {
 };
 
 export default function Day51() {
+  const { register, handleSubmit, errors } = useForm();
   const canvasRef = useRef();
 
+  async function onSubmit(data) {
+    await post("/day5-1", {
+      name: data.name,
+      email: data.email,
+      crucialPoints: data.crucialPoints,
+      tellUsSomething: data.tellUsSomething,
+      image: canvasToDataURL(canvasRef.current),
+    });
+  }
+
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <DayCardTitle day={5} card={1} />
 
       <Typography variant="h2" paragraph>
@@ -37,7 +50,7 @@ export default function Day51() {
       </Typography>
 
       <Container maxWidth="sm">
-        <Box position="relative" my="40px">
+        <Box position="relative" mt="40px">
           <CanvasDraw
             ref={canvasRef}
             brushRadius={2}
@@ -52,6 +65,14 @@ export default function Day51() {
         </Box>
       </Container>
 
+      <Box mt="20px" mb="40px">
+        <TextField
+          name="crucialPoints"
+          ref={register({ required: true })}
+          error={Boolean(errors["crucialPoints"])}
+        />
+      </Box>
+
       <Typography variant="h2" color="textSecondary" paragraph>
         Done for the day? Before you head out . . . .
       </Typography>
@@ -60,9 +81,13 @@ export default function Day51() {
         What is something we haven't asked but you would like to tell us?
       </Typography>
 
-      <TextField />
+      <TextField
+        name="tellUsSomething"
+        ref={register({ required: true })}
+        error={Boolean(errors["tellUsSomething"])}
+      />
 
-      <Submit />
-    </>
+      <Submit register={register} errors={errors} />
+    </form>
   );
 }

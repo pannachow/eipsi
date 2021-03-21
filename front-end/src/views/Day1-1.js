@@ -5,15 +5,15 @@ import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
-import { useApi, useForm } from "../hooks";
+import { useForm } from "../hooks";
+import { post } from "../utils";
 
 export default function Day11() {
-  const api = useApi();
   const { register, handleSubmit, errors } = useForm();
   const [dnd, setDnd] = useState(null);
 
   async function onSubmit(data) {
-    await api.post("/day1-1", {
+    await post("/day1-1", {
       ...data,
       dnd,
     });

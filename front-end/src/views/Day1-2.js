@@ -4,7 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import Submit from "../components/Submit";
 import TextField from "../components/TextField";
-import { useApi, useForm } from "../hooks";
+import { useForm } from "../hooks";
+import { post } from "../utils";
 
 const questions = [
   "Tell us more about the status of inclusion in your school?",
@@ -19,7 +20,6 @@ function areNoneAnswered(values) {
 }
 
 export default function Day12() {
-  const api = useApi();
   const { register, handleSubmit, errors, getValues } = useForm();
   const [noneAnswered, setNoneAnswered] = useState(true);
 
@@ -29,7 +29,7 @@ export default function Day12() {
       answer: data[i],
     }));
 
-    await api.post("/day1-2", {
+    await post("/day1-2", {
       name: data.name,
       email: data.email,
       questionsAnswers,

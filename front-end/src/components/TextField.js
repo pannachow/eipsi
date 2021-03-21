@@ -13,13 +13,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default forwardRef(function TextField(
-  { multiline, bgcolor, color, placeholder, value, onChange, name, error },
+  { multiline, bgcolor, color, placeholder, value, onChange, name, error, rows },
   ref
 ) {
   const classes = useStyles();
   const theme = useTheme();
   const style = {
-    height: multiline ? "182px" : "91px",
     background: bgcolor || theme.palette.titlePrimary.main,
     color: color || theme.palette.text.primary,
   };
@@ -34,8 +33,10 @@ export default forwardRef(function TextField(
       onChange={onChange}
       inputRef={ref}
       multiline={multiline}
+      rows={rows || 4}
       error={error}
       variant="outlined"
+      size="small"
     />
   );
 });

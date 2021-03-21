@@ -4,15 +4,15 @@ import Typography from "@material-ui/core/Typography";
 import DayCardTitle from "../components/DayCardTitle";
 import DragAndDrop from "../components/DragAndDrop";
 import Submit from "../components/Submit";
-import { useApi, useForm } from "../hooks";
+import { useForm } from "../hooks";
+import { post } from "../utils";
 
 export default function Day22() {
-  const api = useApi();
   const { register, handleSubmit, errors } = useForm();
   const [dnd, setDnd] = useState(null);
 
   async function onSubmit(data) {
-    await api.post("/day2-2", {
+    await post("/day2-2", {
       ...data,
       dnd,
     });
