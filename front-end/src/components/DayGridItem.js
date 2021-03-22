@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   imageWrapper: {
     position: "relative",
     display: "block",
-    padding: 100,
+    padding: 0,
     borderRadius: 0,
     width: "100%",
     height: "40vh",
@@ -45,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: radius,
     opacity: 0.5,
     transition: theme.transitions.create("opacity"),
+  },
+  imageTitle: {
+    position: "relative",
+    color: "white",
   },
   popoverOuterBox: {
     backgroundColor: "Grey",
@@ -78,7 +82,7 @@ export default function DayGridItem({ image }) {
   return (
     <>
       <ButtonBase key={image.title} className={classes.imageWrapper} onClick={handleClick}>
-        <Link>
+        <Link underline="none">
           <div
             className={classes.imageSrc}
             style={{
@@ -87,9 +91,8 @@ export default function DayGridItem({ image }) {
           />
           <div className={classes.imageBackdrop} />
           <div className={classes.imageButton}>
-            <Typography component="h3" variant="h6" color="inherit" className={classes.imageTitle}>
+            <Typography variant="h1" className={classes.imageTitle}>
               {image.title}
-              <div className={classes.imageMarked} />
             </Typography>
           </div>
         </Link>
