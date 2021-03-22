@@ -55,7 +55,7 @@ export default function Day31() {
       <Typography variant="h3" paragraph>
         You just started teaching at a new primary school. One of your students is Paul, who is a 5
         year old boy with dyslexia. His reading skills are below average and you decide to look up
-        evidence-based practices to help you teach Paul.
+        Evidence Informed Practices to help you teach Paul.
       </Typography>
 
       <Typography variant="h3" paragraph>

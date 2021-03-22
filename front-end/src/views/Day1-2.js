@@ -11,7 +11,7 @@ const questions = [
   "Tell us more about the status of inclusion in your school?",
   "Have you ever struggled with inclusion in your classroom and why?",
   "How would you describe your colleagues awareness of and knowledge about inclusion?",
-  "Tell us a small story about when and how the topic diversity was prominent in the classroom.",
+  "Tell us a short story about when and how the topic of inclusion was prominent in the classroom.",
   "If you had all the power and money in the world, how would you make sure that topics like diversity and inclusion are spoken about in the field of education?",
 ];
 

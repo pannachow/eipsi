@@ -24,7 +24,7 @@ export default function Day11() {
       <DayCardTitle day={1} card={1} />
 
       <Typography variant="h2" paragraph>
-        Show us the diversity of your classroom.
+        Show us the diversity in your classroom.
       </Typography>
 
       <Typography variant="h3" paragraph>

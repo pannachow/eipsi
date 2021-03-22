@@ -57,7 +57,7 @@ export default function Day21() {
       <DayCardTitle day={2} card={1} />
 
       <Typography variant="h2" paragraph>
-        Draw a face that shows how confident you are with using evidence informed data
+        Draw a face that shows how confident you are with using Evidence Informed Practices.
       </Typography>
 
       <Container maxWidth="sm">
@@ -77,7 +77,7 @@ export default function Day21() {
       </Container>
 
       <Typography variant="h2" color="textSecondary" paragraph>
-        Select an Emoji that expresses the attitude towards the Evidence based practices.
+        Select Emojis that expresses your attitude towards the Evidence Informed Practices.
       </Typography>
 
       <Box py={5}>
@@ -97,7 +97,7 @@ export default function Day21() {
       </Typography>
 
       <Typography variant="h3" paragraph>
-        Tell us why you feel like this towards the Evidence based Practices.
+        Tell us why you feel like this towards the Evidence Informed Practices.
       </Typography>
 
       <TextField

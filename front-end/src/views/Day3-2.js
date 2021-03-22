@@ -57,8 +57,8 @@ export default function Day32() {
       </Typography>
 
       <Typography variant="h3" paragraph>
-        Open the three links for the articles and find out which one is an evidence based practice /
-        resources. Mark your answer and let us know.
+        Open the three links for the articles and find out which one is an Evidence Informed
+        Practice / resources. Mark your answer and let us know.
       </Typography>
 
       <Box mb="20px">
@@ -86,12 +86,7 @@ export default function Day32() {
         </Box>
 
         <Box display="flex" justifyContent="flex-end">
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={handInData}
-          >
+          <Button variant="contained" color="primary" type="submit" onClick={handInData}>
             SUBMIT
           </Button>
         </Box>

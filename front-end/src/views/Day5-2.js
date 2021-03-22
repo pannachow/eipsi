@@ -44,7 +44,7 @@ export default function Day52() {
       </Typography>
 
       <Typography variant="h3" paragraph>
-        Think about diversity, inclusivity and research-informed practices.
+        Think about diversity, inclusivity and Evidence Informed Practices.
       </Typography>
 
       <Box pt="10px" pb="40px">

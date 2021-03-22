@@ -40,7 +40,7 @@ export default function Day42() {
   const choices = [
     {
       number: 1,
-      content: "Watching a video about Evidence-informed Practices (EIP)",
+      content: "Watching a video about Evidence Informed Practices (EIP)",
       state: useState(20),
     },
     { number: 2, content: "Reading an article on EIP", state: useState(20) },

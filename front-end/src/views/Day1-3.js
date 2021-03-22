@@ -35,7 +35,7 @@ export default function Day13() {
             </IconButton>
           </Grid>
           <Grid item sm={9}>
-            <TextField bgcolor="#E76024" placeholder="Add text to Mood board." color="white" />
+            <TextField multiline bgcolor="#E76024" placeholder="Add text to Mood board." color="white" />
           </Grid>
         </Grid>
       </Box>

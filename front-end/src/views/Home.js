@@ -31,7 +31,9 @@ export default function Home() {
           </Typography>
           <Typography gutterBottom style={styles.paragraph1}>
             During the upcoming five days, we would like to hear more about your experience with
-            Evidence-Informed Practices (EIP) and Evidence-Based Practices (EBP).
+            Evidence Informed Practices (EIP). The way we understand Evidence Informed Practices is
+            that they represent a combination of practitioner expertise and knowledge of external
+            research and evaluation based evidence.
           </Typography>
           <Typography gutterBottom style={styles.paragraph1}>
             Below, you see five cards - one for each day. When you click on a day, you can choose
@@ -43,8 +45,8 @@ export default function Home() {
             if you are interested. Please note that this is not a survey but rather a conversation
             starter and an open space for you to share your experiences/concerns/stories. Grab your
             favourite drink, put on some music, and tell us your story. As a team, we want to
-            understand and empathise with you to be able to build a solution that fulfils their
-            needs.
+            understand and empathise with teachers to be able to build a solution that works for
+            you.
           </Typography>
           <br />
           <Typography gutterBottom style={styles.paragraph2}>

@@ -72,29 +72,29 @@ export default function Day41() {
             number={2}
             selected={secondChoice}
             setSelected={setSecondChoice}
-            optionA={{ label: "Online Education tools", value: "online" }}
-            optionB={{ label: "Offline Education tools", value: "offline" }}
+            optionA={{ label: "Online education tools", value: "online" }}
+            optionB={{ label: "Offline education tools", value: "offline" }}
           />
           <Row
             number={3}
             selected={thirdChoice}
             setSelected={setThirdChoice}
-            optionA={{ label: "Lesson based on Personal Experience", value: "personal" }}
-            optionB={{ label: "Lesson based on Objective Research", value: "objective" }}
+            optionA={{ label: "Lesson based on personal experience", value: "personal" }}
+            optionB={{ label: "Lesson based on objective research", value: "objective" }}
           />
           <Row
             number={4}
             selected={fourthChoice}
             setSelected={setFourthChoice}
-            optionA={{ label: "Have Videos explain how to use EIP or EBP", value: "video" }}
-            optionB={{ label: "Have Articles explain how to use EIP or EBP", value: "articles" }}
+            optionA={{ label: "Have videos explain how to use EIP", value: "video" }}
+            optionB={{ label: "Have articles explain how to use EIP", value: "articles" }}
           />
           <Row
             number={5}
             selected={fifthChoice}
             setSelected={setFifthChoice}
-            optionA={{ label: "Small Classrooms (no. of students)", value: "small" }}
-            optionB={{ label: "Big Classrooms (no. of students)", value: "big" }}
+            optionA={{ label: "Small classrooms (no. of students)", value: "small" }}
+            optionB={{ label: "Big classrooms (no. of students)", value: "big" }}
           />
         </Grid>
       </Box>
