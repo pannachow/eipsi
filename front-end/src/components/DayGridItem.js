@@ -49,6 +49,13 @@ const useStyles = makeStyles((theme) => ({
   imageTitle: {
     position: "relative",
     color: "white",
+    height: "100px",
+    fontSize: "48px",
+    fontWeight: "bold",
+  },
+  imageTitleNr: {
+    fontSize: "132px",
+    fontWeight: "900"
   },
   popoverOuterBox: {
     backgroundColor: "Grey",
@@ -92,7 +99,7 @@ export default function DayGridItem({ image }) {
           <div className={classes.imageBackdrop} />
           <div className={classes.imageButton}>
             <Typography variant="h1" className={classes.imageTitle}>
-              {image.title}
+              Day <span className={classes.imageTitleNr}>{image.dayNr}</span>
             </Typography>
           </div>
         </Link>

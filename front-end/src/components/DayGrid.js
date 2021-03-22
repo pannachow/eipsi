@@ -4,9 +4,9 @@ import DayGridItem from "./DayGridItem";
 export default function DayGrid() {
   const images = [
     {
-      title: "Day 1",
       url: "card_background.png",
       size: 3,
+      dayNr: 1,
       routes: [
         { name: "Card 1", to: "/day1-1" },
         { name: "Card 2", to: "/day1-2" },
@@ -14,9 +14,9 @@ export default function DayGrid() {
       ],
     },
     {
-      title: "Day 2",
       url: "card_background.png",
       size: 6,
+      dayNr: 2,
       routes: [
         { name: "Card 1", to: "/day2-1" },
         { name: "Card 2", to: "/day2-2" },
@@ -24,9 +24,9 @@ export default function DayGrid() {
       ],
     },
     {
-      title: "Day 3",
       url: "card_background.png",
       size: 3,
+      dayNr: 3,
       routes: [
         { name: "Card 1", to: "/day3-1" },
         { name: "Card 2", to: "/day3-2" },
@@ -34,9 +34,9 @@ export default function DayGrid() {
       ],
     },
     {
-      title: "Day 4",
       url: "card_background.png",
       size: 5,
+      dayNr: 4,
       routes: [
         { name: "Card 1", to: "/day4-1" },
         { name: "Card 2", to: "/day4-2" },
@@ -44,8 +44,8 @@ export default function DayGrid() {
       ],
     },
     {
-      title: "Day 5",
       url: "card_background.png",
+      dayNr: 5,
       size: 7,
       routes: [
         { name: "Card 1", to: "/day5-1" },
