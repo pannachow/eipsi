@@ -4,7 +4,8 @@ import DayGridItem from "./DayGridItem";
 export default function DayGrid() {
   const images = [
     {
-      url: "day-1-card-enabled.png",
+      title: "Day 1",
+      url: "card_background.png",
       size: 3,
       routes: [
         { name: "Card 1", to: "/day1-1" },
@@ -13,7 +14,8 @@ export default function DayGrid() {
       ],
     },
     {
-      url: "day-2-card-enabled.png",
+      title: "Day 2",
+      url: "card_background.png",
       size: 6,
       routes: [
         { name: "Card 1", to: "/day2-1" },
@@ -22,7 +24,8 @@ export default function DayGrid() {
       ],
     },
     {
-      url: "day-3-card-enabled.png",
+      title: "Day 3",
+      url: "card_background.png",
       size: 3,
       routes: [
         { name: "Card 1", to: "/day3-1" },
@@ -31,7 +34,8 @@ export default function DayGrid() {
       ],
     },
     {
-      url: "day-4-card-enabled.png",
+      title: "Day 4",
+      url: "card_background.png",
       size: 5,
       routes: [
         { name: "Card 1", to: "/day4-1" },
@@ -40,7 +44,8 @@ export default function DayGrid() {
       ],
     },
     {
-      url: "day-5-card-enabled.png",
+      title: "Day 5",
+      url: "card_background.png",
       size: 7,
       routes: [
         { name: "Card 1", to: "/day5-1" },
@@ -53,7 +58,7 @@ export default function DayGrid() {
     <Grid container spacing={1}>
       {images.map((image, i) => (
         <Grid key={i} item xs={12} md={image.size}>
-          <DayGridItem image={image} />
+          <DayGridItem image={image} color="white"/>
         </Grid>
       ))}
     </Grid>
