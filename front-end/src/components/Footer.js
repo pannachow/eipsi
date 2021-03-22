@@ -28,9 +28,9 @@ export default function Footer() {
         </Box>
         <Box display="flex" my={1}>
           <MailOutlineIcon style={styles.text} />
-          <Link underline="none" href="mailto:chowpanna@gmail.com">
+          <Link underline="none" href="mailto:projecteipsi.dss@gmail.com">
             <Typography style={styles.text} variant="subtitle1">
-              &nbsp;&nbsp;chowpanna@gmail.com
+              &nbsp;&nbsp;projecteipsi.dss@gmail.com
             </Typography>
           </Link>
         </Box>
