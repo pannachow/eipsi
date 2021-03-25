@@ -37,7 +37,7 @@ export default function Home() {
           </Typography>
           <Typography gutterBottom style={styles.paragraph1}>
             Below, you see five cards - one for each day. When you click on a day, you can choose
-            between three different task options. Most tasks are designed to take approx. five
+            between different task options. Most tasks are designed to take approx. five
             minutes, but some might require a little more time.
           </Typography>
           <Typography gutterBottom style={styles.paragraph1}>
