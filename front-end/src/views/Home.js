@@ -7,6 +7,7 @@ const styles = {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
+    maxWidth: "100%",
   },
   paragraph1: {
     color: "white",

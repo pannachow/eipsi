@@ -38,7 +38,7 @@ export default function Footer() {
           <LanguageIcon style={styles.text} />
           <Link underline="none" href="https://digitalsocietyschool.org/project/eipsi">
             <Typography style={styles.text} variant="subtitle1">
-              &nbsp;&nbsp;https://digitalsocietyschool.org/project/eipsi
+              &nbsp;&nbsp;digitalsocietyschool.org/project/eipsi
             </Typography>
           </Link>
         </Box>
