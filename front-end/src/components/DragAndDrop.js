@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { isTouchDevice } from "../utils";
 
 const styles = {
   text: {
@@ -95,7 +97,7 @@ export default function DragAndDrop({ labelA, labelB, labelC, state, setState })
 
   return (
     <Container maxWidth="md">
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={isTouchDevice() ? TouchBackend : HTML5Backend}>
         <Grid container>
           <Grid item xs={12} sm={2}>
             <Box
@@ -117,7 +119,11 @@ export default function DragAndDrop({ labelA, labelB, labelC, state, setState })
             <Grid container>
               <Grid item xs={6}>
                 <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="space-between"
                   p={1}
+                  height="100%"
                   border={borderSize}
                   borderLeft={0}
                   borderTop={0}
@@ -152,7 +158,11 @@ export default function DragAndDrop({ labelA, labelB, labelC, state, setState })
               </Grid>
               <Grid item xs={6}>
                 <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="space-between"
                   p={1}
+                  height="100%"
                   border={borderSize}
                   borderRight={0}
                   borderTop={0}
@@ -300,10 +310,12 @@ function OtherDropArea({ state, setState, isDragging, align }) {
       <DropArea
         limit={1}
         figures={state.figures}
-        setFigures={(figures) => setState({
-          ...state,
-          figures,
-        })}
+        setFigures={(figures) =>
+          setState({
+            ...state,
+            figures,
+          })
+        }
         isDragging={isDragging}
         height={100}
         width={100}
@@ -319,10 +331,12 @@ function OtherDropArea({ state, setState, isDragging, align }) {
             type="text"
             style={styles.textArea}
             value={state.label}
-            onChange={(event) => setState({
-              ...state,
-              label: event.target.value,
-            })}
+            onChange={(event) =>
+              setState({
+                ...state,
+                label: event.target.value,
+              })
+            }
           />
         </>
       )}
