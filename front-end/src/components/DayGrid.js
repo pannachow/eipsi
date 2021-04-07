@@ -40,7 +40,7 @@ export default function DayGrid() {
       routes: [
         { name: "Card 1", to: "/day4-1" },
         { name: "Card 2", to: "/day4-2" },
-        // { name: "Card 3", to: "/day4-3" },
+        { name: "Card 3", to: "/day4-3" },
       ],
     },
     {

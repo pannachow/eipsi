@@ -20,14 +20,25 @@ export default function Day52() {
       name: nameRef.current.value,
       email: emailRef.current.value,
     };
-    await fetch((process.env.REACT_APP_API_BASE_URL || "http://localhost:3001") + "/day5-2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    history.push("/submit");
+    try {
+      const response = await fetch(
+        (process.env.REACT_APP_API_BASE_URL || "http://localhost:3001") + "/day5-2",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.status === 201) {
+        history.push("/submit");
+      } else {
+        history.push("/error");
+      }
+    } catch (error) {
+      history.push("/error");
+    }
   }
 
   return (

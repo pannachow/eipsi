@@ -26,11 +26,13 @@ import Day43 from "./views/Day4-3";
 import Day51 from "./views/Day5-1";
 import Day52 from "./views/Day5-2";
 import Submit from "./views/Submit";
+import Error from "./views/Error";
 
 // prettier-ignore
 const routes = [
   { path: "/", component: <Home />, filled: true },
   { path: "/submit", component: <Submit />, filled: true },
+  { path: "/error", component: <Error />, filled: true },
   { path: "/day1-1", component: <Day11 />, filled: false },
   { path: "/day1-2", component: <Day12 />, filled: false },
   { path: "/day1-3", component: <Day13 />, filled: false },
@@ -48,7 +50,6 @@ const routes = [
 ];
 
 export default function App() {
-  console.log(process.env);
 
   const theme = createMuiTheme({
     palette: {
