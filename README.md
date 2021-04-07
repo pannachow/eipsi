@@ -4,6 +4,10 @@ This project aims to contribute to the improvement of Primary and Secondary Scho
 
 Our showcase: https://eipsiproject.com
 
+![eipsi](tell_us_more.png)
+![eipsi](day_1_card_1.png)
+![eipsi](day_2_card_1.png)
+
 Introduction of the project: https://digitalsocietyschool.org/project/eipsi
 
 ![eipsi](eipsi.png)
