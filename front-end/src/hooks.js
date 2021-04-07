@@ -9,8 +9,13 @@ export function useForm() {
     register,
     handleSubmit: function (onSubmit) {
       return handleSubmit(async (data) => {
-        await onSubmit(data);
-        history.push("/submit");
+        try {
+          await onSubmit(data);
+          history.push("/submit");
+        } catch (error) {
+          console.error(error);
+          history.push("/error");
+        }
       });
     },
     errors,

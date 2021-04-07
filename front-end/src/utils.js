@@ -1,14 +1,17 @@
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001";
 
-export function post(url, body) {
+export async function post(url, body) {
     console.log(`Submitting to ${url}`, body);
-    return fetch(API_BASE_URL + url, {
+    const response = await fetch(API_BASE_URL + url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     });
+    if (response.status >= 400) {
+      throw new Error(response.statusText);
+    }
 }
 
 export function canvasToDataURL(canvas) {

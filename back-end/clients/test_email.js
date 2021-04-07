@@ -11,11 +11,20 @@ async function main() {
   });
 
   await emailClient.send({
-    subject: "This is a test ...",
+    subject: "This is a test without image ...",
     text: "... and it works!",
   });
-
-  console.log("Email successfully sent.");
+  await emailClient.send({
+    subject: "This is a test with image ...",
+    text: "... and it works!",
+    attachments: [
+      {
+        filename: "image.png",
+        content:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==",
+      },
+    ],
+  });
 }
 
 main().catch((error) => console.log(error));
