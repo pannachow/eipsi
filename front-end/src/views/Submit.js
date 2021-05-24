@@ -16,7 +16,7 @@ const styles = {
   },
 };
 
-export default function Home() {
+export default function Submit() {
   return (
     <>
       <Box color="white" py="60px">

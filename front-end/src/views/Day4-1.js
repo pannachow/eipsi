@@ -38,6 +38,7 @@ export default function Day41() {
       email: emailRef.current.value,
     };
     try {
+      history.push("/submitting");
       const response = await fetch(
         (process.env.REACT_APP_API_BASE_URL || "http://localhost:3001") + "/day4-1",
         {
