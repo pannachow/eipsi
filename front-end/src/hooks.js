@@ -10,7 +10,7 @@ export function useForm() {
     handleSubmit: function (onSubmit) {
       return handleSubmit(async (data) => {
         try {
-                                  history.push("/submitting");
+          history.push("/submitting");
           await onSubmit(data);
           history.push("/submit");
         } catch (error) {

@@ -12,10 +12,10 @@ const styles = {
 };
 
 export default function Submitting() {
-  let [dots, setDots] = useState(".");
+  const [dots, setDots] = useState(".");
   useEffect(() => {
-    let interval = setInterval(() => {
-      let count = dots.length === 5 ? 1 : dots.length + 1;
+    const interval = setInterval(() => {
+      const count = dots.length === 5 ? 1 : dots.length + 1;
       setDots(".".repeat(count));
     }, 500);
     return () => clearInterval(interval);
