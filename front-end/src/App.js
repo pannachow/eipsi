@@ -26,11 +26,13 @@ import Day43 from "./views/Day4-3";
 import Day51 from "./views/Day5-1";
 import Day52 from "./views/Day5-2";
 import Submit from "./views/Submit";
+import Submitting from "./views/Submitting";
 import Error from "./views/Error";
 
 // prettier-ignore
 const routes = [
   { path: "/", component: <Home />, filled: true },
+  { path: "/submitting", component: <Submitting />, filled: true },
   { path: "/submit", component: <Submit />, filled: true },
   { path: "/error", component: <Error />, filled: true },
   { path: "/day1-1", component: <Day11 />, filled: false },
