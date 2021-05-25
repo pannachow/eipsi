@@ -74,6 +74,7 @@ router.post("/day3-1", (ctx) => sendToEmailAndSlack(ctx, 3, 1)); // has image
 router.post("/day3-2", (ctx) => sendToEmailAndSlack(ctx, 3, 2));
 router.post("/day4-1", (ctx) => sendToEmailAndSlack(ctx, 4, 1));
 router.post("/day4-2", (ctx) => sendToEmailAndSlack(ctx, 4, 2));
+router.post("/day4-3", (ctx) => sendToEmailAndSlack(ctx, 4, 3));
 router.post("/day5-1", (ctx) => sendToEmailAndSlack(ctx, 5, 1)); // has image
 router.post("/day5-2", (ctx) => sendToEmailAndSlack(ctx, 5, 2));
 
